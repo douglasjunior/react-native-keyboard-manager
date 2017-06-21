@@ -15,6 +15,7 @@ Soon...
 ## Requirements
 
 - React Native >= 0.40.0
+- iOS >= 8.0
 
 ## Use
 

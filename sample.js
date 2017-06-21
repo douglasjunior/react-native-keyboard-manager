@@ -22,12 +22,31 @@
 * SOFTWARE. 
 */
 
+import React, { Component } from 'react';
 import {
-  NativeModules, DeviceEventEmitter
+    AppRegistry,
+    StyleSheet,
+    Text,
+    View
 } from 'react-native';
 
-const KeyboardManager = NativeModules.ReactNativeKeyboardManager;
+import KeyboardManager from './index'
 
-module.exports = KeyboardManager;
+class Demo extends Component {
 
 
+    render() {
+        return (
+            <View>
+                <Text>Olá!</Text>
+                <Text>Olá!</Text>
+                <Text>Olá!</Text>
+                <Text>Olá!</Text>
+                <Text>Olá!</Text>
+            </View>
+        )
+    }
+}
+
+
+AppRegistry.registerComponent('ReactNativeKeyboardManager', () => Demo);
