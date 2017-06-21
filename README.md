@@ -19,7 +19,30 @@ Soon...
 
 ## Use
 
-Soon...
+It does not need any library setup to work, just [install](#install) and go.
+
+But, if you need some configuration, there are some options available.
+
+```javascript
+import KeyboardManager from 'react-native-keyboard-manager'
+
+KeyboardManager.setEnable(true);
+KeyboardManager.setEnableDebugging(true);
+KeyboardManager.setKeyboardDistanceFromTextField(10);
+KeyboardManager.setPreventShowingBottomBlankSpace(true);
+KeyboardManager.setEnableAutoToolbar(true);
+KeyboardManager.setShouldToolbarUsesTextFieldTintColor(false);
+KeyboardManager.setShouldShowTextFieldPlaceholder(true);
+KeyboardManager.setOverrideKeyboardAppearance(false);
+KeyboardManager.setShouldResignOnTouchOutside(true);
+KeyboardManager.resignFirstResponder();
+KeyboardManager.isKeyboardShowing()
+  .then((isShowing) => {
+      // ...
+  });
+```
+
+For more details, see the official [IQKeyboardManager documentation](https://github.com/hackiftekhar/IQKeyboardManager/blob/master/PROPERTIES%20%26%20FUNCTIONS.md).
 
 ## Install 
 
@@ -36,6 +59,10 @@ Soon...
 ## Contribute
 
 New features, bug fixes and improvements are welcome! For questions and suggestions use the [issues](https://github.com/douglasjunior/react-native-keyboard-manager/issues).
+
+## Known Issues
+
+You can find known issues list [here](https://github.com/hackiftekhar/IQKeyboardManager/blob/master/KNOWN%20ISSUES.md).
 
 ## Donate
 
