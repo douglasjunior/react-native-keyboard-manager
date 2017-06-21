@@ -10,7 +10,7 @@ Thanks to awesome [IQKeyboardManager](https://github.com/hackiftekhar/IQKeyboard
 
 ## Demo
 
-Soon...
+<img src='https://raw.githubusercontent.com/douglasjunior/react-native-keyboard-manager/master/screenshots/01.png' width='240' /> <img src='https://raw.githubusercontent.com/douglasjunior/react-native-keyboard-manager/master/screenshots/02.png' width='240' /> <img src='https://raw.githubusercontent.com/douglasjunior/react-native-keyboard-manager/master/screenshots/03.png' width='240' />
 
 ## Requirements
 
