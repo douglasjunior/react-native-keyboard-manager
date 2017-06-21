@@ -44,7 +44,7 @@ KeyboardManager.setShouldShowTextFieldPlaceholder(true);
 KeyboardManager.setOverrideKeyboardAppearance(false);
 KeyboardManager.setShouldResignOnTouchOutside(true);
 
-class Demo extends Component {
+class Sample extends Component {
 
     state = {};
 
@@ -104,4 +104,4 @@ class Demo extends Component {
 }
 
 
-AppRegistry.registerComponent('ReactNativeKeyboardManager', () => Demo);
+AppRegistry.registerComponent('ReactNativeKeyboardManager', () => Sample);

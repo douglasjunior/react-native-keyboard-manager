@@ -23,13 +23,10 @@
 */
 
 import {
-  NativeModules, DeviceEventEmitter
+    NativeModules, DeviceEventEmitter
 } from 'react-native';
 
 const KeyboardManager = NativeModules.ReactNativeKeyboardManager;
-
-console.log("ReactNativeKeyboardManager module");
-console.log(KeyboardManager);
 
 module.exports = KeyboardManager;
 

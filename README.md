@@ -23,8 +23,14 @@ Soon...
 
 ## Install 
 
+1. Install dependency package
 ```bash
   npm i -S react-native-keyboard-manager
+```
+
+2. Link the native project
+```bash
+  react-native link react-native-keyboard-manager
 ```
 
 ## Contribute
