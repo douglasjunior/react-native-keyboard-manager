@@ -28,6 +28,9 @@ import {
 
 const KeyboardManager = NativeModules.ReactNativeKeyboardManager;
 
+console.log("ReactNativeKeyboardManager module");
+console.log(KeyboardManager);
+
 module.exports = KeyboardManager;
 
 

@@ -7,7 +7,7 @@
 		"type": "git",
 		"url": "https://github.com/douglasjunior/react-native-keyboard-manager.git"
 	},
-	"main": "demo.js",
+	"main": "index.js",
 	"keywords": [
 		"react-native",
 		"ios",
@@ -20,7 +20,6 @@
 		"url": "https://github.com/douglasjunior/react-native-keyboard-manager/issues"
 	},
 	"homepage": "https://github.com/douglasjunior/react-native-keyboard-manager",
-	"main": "index.js",
 	"scripts": {
 		"start": "node node_modules/react-native/local-cli/cli.js start",
 		"test": "jest"
