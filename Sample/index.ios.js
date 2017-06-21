@@ -32,7 +32,7 @@ import {
     ScrollView
 } from 'react-native';
 
-import KeyboardManager from './index.js'
+import KeyboardManager from 'react-native-keyboard-manager'
 
 KeyboardManager.setEnable(true);
 KeyboardManager.setEnableDebugging(true);
@@ -44,7 +44,7 @@ KeyboardManager.setShouldShowTextFieldPlaceholder(true);
 KeyboardManager.setOverrideKeyboardAppearance(false);
 KeyboardManager.setShouldResignOnTouchOutside(true);
 
-class Sample extends Component {
+class SampleKeyboardManager extends Component {
 
     state = {};
 
@@ -104,4 +104,4 @@ class Sample extends Component {
 }
 
 
-AppRegistry.registerComponent('ReactNativeKeyboardManager', () => Sample);
+AppRegistry.registerComponent('SampleKeyboardManager', () => SampleKeyboardManager);
