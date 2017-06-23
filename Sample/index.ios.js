@@ -29,7 +29,8 @@ import {
     Text,
     View,
     TextInput,
-    ScrollView
+    ScrollView,
+    Switch
 } from 'react-native';
 
 import KeyboardManager from 'react-native-keyboard-manager'
@@ -46,7 +47,9 @@ KeyboardManager.setShouldResignOnTouchOutside(true);
 
 class SampleKeyboardManager extends Component {
 
-    state = {};
+    state = {
+        enableDisable: true
+    };
 
     componentDidMount() {
         KeyboardManager.resignFirstResponder();
@@ -59,6 +62,13 @@ class SampleKeyboardManager extends Component {
             })
     }
 
+    enableDisable(value) {
+        KeyboardManager.setEnable(value);
+        this.setState({
+            enableDisable: value
+        })
+    }
+
     render() {
         const self = this;
 
@@ -66,7 +76,7 @@ class SampleKeyboardManager extends Component {
 
         const inputStyle = { height: 40, borderColor: "#000000", borderWidth: 1, borderRadius: 2, paddingLeft: 5 };
 
-        for (let i = 0; i < 12; i++) {
+        for (let i = 0; i < 7; i++) {
             let ref = "input" + i;
             let nextRef = "input" + (i + 1);
             let nextFocus = () => { self.refs[nextRef] ? self.refs[nextRef].focus() : null };
@@ -92,13 +102,19 @@ class SampleKeyboardManager extends Component {
         }
 
         return (
-            <ScrollView style={{ flex: 1 }}>
-
-                <Text style={{ marginTop: 50, textAlign: "center" }}>React-Native Keyboard Manager</Text>
-
-                {inputs}
-
-            </ScrollView>
+            <View style={{ flex: 1 }}>
+                <View style={{ alignItems: "center", flex: 1 }}>
+                    <Text style={{ marginTop: 50, textAlign: "center" }}>React-Native Keyboard Manager</Text>
+                    <View style={{ marginTop: 10, flexDirection: "row", alignItems: "center" }}>
+                        <Text>Enable/Disable </Text>
+                        <Switch onValueChange={this.enableDisable.bind(this)}
+                            value={this.state.enableDisable} />
+                    </View>
+                </View>
+                <View>
+                    {inputs}
+                </View>
+            </View>
         )
     }
 }
