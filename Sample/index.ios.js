@@ -40,6 +40,8 @@ KeyboardManager.setEnableDebugging(true);
 KeyboardManager.setKeyboardDistanceFromTextField(10);
 KeyboardManager.setPreventShowingBottomBlankSpace(true);
 KeyboardManager.setEnableAutoToolbar(true);
+KeyboardManager.setToolbarDoneBarButtonItemText("Ok");
+KeyboardManager.setToolbarManageBehaviour(0);
 KeyboardManager.setShouldToolbarUsesTextFieldTintColor(false);
 KeyboardManager.setShouldShowTextFieldPlaceholder(true);
 KeyboardManager.setOverrideKeyboardAppearance(false);
@@ -103,7 +105,7 @@ class SampleKeyboardManager extends Component {
 
         return (
             <View style={{ flex: 1 }}>
-                <View style={{ alignItems: "center", flex: 1 }}>
+                <View style={{ alignItems: "center" }}>
                     <Text style={{ marginTop: 50, textAlign: "center" }}>React-Native Keyboard Manager</Text>
                     <View style={{ marginTop: 10, flexDirection: "row", alignItems: "center" }}>
                         <Text>Enable/Disable </Text>

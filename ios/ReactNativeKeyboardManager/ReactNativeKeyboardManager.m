@@ -67,6 +67,16 @@ RCT_EXPORT_METHOD(setShouldShowTextFieldPlaceholder: (BOOL) enabled) {
   [[IQKeyboardManager sharedManager] setShouldShowTextFieldPlaceholder:enabled];
 }
 
+RCT_EXPORT_METHOD(setToolbarDoneBarButtonItemText: (NSString *) text) {
+  RCTLogInfo(@"KeyboardManager.setToolbarDoneBarButtonItemText: %@", text);
+  [[IQKeyboardManager sharedManager] setToolbarDoneBarButtonItemText:text];
+}
+
+RCT_EXPORT_METHOD(setToolbarManageBehaviour: (NSInteger) autoToolbarType) {
+  RCTLogInfo(@"KeyboardManager.setToolbarManageBehaviour: %ld", autoToolbarType);
+  [[IQKeyboardManager sharedManager] setToolbarManageBehaviour:autoToolbarType];
+}
+
 // UIKeyboard Apparence overriding
 
 RCT_EXPORT_METHOD(setOverrideKeyboardAppearance: (BOOL) enabled) {
