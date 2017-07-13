@@ -4,13 +4,19 @@
 [![npm version](https://img.shields.io/npm/v/react-native-keyboard-manager.svg)](https://www.npmjs.com/package/react-native-keyboard-manager)
 [![npm downloads](https://img.shields.io/npm/dt/react-native-keyboard-manager.svg)](#install)
 
-Library that allows to prevent issues of keyboard sliding up and cover on React-Native iOS projects. ⚛
+This library allows to prevent issues of keyboard sliding up and cover on React-Native iOS projects ⚛. Thanks to awesome [IQKeyboardManager](https://github.com/hackiftekhar/IQKeyboardManager) ❤️.
 
-Thanks to awesome [IQKeyboardManager](https://github.com/hackiftekhar/IQKeyboardManager) ❤️
+This is only for iOS, Android no needed. For Android just add `android:windowSoftInputMode="adjustResize"` to your activity.
 
 ## Demo
 
-<img src='https://raw.githubusercontent.com/douglasjunior/react-native-keyboard-manager/master/screenshots/01.png' width='240' /> <img src='https://raw.githubusercontent.com/douglasjunior/react-native-keyboard-manager/master/screenshots/02.png' width='240' /> <img src='https://raw.githubusercontent.com/douglasjunior/react-native-keyboard-manager/master/screenshots/03.png' width='240' />
+| Enabled | Disabled |
+| - | - |
+| <img src='https://raw.githubusercontent.com/douglasjunior/react-native-keyboard-manager/master/screenshots/01.png' width='240' /> <img src='https://raw.githubusercontent.com/douglasjunior/react-native-keyboard-manager/master/screenshots/02.png' width='240' /> | <img src='https://raw.githubusercontent.com/douglasjunior/react-native-keyboard-manager/master/screenshots/03.png' width='240' /> |
+
+| <img src='https://raw.githubusercontent.com/hackiftekhar/IQKeyboardManager/v3.3.0/Screenshot/IQKeyboardManager.gif' width='240' /> |
+| - |
+| _Credits: IQKeyboardManager_ |
 
 ## Requirements
 
