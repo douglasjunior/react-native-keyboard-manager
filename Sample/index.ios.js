@@ -37,12 +37,12 @@ import KeyboardManager from 'react-native-keyboard-manager'
 
 KeyboardManager.setEnable(true);
 KeyboardManager.setEnableDebugging(true);
-KeyboardManager.setToolbarPreviousNextButtonEnable(true);
 KeyboardManager.setKeyboardDistanceFromTextField(10);
 KeyboardManager.setPreventShowingBottomBlankSpace(true);
 KeyboardManager.setEnableAutoToolbar(true);
 KeyboardManager.setToolbarDoneBarButtonItemText("Close");
 KeyboardManager.setToolbarManageBehaviour(0);
+KeyboardManager.setToolbarPreviousNextButtonEnable(false);
 KeyboardManager.setShouldToolbarUsesTextFieldTintColor(false);
 KeyboardManager.setShouldShowTextFieldPlaceholder(true);
 KeyboardManager.setOverrideKeyboardAppearance(false);
