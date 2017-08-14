@@ -40,6 +40,7 @@ KeyboardManager.setEnableAutoToolbar(true);
 KeyboardManager.setToolbarDoneBarButtonItemText("Ok");
 KeyboardManager.setToolbarManageBehaviour(0);
 KeyboardManager.setShouldToolbarUsesTextFieldTintColor(false);
+KeyboardManager.setToolbarPreviousNextButtonEnable(true);
 KeyboardManager.setShouldShowTextFieldPlaceholder(true);
 KeyboardManager.setOverrideKeyboardAppearance(false);
 KeyboardManager.setShouldResignOnTouchOutside(true);
@@ -63,6 +64,13 @@ For more details, see the official [IQKeyboardManager documentation](https://git
 ```bash
   react-native link react-native-keyboard-manager
 ```
+
+3. Link the IQKeyboardManager resources
+    1. Got to folder **<your-project>/node_modules/react-native-keyboard-manager/ios/IQKeyboardManager/**
+
+    2. Open your Xcode project
+
+    3. Drag and drop the **Resources** folder to your project root.
 
 ## Known Issues
 

@@ -23,6 +23,7 @@
 		A51184251EFAD3660077C68F /* IQTitleBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A51184131EFAD3660077C68F /* IQTitleBarButtonItem.m */; };
 		A51184261EFAD3660077C68F /* IQToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = A51184151EFAD3660077C68F /* IQToolbar.m */; };
 		A51184271EFAD3660077C68F /* IQUIView+IQKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = A51184171EFAD3660077C68F /* IQUIView+IQKeyboardToolbar.m */; };
+		A54A31CD1F42442A00950C4B /* IQKeyboardManager.bundle in Sources */ = {isa = PBXBuildFile; fileRef = A54A31CC1F4243FF00950C4B /* IQKeyboardManager.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -73,6 +74,7 @@
 		A51184161EFAD3660077C68F /* IQUIView+IQKeyboardToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUIView+IQKeyboardToolbar.h"; sourceTree = "<group>"; };
 		A51184171EFAD3660077C68F /* IQUIView+IQKeyboardToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUIView+IQKeyboardToolbar.m"; sourceTree = "<group>"; };
 		A51184191EFAD3660077C68F /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
+		A54A31CC1F4243FF00950C4B /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,8 +92,9 @@
 			isa = PBXGroup;
 			children = (
 				A51183F51EFAD3660077C68F /* IQKeyboardManager */,
-				A511835A1EFAC0300077C68F /* ReactNativeKeyboardManager */,
 				83CBBA001A601CBA00E9B192 /* Products */,
+				A511835A1EFAC0300077C68F /* ReactNativeKeyboardManager */,
+				A54A31CB1F4243FF00950C4B /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -192,6 +195,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		A54A31CB1F4243FF00950C4B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A54A31CC1F4243FF00950C4B /* IQKeyboardManager.bundle */,
+			);
+			name = Resources;
+			path = IQKeyboardManager/Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -250,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A54A31CD1F42442A00950C4B /* IQKeyboardManager.bundle in Sources */,
 				A51184251EFAD3660077C68F /* IQTitleBarButtonItem.m in Sources */,
 				A51184271EFAD3660077C68F /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				A511841A1EFAD3660077C68F /* IQNSArray+Sort.m in Sources */,

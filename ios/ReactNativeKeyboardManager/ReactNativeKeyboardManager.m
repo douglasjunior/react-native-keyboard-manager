@@ -23,6 +23,7 @@
 #import "ReactNativeKeyboardManager.h"
 #import "IQKeyboardManager.h"
 #import <React/RCTLog.h>
+#import <React/RCTRootView.h>
 
 @implementation ReactNativeKeyboardManager
 
@@ -46,6 +47,15 @@ RCT_EXPORT_METHOD(setKeyboardDistanceFromTextField: (CGFloat) distance) {
 }
 
 // UIToolbar handling
+
+RCT_EXPORT_METHOD(setToolbarPreviousNextButtonEnable: (BOOL) enabled) {
+  RCTLogInfo(@"KeyboardManager.setToolbarPreviousNextButtonEnable: %d", enabled);
+  if (enabled) {
+    [[IQKeyboardManager sharedManager].toolbarPreviousNextAllowedClasses addObject:[RCTRootView class]];
+  } else {
+    [[IQKeyboardManager sharedManager].toolbarPreviousNextAllowedClasses removeObject:[RCTRootView class]];
+  }
+}
 
 RCT_EXPORT_METHOD(setPreventShowingBottomBlankSpace: (BOOL) enabled) {
   RCTLogInfo(@"KeyboardManager.setPreventShowingBottomBlankSpace: %d", enabled);
@@ -105,5 +115,3 @@ RCT_EXPORT_METHOD(isKeyboardShowing: (RCTPromiseResolveBlock) resolve rejecter: 
 }
 
 @end
-
-
