@@ -78,7 +78,7 @@ For more details, see the official [IQKeyboardManager documentation](https://git
 
 ## Known Issues
 
-You can find known issues list [here](https://github.com/hackiftekhar/IQKeyboardManager/blob/master/KNOWN%20ISSUES.md).
+You can find IQKeyboardManager known issues list [here](https://github.com/hackiftekhar/IQKeyboardManager/blob/master/KNOWN%20ISSUES.md).
 
 ## Contribute
 
