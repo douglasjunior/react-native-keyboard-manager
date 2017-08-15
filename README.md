@@ -71,10 +71,10 @@ For more details, see the official [IQKeyboardManager documentation](https://git
     2. Open your Xcode project
 
     3. Drag and drop the **Resources** folder to your project root.
-
-        ![img 01](https://raw.githubusercontent.com/douglasjunior/react-native-keyboard-manager/master/screenshots/drag-and-drop-01.png)
-
-        ![img 02](https://raw.githubusercontent.com/douglasjunior/react-native-keyboard-manager/master/screenshots/drag-and-drop-02.png)
+    
+        <img src='https://raw.githubusercontent.com/douglasjunior/react-native-keyboard-manager/master/screenshots/drag-and-drop-01.png' width='480' />
+        <br />
+        <img src='https://raw.githubusercontent.com/douglasjunior/react-native-keyboard-manager/master/screenshots/drag-and-drop-02.png' width='240' />
 
 ## Known Issues
 
