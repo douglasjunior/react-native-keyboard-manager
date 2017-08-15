@@ -27,7 +27,7 @@ This is only for iOS, Android no needed. For Android just add `android:windowSof
 
 It does not need any library setup to work, just [install](#install) and go.
 
-But, if you need some configuration, there are some options available.
+But, if you need some configuration, there are some options available. (with default values)
 
 ```javascript
 import KeyboardManager from 'react-native-keyboard-manager'
@@ -40,7 +40,7 @@ KeyboardManager.setEnableAutoToolbar(true);
 KeyboardManager.setToolbarDoneBarButtonItemText("Ok");
 KeyboardManager.setToolbarManageBehaviour(0);
 KeyboardManager.setShouldToolbarUsesTextFieldTintColor(false);
-KeyboardManager.setToolbarPreviousNextButtonEnable(true);
+KeyboardManager.setToolbarPreviousNextButtonEnable(false);
 KeyboardManager.setShouldShowTextFieldPlaceholder(true);
 KeyboardManager.setOverrideKeyboardAppearance(false);
 KeyboardManager.setShouldResignOnTouchOutside(true);
@@ -65,16 +65,19 @@ For more details, see the official [IQKeyboardManager documentation](https://git
   react-native link react-native-keyboard-manager
 ```
 
-3. Link the IQKeyboardManager resources
-    1. Got to folder **your-project/node_modules/react-native-keyboard-manager/ios/IQKeyboardManager/**
+3. (Optional) If you want to use Next/Previous buttons, link the IQKeyboardManager resources to your Xcode project.
 
-    2. Open your Xcode project
+    1. Open your Xcode project
+    
+    2. Got to folder **your-project/node_modules/react-native-keyboard-manager/ios/IQKeyboardManager/**
 
-    3. Drag and drop the **Resources** folder to your project root.
+    3. Drag and drop the **Resources** folder to your project root. (If you already have **Resources** group, drag and drop the **IQKeyboardManager.bundle**)
     
         <img src='https://raw.githubusercontent.com/douglasjunior/react-native-keyboard-manager/master/screenshots/drag-and-drop-01.png' width='480' />
         <br />
         <img src='https://raw.githubusercontent.com/douglasjunior/react-native-keyboard-manager/master/screenshots/drag-and-drop-02.png' width='240' />
+        
+    4. In your `index.ios.js` just call `KeyboardManager.setToolbarPreviousNextButtonEnable(true);`.
 
 ## Known Issues
 
