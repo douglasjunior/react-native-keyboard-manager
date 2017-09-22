@@ -3004,8 +3004,8 @@ react-devtools-core@^2.1.8:
     shell-quote "^1.6.1"
     ws "^2.0.3"
 
-"react-native-keyboard-manager@file:../":
-  version "4.0.10-2"
+"react-native-keyboard-manager@file:..":
+  version "4.0.10-3"
 
 react-native@0.45.1:
   version "0.45.1"

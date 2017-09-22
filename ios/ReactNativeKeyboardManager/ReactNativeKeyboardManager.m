@@ -106,6 +106,13 @@ RCT_EXPORT_METHOD(resignFirstResponder) {
   [[IQKeyboardManager sharedManager] resignFirstResponder];
 }
 
+RCT_EXPORT_METHOD(reloadLayoutIfNeeded) {
+  RCTLogInfo(@"KeyboardManager.reloadLayoutIfNeeded");
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [[IQKeyboardManager sharedManager] reloadLayoutIfNeeded];
+  });
+}
+
 // UIAnimation handling
 
 RCT_EXPORT_METHOD(isKeyboardShowing: (RCTPromiseResolveBlock) resolve rejecter: (RCTPromiseRejectBlock) reject) {

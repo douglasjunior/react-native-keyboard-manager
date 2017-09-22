@@ -36,17 +36,21 @@ import {
 import KeyboardManager from 'react-native-keyboard-manager'
 
 KeyboardManager.setEnable(true);
-KeyboardManager.setEnableDebugging(true);
+KeyboardManager.setEnableDebugging(false);
 KeyboardManager.setKeyboardDistanceFromTextField(10);
 KeyboardManager.setPreventShowingBottomBlankSpace(true);
 KeyboardManager.setEnableAutoToolbar(true);
 KeyboardManager.setToolbarDoneBarButtonItemText("Close");
 KeyboardManager.setToolbarManageBehaviour(0);
-KeyboardManager.setToolbarPreviousNextButtonEnable(false);
+KeyboardManager.setToolbarPreviousNextButtonEnable(true);
 KeyboardManager.setShouldToolbarUsesTextFieldTintColor(false);
 KeyboardManager.setShouldShowTextFieldPlaceholder(true);
 KeyboardManager.setOverrideKeyboardAppearance(false);
 KeyboardManager.setShouldResignOnTouchOutside(true);
+
+const inputStyle = { minHeight: 40, borderColor: "#000000", borderWidth: 1, borderRadius: 2, paddingLeft: 5 };
+
+const inputKeys = ['input1', 'input2', 'input3', 'input4', 'input5', 'textarea1',];
 
 class SampleKeyboardManager extends Component {
 
@@ -77,16 +81,16 @@ class SampleKeyboardManager extends Component {
 
         var inputs = [];
 
-        const inputStyle = { height: 40, borderColor: "#000000", borderWidth: 1, borderRadius: 2, paddingLeft: 5 };
+        for (let i = 0; i < inputKeys.length; i++) {
+            let ref = inputKeys[i];
+            let nextRef = i < inputKeys.length - 1 ? inputKeys[i + 1] : '';
 
-        for (let i = 0; i < 7; i++) {
-            let ref = "input" + i;
-            let nextRef = "input" + (i + 1);
             let nextFocus = () => { self.refs[nextRef] ? self.refs[nextRef].focus() : null };
 
+            const multiline = ref.startsWith('textarea');
             inputs.push((
                 <View key={i} style={{ padding: 10 }}>
-                    <Text >Label {i}</Text>
+                    <Text >{ref}</Text>
 
                     <TextInput style={inputStyle}
                         ref={ref}
@@ -96,9 +100,15 @@ class SampleKeyboardManager extends Component {
                             state[ref] = text;
                             self.setState(state)
                         }}
-                        returnKeyType="next"
-                        onSubmitEditing={nextFocus}
                         blurOnSubmit={false}
+                        onSubmitEditing={nextFocus}
+                        multiline={multiline}
+                        numberOfLines={multiline ? 10 : 1}
+                        returnKeyType={multiline ? 'default' : 'next'}
+                        onLayout={() => {
+                            // When the input size changes, it updates the keyboard position.
+                            KeyboardManager.reloadLayoutIfNeeded();
+                        }}
                     />
                 </View>
             ))
@@ -106,17 +116,20 @@ class SampleKeyboardManager extends Component {
 
         return (
             <View style={{ flex: 1 }}>
-                <View style={{ alignItems: "center" }}>
-                    <Text style={{ marginTop: 50, textAlign: "center" }}>React-Native Keyboard Manager</Text>
-                    <View style={{ marginTop: 10, flexDirection: "row", alignItems: "center" }}>
-                        <Text>Enable/Disable </Text>
-                        <Switch onValueChange={this.enableDisable.bind(this)}
-                            value={this.state.enableDisable} />
+                {/* ScrollView is not required, but may be required in some cases. */}
+                <ScrollView>
+
+                    <View style={{ alignItems: "center" }}>
+                        <Text style={{ marginTop: 50, textAlign: "center" }}>React-Native Keyboard Manager</Text>
+                        <View style={{ marginTop: 10, flexDirection: "row", alignItems: "center" }}>
+                            <Text>Enable/Disable </Text>
+                            <Switch onValueChange={this.enableDisable.bind(this)}
+                                value={this.state.enableDisable} />
+                        </View>
                     </View>
-                </View>
-                <View>
-                    {inputs}
-                </View>
+
+                    <View>{inputs}</View>
+                </ScrollView>
             </View>
         )
     }
