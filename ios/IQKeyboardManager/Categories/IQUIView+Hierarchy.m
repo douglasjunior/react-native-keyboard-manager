@@ -1,5 +1,5 @@
 //
-//  UIView+Hierarchy.m
+// IQUIView+Hierarchy.m
 // https://github.com/hackiftekhar/IQKeyboardManager
 // Copyright (c) 2013-16 Iftekhar Qurashi.
 //
@@ -38,11 +38,6 @@
 
 @implementation UIView (IQ_UIView_Hierarchy)
 
--(BOOL)isAskingCanBecomeFirstResponder
-{
-    return NO;
-}
-
 -(UIViewController*)viewController
 {
     UIResponder *nextResponder =  self;
@@ -61,7 +56,7 @@
 
 -(UIViewController *)topMostController
 {
-    NSMutableArray *controllersHierarchy = [[NSMutableArray alloc] init];
+    NSMutableArray<UIViewController*> *controllersHierarchy = [[NSMutableArray alloc] init];
     
     UIViewController *topController = self.window.rootViewController;
     
@@ -76,13 +71,13 @@
         [controllersHierarchy addObject:topController];
     }
     
-    UIResponder *matchController = [self viewController];
+    UIViewController *matchController = [self viewController];
     
     while (matchController != nil && [controllersHierarchy containsObject:matchController] == NO)
     {
         do
         {
-            matchController = [matchController nextResponder];
+            matchController = (UIViewController*)[matchController nextResponder];
             
         } while (matchController != nil && [matchController isKindOfClass:[UIViewController class]] == NO);
     }
@@ -102,9 +97,13 @@
             if ([superview isKindOfClass:[UIScrollView class]])
             {
                 NSString *classNameString = NSStringFromClass([superview class]);
-                
-                //UITableViewCellScrollView, UITableViewWrapperView, _UIQueuingScrollView
-                if ((([classNameString hasPrefix:@"UITableView"] && ([classNameString hasSuffix:@"CellScrollView"] || [classNameString hasSuffix:@"WrapperView"])) || [classNameString hasPrefix:@"_"]) == NO)
+
+                //  If it's not UITableViewWrapperView class, this is internal class which is actually manage in UITableview. The speciality of this class is that it's superview is UITableView.
+                //  If it's not UITableViewCellScrollView class, this is internal class which is actually manage in UITableviewCell. The speciality of this class is that it's superview is UITableViewCell.
+                //If it's not _UIQueuingScrollView class, actually we validate for _ prefix which usually used by Apple internal classes
+                if ([superview.superview isKindOfClass:[UITableView class]] == NO &&
+                    [superview.superview isKindOfClass:[UITableViewCell class]] == NO &&
+                    [classNameString hasPrefix:@"_"] == NO)
                 {
                     return superview;
                 }
@@ -148,7 +147,7 @@
     NSArray *siblings = self.superview.subviews;
     
     //Array of (UITextField/UITextView's).
-    NSMutableArray *tempTextFields = [[NSMutableArray alloc] init];
+    NSMutableArray<UIView*> *tempTextFields = [[NSMutableArray alloc] init];
     
     for (UIView *textField in siblings)
         if ([textField _IQcanBecomeFirstResponder])
@@ -159,7 +158,7 @@
 
 - (NSArray*)deepResponderViews
 {
-    NSMutableArray *textFields = [[NSMutableArray alloc] init];
+    NSMutableArray<UIView*> *textFields = [[NSMutableArray alloc] init];
     
     for (UIView *textField in self.subviews)
     {

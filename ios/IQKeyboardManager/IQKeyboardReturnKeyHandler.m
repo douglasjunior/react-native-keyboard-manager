@@ -1,5 +1,5 @@
 //
-//  IQKeyboardReturnKeyHandler.m
+// IQKeyboardReturnKeyHandler.m
 // https://github.com/hackiftekhar/IQKeyboardManager
 // Copyright (c) 2013-16 Iftekhar Qurashi.
 //
@@ -25,8 +25,6 @@
 #import "IQKeyboardManager.h"
 #import "IQUIView+Hierarchy.h"
 #import "IQNSArray+Sort.h"
-
-#import <Foundation/NSSet.h>
 
 #import <UIKit/UITextField.h>
 #import <UIKit/UITextView.h>

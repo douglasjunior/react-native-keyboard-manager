@@ -28,6 +28,7 @@
 #import <Foundation/NSObject.h>
 #import <Foundation/NSObjCRuntime.h>
 
+#import <UIKit/UITapGestureRecognizer.h>
 #import <UIKit/UITextInputTraits.h>
 #import <UIKit/UIView.h>
 
@@ -123,6 +124,11 @@ extern NSInteger const kIQPreviousNextButtonToolbarTag;
 @property(nullable, nonatomic, strong) UIColor *toolbarTintColor;
 
 /**
+ This is used for toolbar.barTintColor. Default is nil and uses white color.
+ */
+@property(nullable, nonatomic, strong) UIColor *toolbarBarTintColor;
+
+/**
  IQPreviousNextDisplayModeDefault:      Show NextPrevious when there are more than 1 textField otherwise hide.
  IQPreviousNextDisplayModeAlwaysHide:   Do not show NextPrevious buttons in any case.
  IQPreviousNextDisplayModeAlwaysShow:   Always show nextPrevious buttons, if there are more than 1 textField then both buttons will be visible but will be shown as disabled.
@@ -142,7 +148,8 @@ extern NSInteger const kIQPreviousNextButtonToolbarTag;
 /**
  If YES, then it add the textField's placeholder text on IQToolbar. Default is YES.
  */
-@property(nonatomic, assign) BOOL shouldShowTextFieldPlaceholder;
+@property(nonatomic, assign) BOOL shouldShowTextFieldPlaceholder __attribute__((deprecated("This is renamed to `shouldShowToolbarPlaceholder` for more clear naming.")));
+@property(nonatomic, assign) BOOL shouldShowToolbarPlaceholder;
 
 /**
  Placeholder Font. Default is nil.
@@ -176,6 +183,9 @@ extern NSInteger const kIQPreviousNextButtonToolbarTag;
  Resigns Keyboard on touching outside of UITextField/View. Default is NO.
  */
 @property(nonatomic, assign) BOOL shouldResignOnTouchOutside;
+
+/** TapGesture to resign keyboard on view's touch. It's a readonly property and exposed only for adding/removing dependencies if your added gesture does have collision with this one */
+@property(nonnull, nonatomic, strong, readonly) UITapGestureRecognizer  *resignFirstResponderGesture;
 
 /**
  Resigns currently first responder field.

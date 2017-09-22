@@ -1,5 +1,5 @@
 //
-//  IQTextView.m
+// IQTextView.m
 // https://github.com/hackiftekhar/IQKeyboardManager
 // Copyright (c) 2013-16 Iftekhar Qurashi.
 //
@@ -23,6 +23,7 @@
 
 #import "IQTextView.h"
 
+#import <UIKit/NSTextContainer.h>
 #import <UIKit/UILabel.h>
 #import <UIKit/UINibLoading.h>
 
@@ -94,12 +95,26 @@
     [self layoutIfNeeded];
 }
 
+-(void)setTextAlignment:(NSTextAlignment)textAlignment
+{
+    [super setTextAlignment:textAlignment];
+    placeHolderLabel.textAlignment = textAlignment;
+    
+    [self setNeedsLayout];
+    [self layoutIfNeeded];
+}
+
 -(void)layoutSubviews
 {
     [super layoutSubviews];
 
-    [placeHolderLabel sizeToFit];
-    placeHolderLabel.frame = CGRectMake(4, 8, CGRectGetWidth(self.frame)-16, CGRectGetHeight(placeHolderLabel.frame));
+    CGFloat offsetLeft = self.textContainerInset.left + self.textContainer.lineFragmentPadding;
+    CGFloat offsetRight = self.textContainerInset.right + self.textContainer.lineFragmentPadding;
+    CGFloat offsetTop = self.textContainerInset.top;
+    CGFloat offsetBottom = self.textContainerInset.bottom;
+
+    CGSize expectedSize = [placeHolderLabel sizeThatFits:CGSizeMake(CGRectGetWidth(self.frame)-offsetLeft-offsetRight, CGRectGetHeight(self.frame)-offsetTop-offsetBottom)];
+    placeHolderLabel.frame = CGRectMake(offsetLeft, offsetTop, expectedSize.width, expectedSize.height);
 }
 
 -(void)setPlaceholder:(NSString *)placeholder
@@ -113,6 +128,7 @@
         placeHolderLabel.lineBreakMode = NSLineBreakByWordWrapping;
         placeHolderLabel.numberOfLines = 0;
         placeHolderLabel.font = self.font;
+        placeHolderLabel.textAlignment = self.textAlignment;
         placeHolderLabel.backgroundColor = [UIColor clearColor];
         placeHolderLabel.textColor = [UIColor colorWithWhite:0.7 alpha:1.0];
         placeHolderLabel.alpha = 0;
