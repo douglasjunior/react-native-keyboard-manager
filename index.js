@@ -23,11 +23,10 @@
 */
 
 import {
-    NativeModules, DeviceEventEmitter
+    NativeModules, DeviceEventEmitter, requireNativeComponent,
 } from 'react-native';
 
 const KeyboardManager = NativeModules.ReactNativeKeyboardManager;
+export default KeyboardManager;
 
-module.exports = KeyboardManager;
-
-
+export const PreviousNextView = requireNativeComponent('RNKMPreviousNextView');

@@ -31,9 +31,10 @@ import {
     TextInput,
     ScrollView,
     Switch,
+    Modal,
 } from 'react-native';
 
-import KeyboardManager from 'react-native-keyboard-manager'
+import KeyboardManager, { PreviousNextView } from 'react-native-keyboard-manager'
 
 KeyboardManager.setEnable(true);
 KeyboardManager.setEnableDebugging(false);
@@ -42,7 +43,7 @@ KeyboardManager.setPreventShowingBottomBlankSpace(true);
 KeyboardManager.setEnableAutoToolbar(true);
 KeyboardManager.setToolbarDoneBarButtonItemText("Close");
 KeyboardManager.setToolbarManageBehaviour(0);
-KeyboardManager.setToolbarPreviousNextButtonEnable(false);
+KeyboardManager.setToolbarPreviousNextButtonEnable(true);
 KeyboardManager.setShouldToolbarUsesTextFieldTintColor(false);
 KeyboardManager.setShouldShowTextFieldPlaceholder(true);
 KeyboardManager.setOverrideKeyboardAppearance(false);
@@ -116,20 +117,30 @@ class SampleKeyboardManager extends Component {
 
         return (
             <View style={{ flex: 1 }}>
-                {/* ScrollView is not required, but may be required in some cases. */}
-                <ScrollView>
 
-                    <View style={{ alignItems: "center" }}>
-                        <Text style={{ marginTop: 50, textAlign: "center" }}>React-Native Keyboard Manager</Text>
-                        <View style={{ marginTop: 10, flexDirection: "row", alignItems: "center" }}>
-                            <Text>Enable/Disable </Text>
-                            <Switch onValueChange={this.enableDisable.bind(this)}
-                                value={this.state.enableDisable} />
-                        </View>
-                    </View>
+                {/* To try with Modal, uncomment the two following lines. */}
+                {/* <Modal visible={true}> */}
+                    {/* <PreviousNextView style={{ flex: 1 }}> */}
 
-                    <View>{inputs}</View>
-                </ScrollView>
+                        {/* ScrollView is not required, but may be needed in some cases. */}
+                        <ScrollView>
+
+                            <View style={{ alignItems: "center" }}>
+                                <Text style={{ marginTop: 50, textAlign: "center" }}>React-Native Keyboard Manager</Text>
+                                <View style={{ marginTop: 10, flexDirection: "row", alignItems: "center" }}>
+                                    <Text>Enable/Disable </Text>
+                                    <Switch onValueChange={this.enableDisable.bind(this)}
+                                        value={this.state.enableDisable} />
+                                </View>
+                            </View>
+
+                            <View>{inputs}</View>
+
+                        </ScrollView>
+
+                    {/* </PreviousNextView> */}
+                {/* </Modal> */}
+
             </View>
         )
     }
