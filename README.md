@@ -20,7 +20,8 @@ This is only for iOS, Android no needed. For Android just add `android:windowSof
 
 ## Requirements
 
-- React Native >= 0.40.0
+- React Native >= 0.45.0
+- React >= 16.0.0-alpha.8
 - iOS >= 8.0
 
 ## Use
