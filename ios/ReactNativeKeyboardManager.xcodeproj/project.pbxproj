@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A503755A1F851E1900B4DB41 /* RCTTextInput+Hack.m in Sources */ = {isa = PBXBuildFile; fileRef = A50375581F851E1900B4DB41 /* RCTTextInput+Hack.m */; };
 		A511835D1EFAC0300077C68F /* ReactNativeKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A511835C1EFAC0300077C68F /* ReactNativeKeyboardManager.m */; };
 		A511835E1EFAC0300077C68F /* ReactNativeKeyboardManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = A511835B1EFAC0300077C68F /* ReactNativeKeyboardManager.h */; };
 		A511841A1EFAD3660077C68F /* IQNSArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = A51183F81EFAD3660077C68F /* IQNSArray+Sort.m */; };
@@ -41,6 +42,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A50375581F851E1900B4DB41 /* RCTTextInput+Hack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "RCTTextInput+Hack.m"; sourceTree = "<group>"; };
+		A50375591F851E1900B4DB41 /* RCTTextInput+Hack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RCTTextInput+Hack.h"; sourceTree = "<group>"; };
 		A51183591EFAC02F0077C68F /* libReactNativeKeyboardManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libReactNativeKeyboardManager.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A511835B1EFAC0300077C68F /* ReactNativeKeyboardManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReactNativeKeyboardManager.h; sourceTree = "<group>"; };
 		A511835C1EFAC0300077C68F /* ReactNativeKeyboardManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReactNativeKeyboardManager.m; sourceTree = "<group>"; };
@@ -114,6 +117,8 @@
 		A511835A1EFAC0300077C68F /* ReactNativeKeyboardManager */ = {
 			isa = PBXGroup;
 			children = (
+				A50375591F851E1900B4DB41 /* RCTTextInput+Hack.h */,
+				A50375581F851E1900B4DB41 /* RCTTextInput+Hack.m */,
 				A5A1B0581F76A1FE000B2090 /* RNKMPreviousNextViewManager.h */,
 				A5A1B0591F76A1FE000B2090 /* RNKMPreviousNextViewManager.m */,
 				A511835B1EFAC0300077C68F /* ReactNativeKeyboardManager.h */,
@@ -273,6 +278,7 @@
 				A511841A1EFAD3660077C68F /* IQNSArray+Sort.m in Sources */,
 				A511841B1EFAD3660077C68F /* IQUIScrollView+Additions.m in Sources */,
 				A51184231EFAD3660077C68F /* IQBarButtonItem.m in Sources */,
+				A503755A1F851E1900B4DB41 /* RCTTextInput+Hack.m in Sources */,
 				A5A1B05A1F76A1FF000B2090 /* RNKMPreviousNextViewManager.m in Sources */,
 				A511841F1EFAD3660077C68F /* IQUIWindow+Hierarchy.m in Sources */,
 				A51184221EFAD3660077C68F /* IQTextView.m in Sources */,

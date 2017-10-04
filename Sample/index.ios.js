@@ -43,7 +43,7 @@ KeyboardManager.setPreventShowingBottomBlankSpace(true);
 KeyboardManager.setEnableAutoToolbar(true);
 KeyboardManager.setToolbarDoneBarButtonItemText("Close");
 KeyboardManager.setToolbarManageBehaviour(0);
-KeyboardManager.setToolbarPreviousNextButtonEnable(true);
+KeyboardManager.setToolbarPreviousNextButtonEnable(false);
 KeyboardManager.setShouldToolbarUsesTextFieldTintColor(false);
 KeyboardManager.setShouldShowTextFieldPlaceholder(true);
 KeyboardManager.setOverrideKeyboardAppearance(false);
@@ -70,7 +70,7 @@ class SampleKeyboardManager extends Component {
             })
     }
 
-    enableDisable(value) {
+    onEnableDisable = (value) => {
         KeyboardManager.setEnable(value);
         this.setState({
             enableDisable: value
@@ -101,7 +101,8 @@ class SampleKeyboardManager extends Component {
                             state[ref] = text;
                             self.setState(state)
                         }}
-                        blurOnSubmit={false}
+                        placeholder={ref}
+                        blurOnSubmit={true /* 'false' causes a react-native bug */}
                         onSubmitEditing={nextFocus}
                         multiline={multiline}
                         numberOfLines={multiline ? 10 : 1}
@@ -120,7 +121,7 @@ class SampleKeyboardManager extends Component {
 
                 {/* To try with Modal, uncomment the two following lines. */}
                 {/* <Modal visible={true}> */}
-                    {/* <PreviousNextView style={{ flex: 1 }}> */}
+                    <PreviousNextView style={{ flex: 1 }}>
 
                         {/* ScrollView is not required, but may be needed in some cases. */}
                         <ScrollView>
@@ -129,7 +130,7 @@ class SampleKeyboardManager extends Component {
                                 <Text style={{ marginTop: 50, textAlign: "center" }}>React-Native Keyboard Manager</Text>
                                 <View style={{ marginTop: 10, flexDirection: "row", alignItems: "center" }}>
                                     <Text>Enable/Disable </Text>
-                                    <Switch onValueChange={this.enableDisable.bind(this)}
+                                    <Switch onValueChange={this.onEnableDisable}
                                         value={this.state.enableDisable} />
                                 </View>
                             </View>
@@ -138,7 +139,7 @@ class SampleKeyboardManager extends Component {
 
                         </ScrollView>
 
-                    {/* </PreviousNextView> */}
+                    </PreviousNextView>
                 {/* </Modal> */}
 
             </View>

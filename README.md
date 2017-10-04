@@ -24,6 +24,11 @@ This is only for iOS, Android no needed. For Android just add `android:windowSof
 - React >= 16.0.0-alpha.8
 - iOS >= 8.0
 
+## NOTES:
+
+- for RN >= 0.47.0, use react-native-keyboard-manager@latest
+- for RN <= 0.46.4, use react-native-keyboard-manager@4.0.13-1
+
 ## Use
 
 It does not need any library setup to work, just [install](#install) and go.
@@ -72,7 +77,7 @@ render() {
             <Modal ... >
                 // others views
                 <PreviousNextView style={...} >
-                    // others views and all TextInput
+                    // all TextInput
                 </PreviousNextView>
             </Modal>
         </View>
