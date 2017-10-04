@@ -3429,7 +3429,7 @@ react-devtools-core@^2.5.0:
     ws "^2.0.3"
 
 "react-native-keyboard-manager@file:..":
-  version "4.0.13-1"
+  version "4.0.13-3"
 
 react-native@0.48.4:
   version "0.48.4"

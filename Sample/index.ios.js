@@ -102,7 +102,7 @@ class SampleKeyboardManager extends Component {
                             self.setState(state)
                         }}
                         placeholder={ref}
-                        blurOnSubmit={true /* 'false' causes a react-native bug */}
+                        blurOnSubmit={!multiline /* 'false' causes a react-native bug */}
                         onSubmitEditing={nextFocus}
                         multiline={multiline}
                         numberOfLines={multiline ? 10 : 1}
@@ -121,7 +121,7 @@ class SampleKeyboardManager extends Component {
 
                 {/* To try with Modal, uncomment the two following lines. */}
                 {/* <Modal visible={true}> */}
-                    <PreviousNextView style={{ flex: 1 }}>
+                    {/* <PreviousNextView style={{ flex: 1 }}> */}
 
                         {/* ScrollView is not required, but may be needed in some cases. */}
                         <ScrollView>
@@ -139,7 +139,7 @@ class SampleKeyboardManager extends Component {
 
                         </ScrollView>
 
-                    </PreviousNextView>
+                    {/* </PreviousNextView> */}
                 {/* </Modal> */}
 
             </View>
