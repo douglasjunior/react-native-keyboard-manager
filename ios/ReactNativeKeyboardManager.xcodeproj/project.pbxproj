@@ -388,9 +388,13 @@
 					"$(PROJECT_DIR)/Frameworks",
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
-				HEADER_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native/Libraries/Text",
+					"$(SRCROOT)/../../react-native/Libraries/Text",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/../../../node_modules/react-native/Libraries/**";
+				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -413,9 +417,13 @@
 					"$(PROJECT_DIR)/Frameworks",
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
-				HEADER_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native/Libraries/Text",
+					"$(SRCROOT)/../../react-native/Libraries/Text",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/../../../node_modules/react-native/Libraries/**";
+				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
