@@ -20,7 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <RCTText/RCTTextInput.h>
+#import "RCTTextInput.h"
 #import <Foundation/Foundation.h>
 
 @interface RCTTextInput (Hack)
