@@ -8,7 +8,7 @@ This library allows to prevent issues of keyboard sliding up and cover on React-
 
 This is only for iOS, Android no needed. For Android just add `android:windowSoftInputMode="adjustResize"` to your activity.
 
-## Demo
+## Screenshots
 
 | Enabled | Disabled |
 | - | - |
@@ -29,75 +29,21 @@ This is only for iOS, Android no needed. For Android just add `android:windowSof
 - for RN >= 0.47.0, use `react-native-keyboard-manager@latest`
 - for RN <= 0.46.4, use `react-native-keyboard-manager@4.0.13-1`
 
-## Use
-
-It does not need any library setup to work, just [install](#install) and go.
-
-But, if you need some configuration, there are some options available. (with default values)
-
-```js
-import KeyboardManager from 'react-native-keyboard-manager'
-
-KeyboardManager.setEnable(true);
-KeyboardManager.setEnableDebugging(true);
-KeyboardManager.setKeyboardDistanceFromTextField(10);
-KeyboardManager.setPreventShowingBottomBlankSpace(true);
-KeyboardManager.setEnableAutoToolbar(true);
-KeyboardManager.setToolbarDoneBarButtonItemText("Ok");
-KeyboardManager.setToolbarManageBehaviour(0);
-KeyboardManager.setShouldToolbarUsesTextFieldTintColor(false);
-KeyboardManager.setToolbarPreviousNextButtonEnable(false);
-KeyboardManager.setShouldShowTextFieldPlaceholder(true);
-KeyboardManager.setOverrideKeyboardAppearance(false);
-KeyboardManager.setShouldResignOnTouchOutside(true);
-KeyboardManager.resignFirstResponder();
-KeyboardManager.isKeyboardShowing()
-  .then((isShowing) => {
-      // ...
-  });
-```
-
-If you want to use Next/Previous buttons, enable it.
-
-```js
-import KeyboardManager from 'react-native-keyboard-manager'
-
-KeyboardManager.setToolbarPreviousNextButtonEnable(true);
-```
-
-If you want to use Next/Previous buttons inside a `Modal`, you need to wrap the fields in a `PreviousNextView`.
-
-```jsx
-import KeyboardManager, { PreviousNextView } from 'react-native-keyboard-manager'
-....
-render() {
-    return (
-        <View ... >
-            // others views
-            <Modal ... >
-                // others views
-                <PreviousNextView style={...} >
-                    // all TextInput
-                </PreviousNextView>
-            </Modal>
-        </View>
-    )
-}
-```
-
-For more details, see the [Sample Project](https://github.com/douglasjunior/react-native-keyboard-manager/blob/master/Sample/index.ios.js) and the official [IQKeyboardManager documentation](https://github.com/hackiftekhar/IQKeyboardManager/blob/master/PROPERTIES%20%26%20FUNCTIONS.md).
-
 ## Install 
 
 1. Install dependency package
-```bash
-  npm i -S react-native-keyboard-manager
-```
+    ```bash
+    yarn add react-native-keyboard-manager
+    ```
+    Or
+    ```bash
+    npm i -S react-native-keyboard-manager
+    ```
 
 2. Link the native project
-```bash
-  react-native link react-native-keyboard-manager
-```
+    ```bash
+    react-native link react-native-keyboard-manager
+    ```
 
 3. (Optional) If you want to use Next/Previous buttons, link the IQKeyboardManager resources to your Xcode project.
 
@@ -112,6 +58,63 @@ For more details, see the [Sample Project](https://github.com/douglasjunior/reac
         <img src='https://raw.githubusercontent.com/douglasjunior/react-native-keyboard-manager/master/screenshots/drag-and-drop-02.png' width='240' />
         
     4. In your `index.ios.js` just call `KeyboardManager.setToolbarPreviousNextButtonEnable(true);`.
+
+
+## Use
+
+It does not need any library setup to work, just [install](#install) and go.
+
+But, if you need some configuration, there are some options available. (with default values)
+
+```js
+import KeyboardManager from 'react-native-keyboard-manager'
+
+KeyboardManager.setEnable(true);
+KeyboardManager.setEnableDebugging(true);
+KeyboardManager.setKeyboardDistanceFromTextField(10);
+KeyboardManager.setPreventShowingBottomBlankSpace(true);
+KeyboardManager.setEnableAutoToolbar(true);
+KeyboardManager.setToolbarDoneBarButtonItemText("Done");
+KeyboardManager.setToolbarManageBehaviour(0);
+KeyboardManager.setShouldToolbarUsesTextFieldTintColor(false);
+KeyboardManager.setToolbarPreviousNextButtonEnable(false);
+KeyboardManager.setShouldShowTextFieldPlaceholder(true);
+KeyboardManager.setOverrideKeyboardAppearance(false);
+KeyboardManager.setShouldResignOnTouchOutside(true);
+KeyboardManager.resignFirstResponder();
+KeyboardManager.isKeyboardShowing()
+  .then((isShowing) => {
+      // ...
+  });
+```
+
+If you want to use Next/Previous buttons, enable it and follow [install step 3](#install).
+
+```js
+KeyboardManager.setToolbarPreviousNextButtonEnable(true);
+```
+
+If you want to use Next/Previous buttons inside a `Modal`, you need to wrap the fields in a `PreviousNextView`.
+
+```jsx
+class App extends Component {
+  render() {
+      return (
+          <View ... >
+              // others views
+              <Modal ... >
+                  // others views
+                  <PreviousNextView style={...} >
+                      // all TextInput
+                  </PreviousNextView>
+              </Modal>
+          </View>
+      )
+  }
+}
+```
+
+For more details, see the [Sample Project](https://github.com/douglasjunior/react-native-keyboard-manager/blob/master/Sample/index.ios.js) and the official [IQKeyboardManager documentation](https://github.com/hackiftekhar/IQKeyboardManager/blob/master/PROPERTIES%20%26%20FUNCTIONS.md).
 
 ## Known Issues
 
@@ -142,4 +145,4 @@ The MIT License (MIT)
 Copyright (c) 2013-16 Iftekhar Qurashi
 ```
 
-See the full [licence file](https://github.com/hackiftekhar/IQKeyboardManager/blob/master/LICENSE.md).
+See the full [IQKeyboardManager licence file](https://github.com/hackiftekhar/IQKeyboardManager/blob/master/LICENSE.md).
