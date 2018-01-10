@@ -22,9 +22,11 @@
 
 #import "RCTTextInput.h"
 #import <Foundation/Foundation.h>
+#import "IQKeyboardManager.h"
 
 @interface RCTTextInput (Hack)
 
-- (void)invalidateInputAccessoryView;
+- (void)invalidateInputAccessoryView_avoid;
+- (void)invalidateInputAccessoryView_backup;
 
 @end

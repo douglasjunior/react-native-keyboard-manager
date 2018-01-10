@@ -20,12 +20,37 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+#import <objc/runtime.h>
+#import <objc/message.h>
+
 #import "ReactNativeKeyboardManager.h"
 #import "IQKeyboardManager.h"
 #import <React/RCTLog.h>
 #import <React/RCTRootView.h>
 
+#import "RCTTextInput.h"
+
 @implementation ReactNativeKeyboardManager
+
+- (instancetype)init
+{
+  self = [super init];
+  if (self) {
+    Swizzle([RCTTextInput class], @selector(invalidateInputAccessoryView_backup), @selector(invalidateInputAccessoryView));
+    Swizzle([RCTTextInput class], @selector(invalidateInputAccessoryView), @selector(invalidateInputAccessoryView_avoid));
+  }
+  return self;
+}
+
+void Swizzle(Class c, SEL orig, SEL new)
+{
+  Method origMethod = class_getInstanceMethod(c, orig);
+  Method newMethod = class_getInstanceMethod(c, new);
+  if(class_addMethod(c, orig, method_getImplementation(newMethod), method_getTypeEncoding(newMethod)))
+    class_replaceMethod(c, new, method_getImplementation(origMethod), method_getTypeEncoding(origMethod));
+  else
+    method_exchangeImplementations(origMethod, newMethod);
+}
 
 RCT_EXPORT_MODULE(ReactNativeKeyboardManager);
 

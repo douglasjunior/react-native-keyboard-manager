@@ -22,10 +22,18 @@
 
 #import "RCTTextInput+Hack.h"
 
+
 @implementation RCTTextInput (Hack)
 
-- (void)invalidateInputAccessoryView {
-  NSLog(@"ignoring RCTTextInput.invalidateInputAccessoryView");
+- (void)invalidateInputAccessoryView_avoid {
+  NSLog(@"avoiding RCTTextInput.invalidateInputAccessoryView");
+  if (![[IQKeyboardManager sharedManager] isEnableAutoToolbar]) {
+    [self invalidateInputAccessoryView_backup];
+  }
+}
+
+- (void)invalidateInputAccessoryView_backup {
+ NSLog(@"backup RCTTextInput.invalidateInputAccessoryView");
 }
 
 @end
