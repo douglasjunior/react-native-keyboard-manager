@@ -51,7 +51,8 @@ KeyboardManager.setShouldResignOnTouchOutside(true);
 
 const inputStyle = { minHeight: 40, borderColor: "#000000", borderWidth: 1, borderRadius: 2, paddingLeft: 5 };
 
-const inputKeys = ['input1', 'input2', 'input3', 'input4', 'input5', 'textarea1',];
+const inputKeys = ['input1', 'input2', 'input3', 'input4', 'input5', 'input6',
+    'textarea1', 'textarea2', 'textarea3', 'textarea4',];
 
 class SampleKeyboardManager extends Component {
 
