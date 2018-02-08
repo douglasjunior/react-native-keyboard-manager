@@ -20,22 +20,13 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "RCTTextInput+Hack.h"
+#import <RCTText/RCTBaseTextInputView.h>
+#import <Foundation/Foundation.h>
+#import "IQKeyboardManager.h"
 
+@interface RCTBaseTextInputView (Hack)
 
-@implementation RCTTextInput (Hack)
-
-- (void)invalidateInputAccessoryView_avoid {
-  if ([[IQKeyboardManager sharedManager] isEnableAutoToolbar]) {
-    NSLog(@"avoiding RCTTextInput.invalidateInputAccessoryView");
-  } else {
-    NSLog(@"calling RCTTextInput.invalidateInputAccessoryView");
-    [self invalidateInputAccessoryView_backup];
-  }
-}
-
-- (void)invalidateInputAccessoryView_backup {
-  // backup for invalidateInputAccessoryView
-}
+- (void)invalidateInputAccessoryView_avoid;
+- (void)invalidateInputAccessoryView_backup;
 
 @end

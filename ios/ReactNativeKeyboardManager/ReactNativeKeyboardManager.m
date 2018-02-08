@@ -28,7 +28,7 @@
 #import <React/RCTLog.h>
 #import <React/RCTRootView.h>
 
-#import "RCTTextInput.h"
+#import <RCTText/RCTBaseTextInputView.h>
 
 @implementation ReactNativeKeyboardManager
 
@@ -36,8 +36,8 @@
 {
   self = [super init];
   if (self) {
-    Swizzle([RCTTextInput class], @selector(invalidateInputAccessoryView_backup), @selector(invalidateInputAccessoryView));
-    Swizzle([RCTTextInput class], @selector(invalidateInputAccessoryView), @selector(invalidateInputAccessoryView_avoid));
+    Swizzle([RCTBaseTextInputView class], @selector(invalidateInputAccessoryView_backup), @selector(invalidateInputAccessoryView));
+    Swizzle([RCTBaseTextInputView class], @selector(invalidateInputAccessoryView), @selector(invalidateInputAccessoryView_avoid));
   }
   return self;
 }

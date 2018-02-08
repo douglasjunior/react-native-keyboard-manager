@@ -41,7 +41,7 @@ KeyboardManager.setEnableDebugging(false);
 KeyboardManager.setKeyboardDistanceFromTextField(10);
 KeyboardManager.setPreventShowingBottomBlankSpace(true);
 KeyboardManager.setEnableAutoToolbar(true);
-KeyboardManager.setToolbarDoneBarButtonItemText("Close");
+KeyboardManager.setToolbarDoneBarButtonItemText("Done");
 KeyboardManager.setToolbarManageBehaviour(0);
 KeyboardManager.setToolbarPreviousNextButtonEnable(false);
 KeyboardManager.setShouldToolbarUsesTextFieldTintColor(false);
