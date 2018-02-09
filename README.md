@@ -26,8 +26,9 @@ This is only for iOS, Android no needed. For Android just add `android:windowSof
 
 ## NOTES:
 
-- for RN >= 0.47.0, use `react-native-keyboard-manager@latest`
-- for RN <= 0.46.4, use `react-native-keyboard-manager@4.0.13-1`
+- for RN 0.53.0 or later use `react-native-keyboard-manager@latest`
+- for RN 0.47.0 ... 0.52.2, use `react-native-keyboard-manager@4.0.13-5`
+- for RN 0.40.0 ... 0.46.4, use `react-native-keyboard-manager@4.0.13-1`
 
 ## Install 
 
