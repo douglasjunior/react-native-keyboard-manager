@@ -20,7 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <RCTText/RCTBaseTextInputView.h>
+#import "RCTBaseTextInputView.h"
 #import <Foundation/Foundation.h>
 #import "IQKeyboardManager.h"
 

@@ -28,7 +28,7 @@
 #import <React/RCTLog.h>
 #import <React/RCTRootView.h>
 
-#import <RCTText/RCTBaseTextInputView.h>
+#import "RCTBaseTextInputView.h"
 
 @implementation ReactNativeKeyboardManager
 
