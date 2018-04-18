@@ -65,11 +65,11 @@ This is only for iOS, Android no needed. For Android just add `android:windowSof
 
 1. Add this line to your Podfile:
     ```bash
-pod 'RNKeyboardManager', :path => '../node_modules/react-native-keyboard-manager'
+    pod 'RNKeyboardManager', :path => '../node_modules/react-native-keyboard-manager'
     ```
 2. run
     ```bash
-pod install
+    pod install
     ```
 
 ## Use
