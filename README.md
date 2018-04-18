@@ -30,7 +30,7 @@ This is only for iOS, Android no needed. For Android just add `android:windowSof
 - for RN 0.47.0 ... 0.52.2, use `react-native-keyboard-manager@4.0.13-5`
 - for RN 0.40.0 ... 0.46.4, use `react-native-keyboard-manager@4.0.13-1`
 
-## Install 
+## Install manually
 
 1. Install dependency package
     ```bash
@@ -60,6 +60,17 @@ This is only for iOS, Android no needed. For Android just add `android:windowSof
         
     4. In your `index.ios.js` just call `KeyboardManager.setToolbarPreviousNextButtonEnable(true);`.
 
+
+## Install with cocoapods:
+
+1. Add this line to your Podfile:
+    ```bash
+pod 'RNKeyboardManager', :path => '../node_modules/react-native-keyboard-manager'
+    ```
+2. run
+    ```bash
+pod install
+    ```
 
 ## Use
 
