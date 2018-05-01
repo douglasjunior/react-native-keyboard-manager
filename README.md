@@ -4,7 +4,7 @@
 [![npm version](https://img.shields.io/npm/v/react-native-keyboard-manager.svg)](https://www.npmjs.com/package/react-native-keyboard-manager)
 [![npm downloads](https://img.shields.io/npm/dt/react-native-keyboard-manager.svg)](#install)
 
-This library allows to prevent issues of keyboard sliding up and cover on React-Native iOS projects ⚛. Thanks to awesome [IQKeyboardManager](https://github.com/hackiftekhar/IQKeyboardManager) ❤️.
+Library to prevent issues of keyboard sliding up and cover inputs on React-Native iOS projects. ⚛. Thanks to awesome [IQKeyboardManager](https://github.com/hackiftekhar/IQKeyboardManager) ❤️.
 
 This is only for iOS, Android no needed. For Android just add `android:windowSoftInputMode="adjustResize"` to your activity.
 
@@ -30,7 +30,7 @@ This is only for iOS, Android no needed. For Android just add `android:windowSof
 - for RN 0.47.0 ... 0.52.2, use `react-native-keyboard-manager@4.0.13-5`
 - for RN 0.40.0 ... 0.46.4, use `react-native-keyboard-manager@4.0.13-1`
 
-## Install manually
+## Install with `react-native link`:
 
 1. Install dependency package
     ```bash
@@ -63,11 +63,21 @@ This is only for iOS, Android no needed. For Android just add `android:windowSof
 
 ## Install with cocoapods:
 
-1. Add this line to your Podfile:
+1. Install dependency package
+    ```bash
+    yarn add react-native-keyboard-manager
+    ```
+    Or
+    ```bash
+    npm i -S react-native-keyboard-manager
+    ```
+
+2. Add this line to your Podfile:
     ```bash
     pod 'RNKeyboardManager', :path => '../node_modules/react-native-keyboard-manager'
     ```
-2. run
+    
+3. run
     ```bash
     pod install
     ```
