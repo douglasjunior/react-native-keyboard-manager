@@ -1819,9 +1819,9 @@ NSInteger const kIQPreviousNextButtonToolbarTag     =   -1005;
                 {
                     case UIKeyboardAppearanceAlert:
                     {
-                        toolbar.barStyle = UIBarStyleBlack;
+                        toolbar.barStyle = UIBarStyleDefault;
                         [toolbar setTintColor:[UIColor whiteColor]];
-                        [toolbar setBarTintColor:nil];
+                        [toolbar setBarTintColor:[UIColor whiteColor]];
                     }
                         break;
                     default:
@@ -1840,7 +1840,7 @@ NSInteger const kIQPreviousNextButtonToolbarTag     =   -1005;
                         }
                         else
                         {
-                            toolbar.tintColor = [UIColor blackColor];
+                            toolbar.tintColor = [UIColor blueColor];
                         }
                     }
                         break;
