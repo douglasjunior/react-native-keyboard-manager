@@ -112,11 +112,6 @@ RCT_EXPORT_METHOD(setToolbarTintColor: (UIColor *) color) {
   [[IQKeyboardManager sharedManager] setToolbarBarTintColor:color];
 }
 
-RCT_EXPORT_METHOD(setToolbarTintColor: (UIColor *) color) {
-  RCTLogInfo(@"KeyboardManager.setToolbarTintColor: %@", color);
-  [[IQKeyboardManager sharedManager] setToolbarBarTintColor:color];
-}
-
 RCT_EXPORT_METHOD(setToolbarManageBehaviour: (NSInteger) autoToolbarType) {
   RCTLogInfo(@"KeyboardManager.setToolbarManageBehaviour: %ld", autoToolbarType);
   [[IQKeyboardManager sharedManager] setToolbarManageBehaviour:autoToolbarType];
