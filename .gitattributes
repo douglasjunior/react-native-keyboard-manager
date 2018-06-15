@@ -1,2 +1,2 @@
 *.pbxproj -text
-ios/IQKeyboardManager/* linguist-vendored
+ios/IQKeyboardManager/**/* linguist-vendored
