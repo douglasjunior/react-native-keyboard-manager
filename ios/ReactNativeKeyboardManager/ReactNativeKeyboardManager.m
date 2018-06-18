@@ -52,6 +52,11 @@ void Swizzle(Class c, SEL orig, SEL new)
     method_exchangeImplementations(origMethod, newMethod);
 }
 
++ (BOOL)requiresMainQueueSetup
+{
+    return YES;
+}
+
 RCT_EXPORT_MODULE(ReactNativeKeyboardManager);
 
 RCT_EXPORT_METHOD(setEnableDebugging: (BOOL) enabled) {
