@@ -36,6 +36,7 @@ import {
 
 import KeyboardManager, { PreviousNextView } from 'react-native-keyboard-manager'
 
+/* Default values */
 KeyboardManager.setEnable(true);
 KeyboardManager.setEnableDebugging(false);
 KeyboardManager.setKeyboardDistanceFromTextField(10);
@@ -103,8 +104,7 @@ class SampleKeyboardManager extends Component {
                             self.setState(state)
                         }}
                         placeholder={ref}
-                        blurOnSubmit={!multiline /* 'false' causes a react-native bug */}
-                        onSubmitEditing={nextFocus}
+                        onSubmitEditing={!multiline ? nextFocus : undefined}
                         multiline={multiline}
                         numberOfLines={multiline ? 10 : 1}
                         returnKeyType={multiline ? 'default' : 'next'}
@@ -122,25 +122,25 @@ class SampleKeyboardManager extends Component {
 
                 {/* To try with Modal, uncomment the two following lines. */}
                 {/* <Modal visible={true}> */}
-                    {/* <PreviousNextView style={{ flex: 1 }}> */}
+                {/* <PreviousNextView style={{ flex: 1 }}> */}
 
-                        {/* ScrollView is not required, but may be needed in some cases. */}
-                        <ScrollView>
+                {/* ScrollView is not required, but may be needed in some cases. */}
+                <ScrollView>
 
-                            <View style={{ alignItems: "center" }}>
-                                <Text style={{ marginTop: 50, textAlign: "center" }}>React-Native Keyboard Manager</Text>
-                                <View style={{ marginTop: 10, flexDirection: "row", alignItems: "center" }}>
-                                    <Text>Enable/Disable </Text>
-                                    <Switch onValueChange={this.onEnableDisable}
-                                        value={this.state.enableDisable} />
-                                </View>
-                            </View>
+                    <View style={{ alignItems: "center" }}>
+                        <Text style={{ marginTop: 50, textAlign: "center" }}>React-Native Keyboard Manager</Text>
+                        <View style={{ marginTop: 10, flexDirection: "row", alignItems: "center" }}>
+                            <Text>Enable/Disable </Text>
+                            <Switch onValueChange={this.onEnableDisable}
+                                value={this.state.enableDisable} />
+                        </View>
+                    </View>
 
-                            <View>{inputs}</View>
+                    <View>{inputs}</View>
 
-                        </ScrollView>
+                </ScrollView>
 
-                    {/* </PreviousNextView> */}
+                {/* </PreviousNextView> */}
                 {/* </Modal> */}
 
             </View>
