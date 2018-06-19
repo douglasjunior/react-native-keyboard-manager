@@ -34,21 +34,21 @@
 
 - (instancetype)init
 {
-  self = [super init];
-  if (self) {
-    Swizzle([RCTBaseTextInputView class], @selector(invalidateInputAccessoryView_backup), @selector(invalidateInputAccessoryView));
-    Swizzle([RCTBaseTextInputView class], @selector(invalidateInputAccessoryView), @selector(invalidateInputAccessoryView_avoid));
-  }
-  return self;
+    self = [super init];
+    if (self) {
+        Swizzle([RCTBaseTextInputView class], @selector(invalidateInputAccessoryView_backup), @selector(invalidateInputAccessoryView));
+        Swizzle([RCTBaseTextInputView class], @selector(invalidateInputAccessoryView), @selector(invalidateInputAccessoryView_avoid));
+    }
+    return self;
 }
 
 void Swizzle(Class c, SEL orig, SEL new)
 {
-  Method origMethod = class_getInstanceMethod(c, orig);
-  Method newMethod = class_getInstanceMethod(c, new);
-  if(class_addMethod(c, orig, method_getImplementation(newMethod), method_getTypeEncoding(newMethod)))
+    Method origMethod = class_getInstanceMethod(c, orig);
+    Method newMethod = class_getInstanceMethod(c, new);
+    if(class_addMethod(c, orig, method_getImplementation(newMethod), method_getTypeEncoding(newMethod)))
     class_replaceMethod(c, new, method_getImplementation(origMethod), method_getTypeEncoding(origMethod));
-  else
+    else
     method_exchangeImplementations(origMethod, newMethod);
 }
 
@@ -57,98 +57,107 @@ void Swizzle(Class c, SEL orig, SEL new)
     return YES;
 }
 
+BOOL debugging = NO;
+
 RCT_EXPORT_MODULE(ReactNativeKeyboardManager);
 
 RCT_EXPORT_METHOD(setEnableDebugging: (BOOL) enabled) {
-  RCTLogInfo(@"KeyboardManager.setEnableDebugging: %d", enabled);
-  [[IQKeyboardManager sharedManager] setEnableDebugging:enabled];
+    debugging = enabled;
+    if (debugging) RCTLogInfo(@"KeyboardManager.setEnableDebugging: %d", enabled);
+    [[IQKeyboardManager sharedManager] setEnableDebugging:enabled];
 }
 
 // UIKeyboard handling
 
 RCT_EXPORT_METHOD(setEnable: (BOOL) enabled) {
-  RCTLogInfo(@"KeyboardManager.setEnable: %d", enabled);
-  [[IQKeyboardManager sharedManager] setEnable:enabled];
+    if (debugging) RCTLogInfo(@"KeyboardManager.setEnable: %d", enabled);
+    [[IQKeyboardManager sharedManager] setEnable:enabled];
 }
 
 RCT_EXPORT_METHOD(setKeyboardDistanceFromTextField: (CGFloat) distance) {
-  RCTLogInfo(@"KeyboardManager.setKeyboardDistanceFromTextField: %f", distance);
-  [[IQKeyboardManager sharedManager] setKeyboardDistanceFromTextField:distance];
+    if (debugging) RCTLogInfo(@"KeyboardManager.setKeyboardDistanceFromTextField: %f", distance);
+    [[IQKeyboardManager sharedManager] setKeyboardDistanceFromTextField:distance];
 }
 
 // UIToolbar handling
 
 RCT_EXPORT_METHOD(setToolbarPreviousNextButtonEnable: (BOOL) enabled) {
-  RCTLogInfo(@"KeyboardManager.setToolbarPreviousNextButtonEnable: %d", enabled);
-  if (enabled) {
-    [[IQKeyboardManager sharedManager].toolbarPreviousNextAllowedClasses addObject:[RCTRootView class]];
-  } else {
-    [[IQKeyboardManager sharedManager].toolbarPreviousNextAllowedClasses removeObject:[RCTRootView class]];
-  }
+    if (debugging) RCTLogInfo(@"KeyboardManager.setToolbarPreviousNextButtonEnable: %d", enabled);
+    if (enabled) {
+        [[IQKeyboardManager sharedManager].toolbarPreviousNextAllowedClasses addObject:[RCTRootView class]];
+    } else {
+        [[IQKeyboardManager sharedManager].toolbarPreviousNextAllowedClasses removeObject:[RCTRootView class]];
+    }
 }
 
 RCT_EXPORT_METHOD(setPreventShowingBottomBlankSpace: (BOOL) enabled) {
-  RCTLogInfo(@"KeyboardManager.setPreventShowingBottomBlankSpace: %d", enabled);
-  [[IQKeyboardManager sharedManager] setPreventShowingBottomBlankSpace:enabled];
+    if (debugging) RCTLogInfo(@"KeyboardManager.setPreventShowingBottomBlankSpace: %d", enabled);
+    [[IQKeyboardManager sharedManager] setPreventShowingBottomBlankSpace:enabled];
 }
 
 RCT_EXPORT_METHOD(setEnableAutoToolbar: (BOOL) enabled) {
-  RCTLogInfo(@"KeyboardManager.setEnableAutoToolbar: %d", enabled);
-  [[IQKeyboardManager sharedManager] setEnableAutoToolbar:enabled];
+    if (debugging) RCTLogInfo(@"KeyboardManager.setEnableAutoToolbar: %d", enabled);
+    [[IQKeyboardManager sharedManager] setEnableAutoToolbar:enabled];
 }
 
 RCT_EXPORT_METHOD(setShouldToolbarUsesTextFieldTintColor: (BOOL) enabled) {
-  RCTLogInfo(@"KeyboardManager.setShouldToolbarUsesTextFieldTintColor: %d", enabled);
-  [[IQKeyboardManager sharedManager] setShouldToolbarUsesTextFieldTintColor:enabled];
+    if (debugging) RCTLogInfo(@"KeyboardManager.setShouldToolbarUsesTextFieldTintColor: %d", enabled);
+    [[IQKeyboardManager sharedManager] setShouldToolbarUsesTextFieldTintColor:enabled];
+}
+
+
+RCT_EXPORT_METHOD(shouldShowToolbarPlaceholder: (BOOL) enabled) {
+    if (debugging) RCTLogInfo(@"KeyboardManager.shouldShowToolbarPlaceholder: %d", enabled);
+    [IQKeyboardManager sharedManager].shouldShowToolbarPlaceholder = enabled;
 }
 
 RCT_EXPORT_METHOD(setShouldShowTextFieldPlaceholder: (BOOL) enabled) {
-  RCTLogInfo(@"KeyboardManager.setShouldShowTextFieldPlaceholder: %d", enabled);
-  [[IQKeyboardManager sharedManager] setShouldShowTextFieldPlaceholder:enabled];
+    if (debugging) RCTLogInfo(@"KeyboardManager.setShouldShowTextFieldPlaceholder: %d", enabled);
+    [[IQKeyboardManager sharedManager] setShouldShowTextFieldPlaceholder:enabled];
 }
 
 RCT_EXPORT_METHOD(setToolbarDoneBarButtonItemText: (NSString *) text) {
-  RCTLogInfo(@"KeyboardManager.setToolbarDoneBarButtonItemText: %@", text);
-  [[IQKeyboardManager sharedManager] setToolbarDoneBarButtonItemText:text];
+    if (debugging) RCTLogInfo(@"KeyboardManager.setToolbarDoneBarButtonItemText: %@", text);
+    [[IQKeyboardManager sharedManager] setToolbarDoneBarButtonItemText:text];
 }
 
 RCT_EXPORT_METHOD(setToolbarManageBehaviour: (NSInteger) autoToolbarType) {
-  RCTLogInfo(@"KeyboardManager.setToolbarManageBehaviour: %ld", autoToolbarType);
-  [[IQKeyboardManager sharedManager] setToolbarManageBehaviour:autoToolbarType];
+    if (debugging) RCTLogInfo(@"KeyboardManager.setToolbarManageBehaviour: %ld", autoToolbarType);
+    [[IQKeyboardManager sharedManager] setToolbarManageBehaviour:autoToolbarType];
 }
 
 // UIKeyboard Apparence overriding
 
 RCT_EXPORT_METHOD(setOverrideKeyboardAppearance: (BOOL) enabled) {
-  RCTLogInfo(@"KeyboardManager.setOverrideKeyboardAppearance: %d", enabled);
-  [[IQKeyboardManager sharedManager] setOverrideKeyboardAppearance:enabled];
+    if (debugging) RCTLogInfo(@"KeyboardManager.setOverrideKeyboardAppearance: %d", enabled);
+    [[IQKeyboardManager sharedManager] setOverrideKeyboardAppearance:enabled];
 }
 
 // UITextField/UITextView Resign handling
 
 RCT_EXPORT_METHOD(setShouldResignOnTouchOutside: (BOOL) enabled) {
-  RCTLogInfo(@"KeyboardManager.setShouldResignOnTouchOutside: %d", enabled);
-  [[IQKeyboardManager sharedManager] setShouldResignOnTouchOutside:enabled];
+    if (debugging) RCTLogInfo(@"KeyboardManager.setShouldResignOnTouchOutside: %d", enabled);
+    [[IQKeyboardManager sharedManager] setShouldResignOnTouchOutside:enabled];
 }
 
 RCT_EXPORT_METHOD(resignFirstResponder) {
-  RCTLogInfo(@"KeyboardManager.resignFirstResponder");
-  [[IQKeyboardManager sharedManager] resignFirstResponder];
+    if (debugging) RCTLogInfo(@"KeyboardManager.resignFirstResponder");
+    [[IQKeyboardManager sharedManager] resignFirstResponder];
 }
 
 RCT_EXPORT_METHOD(reloadLayoutIfNeeded) {
-  RCTLogInfo(@"KeyboardManager.reloadLayoutIfNeeded");
-  dispatch_async(dispatch_get_main_queue(), ^{
-    [[IQKeyboardManager sharedManager] reloadLayoutIfNeeded];
-  });
+    if (debugging) RCTLogInfo(@"KeyboardManager.reloadLayoutIfNeeded");
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[IQKeyboardManager sharedManager] reloadLayoutIfNeeded];
+    });
 }
 
 // UIAnimation handling
 
 RCT_EXPORT_METHOD(isKeyboardShowing: (RCTPromiseResolveBlock) resolve rejecter: (RCTPromiseRejectBlock) reject) {
-  BOOL isKeyboardShowing = [IQKeyboardManager sharedManager].isKeyboardShowing;
-  RCTLogInfo(@"KeyboardManager.isKeyboardShowing: %d", isKeyboardShowing);
-  resolve([NSString stringWithFormat:@"%d", isKeyboardShowing]);
+    BOOL isKeyboardShowing = [IQKeyboardManager sharedManager].isKeyboardShowing;
+    if (debugging) RCTLogInfo(@"KeyboardManager.isKeyboardShowing: %d", isKeyboardShowing);
+    resolve([NSString stringWithFormat:@"%d", isKeyboardShowing]);
 }
 
 @end
