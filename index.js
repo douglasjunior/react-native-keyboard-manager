@@ -23,11 +23,11 @@
 */
 
 import {
-    NativeModules, DeviceEventEmitter, requireNativeComponent, View, Platform,
+    NativeModules, requireNativeComponent,
+    View, Platform,
 } from 'react-native';
 const { OS } = Platform;
 
 export const PreviousNextView = OS === 'ios' ? requireNativeComponent('RNKMPreviousNextView') : View;
 
-const KeyboardManager = NativeModules.ReactNativeKeyboardManager;
-export default KeyboardManager;
+export default NativeModules.ReactNativeKeyboardManager;
