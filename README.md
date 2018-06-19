@@ -92,15 +92,16 @@ But, if you need some configuration, there are some options available. (with def
 import KeyboardManager from 'react-native-keyboard-manager'
 
 KeyboardManager.setEnable(true);
-KeyboardManager.setEnableDebugging(true);
+KeyboardManager.setEnableDebugging(false);
 KeyboardManager.setKeyboardDistanceFromTextField(10);
 KeyboardManager.setPreventShowingBottomBlankSpace(true);
 KeyboardManager.setEnableAutoToolbar(true);
 KeyboardManager.setToolbarDoneBarButtonItemText("Done");
 KeyboardManager.setToolbarManageBehaviour(0);
-KeyboardManager.setShouldToolbarUsesTextFieldTintColor(false);
 KeyboardManager.setToolbarPreviousNextButtonEnable(false);
-KeyboardManager.setShouldShowTextFieldPlaceholder(true);
+KeyboardManager.setShouldToolbarUsesTextFieldTintColor(false);
+KeyboardManager.setShouldShowTextFieldPlaceholder(true); // deprecated, use setShouldShowToolbarPlaceholder
+KeyboardManager.setShouldShowToolbarPlaceholder(true);
 KeyboardManager.setOverrideKeyboardAppearance(false);
 KeyboardManager.setShouldResignOnTouchOutside(true);
 KeyboardManager.resignFirstResponder();
