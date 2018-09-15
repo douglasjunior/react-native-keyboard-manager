@@ -116,6 +116,11 @@ RCT_EXPORT_METHOD(setShouldShowTextFieldPlaceholder: (BOOL) enabled) {
     [[IQKeyboardManager sharedManager] setShouldShowTextFieldPlaceholder:enabled];
 }
 
+RCT_EXPORT_METHOD(setShouldShowToolbarPlaceholder: (BOOL) enabled) {
+  if (debugging) RCTLogInfo(@"KeyboardManager.setShouldShowToolbarPlaceholder: %d", enabled);
+  [[IQKeyboardManager sharedManager] setShouldShowToolbarPlaceholder:enabled];
+}
+
 RCT_EXPORT_METHOD(setToolbarDoneBarButtonItemText: (NSString *) text) {
     if (debugging) RCTLogInfo(@"KeyboardManager.setToolbarDoneBarButtonItemText: %@", text);
     [[IQKeyboardManager sharedManager] setToolbarDoneBarButtonItemText:text];
