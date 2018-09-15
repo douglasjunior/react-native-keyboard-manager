@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '8.0'
+platform :ios, '9.0'
 
 target 'SampleKeyboardManager' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
@@ -30,7 +30,7 @@ target 'SampleKeyboardManager' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  pod 'ReactNativeKeyboardManager', :path => '../node_modules/react-native-keyboard-manager'
+  pod 'ReactNativeKeyboardManager', :path => '../node_modules/react-native-keyboard-manager' # <== Add this line
 
 end
 

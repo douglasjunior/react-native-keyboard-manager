@@ -72,7 +72,7 @@ This is only for iOS, Android no needed. For Android just add `android:windowSof
     npm i -S react-native-keyboard-manager
     ```
 
-2. Add this line to your Podfile:
+2. Add this line to your Podfile (complete [Sample](https://github.com/douglasjunior/react-native-keyboard-manager/blob/master/SamplePod/ios/Podfile#L33)):
     ```bash
     pod 'ReactNativeKeyboardManager', :path => '../node_modules/react-native-keyboard-manager'
     ```

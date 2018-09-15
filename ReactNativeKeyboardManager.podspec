@@ -23,5 +23,6 @@ Pod::Spec.new do |s|
 	s.source_files   = 'ios/ReactNativeKeyboardManager/**/*.{h,m}'
 
 	s.dependency 'React'
+	s.dependency 'React/RCTText'
 	s.dependency 'IQKeyboardManager', iqVersion
 end
