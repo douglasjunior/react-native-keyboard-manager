@@ -13,7 +13,7 @@
 	},
 	"devDependencies": {
 		"babel-jest": "23.6.0",
-		"babel-preset-react-native": "^5",
+		"babel-preset-react-native": "5.0.2",
 		"jest": "23.6.0",
 		"react-test-renderer": "16.4.1"
 	},
