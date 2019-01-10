@@ -2,7 +2,7 @@
 
 [![Licence MIT](https://img.shields.io/badge/licence-MIT-blue.svg)](https://github.com/douglasjunior/react-native-keyboard-manager/blob/master/LICENSE)
 [![npm version](https://img.shields.io/npm/v/react-native-keyboard-manager.svg)](https://www.npmjs.com/package/react-native-keyboard-manager)
-[![npm downloads](https://img.shields.io/npm/dt/react-native-keyboard-manager.svg)](#install)
+[![npm downloads](https://img.shields.io/npm/dt/react-native-keyboard-manager.svg)](#install-with-react-native-link)
 
 Library to prevent issues of keyboard sliding up and cover inputs on React-Native iOS projects. ⚛. Thanks to awesome [IQKeyboardManager](https://github.com/hackiftekhar/IQKeyboardManager) ❤️.
 
@@ -84,7 +84,7 @@ This is only for iOS, Android no needed. For Android just add `android:windowSof
 
 ## Use
 
-It does not need any library setup to work, just [install](#install) and go.
+It does not need any library setup to work, just [install](#install-with-react-native-link) and go.
 
 But, if you need some configuration, there are some options available. (with default values)
 
@@ -111,7 +111,7 @@ KeyboardManager.isKeyboardShowing()
   });
 ```
 
-If you want to use Next/Previous buttons, enable it and follow [install step 3](#install).
+If you want to use Next/Previous buttons, enable it and follow [install step 3](#install-with-react-native-link).
 
 ```js
 KeyboardManager.setToolbarPreviousNextButtonEnable(true);
