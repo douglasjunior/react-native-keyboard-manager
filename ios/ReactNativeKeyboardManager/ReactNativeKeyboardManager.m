@@ -1,5 +1,5 @@
 // MIT License
-// 
+//
 // Copyright (c) 2017 Douglas Nassif Roma Junior
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -70,8 +70,10 @@ RCT_EXPORT_METHOD(setEnableDebugging: (BOOL) enabled) {
 // UIKeyboard handling
 
 RCT_EXPORT_METHOD(setEnable: (BOOL) enabled) {
-    if (debugging) RCTLogInfo(@"KeyboardManager.setEnable: %d", enabled);
-    [[IQKeyboardManager sharedManager] setEnable:enabled];
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        if (debugging) RCTLogInfo(@"KeyboardManager.setEnable: %d", enabled);
+        [[IQKeyboardManager sharedManager] setEnable:enabled];
+    });
 }
 
 RCT_EXPORT_METHOD(setKeyboardDistanceFromTextField: (CGFloat) distance) {
@@ -96,8 +98,10 @@ RCT_EXPORT_METHOD(setPreventShowingBottomBlankSpace: (BOOL) enabled) {
 }
 
 RCT_EXPORT_METHOD(setEnableAutoToolbar: (BOOL) enabled) {
-    if (debugging) RCTLogInfo(@"KeyboardManager.setEnableAutoToolbar: %d", enabled);
-    [[IQKeyboardManager sharedManager] setEnableAutoToolbar:enabled];
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        if (debugging) RCTLogInfo(@"KeyboardManager.setEnableAutoToolbar: %d", enabled);
+        [[IQKeyboardManager sharedManager] setEnableAutoToolbar:enabled];
+    });
 }
 
 RCT_EXPORT_METHOD(setShouldToolbarUsesTextFieldTintColor: (BOOL) enabled) {
