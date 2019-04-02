@@ -150,8 +150,10 @@ RCT_EXPORT_METHOD(setShouldResignOnTouchOutside: (BOOL) enabled) {
 }
 
 RCT_EXPORT_METHOD(resignFirstResponder) {
-    if (debugging) RCTLogInfo(@"KeyboardManager.resignFirstResponder");
-    [[IQKeyboardManager sharedManager] resignFirstResponder];
+    dispatch_sync(dispatch_get_main_queue(), ^{
+      if (debugging) RCTLogInfo(@"KeyboardManager.resignFirstResponder");
+      [[IQKeyboardManager sharedManager] resignFirstResponder];
+    });
 }
 
 RCT_EXPORT_METHOD(reloadLayoutIfNeeded) {
