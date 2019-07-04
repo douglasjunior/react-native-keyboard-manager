@@ -18,11 +18,11 @@ Pod::Spec.new do |s|
 	s.license        = license
 	s.authors        = author
 	s.source         = { :git => repository, :tag => version }
-	s.platform       = :ios, "8.0"
+	s.platform       = :ios, "9.0"
 	s.preserve_paths = 'README.md', 'package.json', '*.js'
 	s.source_files   = 'ios/ReactNativeKeyboardManager/**/*.{h,m}'
 
 	s.dependency 'React'
-	s.dependency 'React/RCTText'
+	s.dependency 'React-RCTText'
 	s.dependency 'IQKeyboardManager', iqVersion
 end
