@@ -10,13 +10,13 @@ This is only for iOS, Android no needed. For Android just add `android:windowSof
 
 ## Screenshots
 
-| Enabled | Disabled |
-| - | - |
+| Enabled                                                                                                                                                                                                                                                             | Disabled                                                                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | <img src='https://raw.githubusercontent.com/douglasjunior/react-native-keyboard-manager/master/screenshots/01.png' width='240' /> <img src='https://raw.githubusercontent.com/douglasjunior/react-native-keyboard-manager/master/screenshots/02.png' width='240' /> | <img src='https://raw.githubusercontent.com/douglasjunior/react-native-keyboard-manager/master/screenshots/03.png' width='240' /> |
 
 | <img src='https://raw.githubusercontent.com/hackiftekhar/IQKeyboardManager/v3.3.0/Screenshot/IQKeyboardManager.gif' width='240' /> |
-| - |
-| _Credits: IQKeyboardManager_ |
+| ---------------------------------------------------------------------------------------------------------------------------------- |
+| _Credits: IQKeyboardManager_                                                                                                       |
 
 ## NOTES:
 
@@ -30,7 +30,9 @@ This is only for iOS, Android no needed. For Android just add `android:windowSof
 ```bash
 yarn add react-native-keyboard-manager
 ```
+
 Or
+
 ```bash
 npm i -S react-native-keyboard-manager
 ```
@@ -40,35 +42,37 @@ npm i -S react-native-keyboard-manager
 ## Link with `react-native link`:
 
 1. Link the native project
-    ```bash
-    react-native link react-native-keyboard-manager
-    ```
+
+   ```bash
+   react-native link react-native-keyboard-manager
+   ```
 
 2. (Optional) If you want to use Next/Previous buttons, link the IQKeyboardManager resources to your Xcode project.
 
-    1. Open your Xcode project
-    
-    2. Got to folder **your-project/node_modules/react-native-keyboard-manager/ios/IQKeyboardManager/**
+   1. Open your Xcode project
 
-    3. Drag and drop the **Resources** folder to your project root. (If you already have **Resources** group, drag and drop the **IQKeyboardManager.bundle**)
-    
-        <img src='https://raw.githubusercontent.com/douglasjunior/react-native-keyboard-manager/master/screenshots/drag-and-drop-01.png' width='480' />
-        <br />
-        <img src='https://raw.githubusercontent.com/douglasjunior/react-native-keyboard-manager/master/screenshots/drag-and-drop-02.png' width='240' />
-        
-    4. In your `index.ios.js` just call `KeyboardManager.setToolbarPreviousNextButtonEnable(true);`.
+   2. Got to folder **your-project/node_modules/react-native-keyboard-manager/ios/IQKeyboardManager/**
+
+   3. Drag and drop the **Resources** folder to your project root. (If you already have **Resources** group, drag and drop the **IQKeyboardManager.bundle**)
+
+      <img src='https://raw.githubusercontent.com/douglasjunior/react-native-keyboard-manager/master/screenshots/drag-and-drop-01.png' width='480' />
+      <br />
+      <img src='https://raw.githubusercontent.com/douglasjunior/react-native-keyboard-manager/master/screenshots/drag-and-drop-02.png' width='240' />
+
+   4. In your `index.ios.js` just call `KeyboardManager.setToolbarPreviousNextButtonEnable(true);`.
 
 ## Link with cocoapods:
 
 1. Add this line to your Podfile (complete [Sample](https://github.com/douglasjunior/react-native-keyboard-manager/blob/master/SamplePod/ios/Podfile#L33)):
-    ```bash
-    pod 'ReactNativeKeyboardManager', :path => '../node_modules/react-native-keyboard-manager'
-    ```
-    
+
+   ```bash
+   pod 'ReactNativeKeyboardManager', :path => '../node_modules/react-native-keyboard-manager'
+   ```
+
 2. run
-    ```bash
-    pod install
-    ```
+   ```bash
+   pod install
+   ```
 
 ## Use
 
@@ -77,14 +81,14 @@ It does not need any library setup to work, just [install](#install-with-react-n
 But, if you need some configuration, there are some options available. (with default values)
 
 ```js
-import KeyboardManager from 'react-native-keyboard-manager'
+import KeyboardManager from 'react-native-keyboard-manager';
 
 KeyboardManager.setEnable(true);
 KeyboardManager.setEnableDebugging(false);
 KeyboardManager.setKeyboardDistanceFromTextField(10);
 KeyboardManager.setPreventShowingBottomBlankSpace(true);
 KeyboardManager.setEnableAutoToolbar(true);
-KeyboardManager.setToolbarDoneBarButtonItemText("Done");
+KeyboardManager.setToolbarDoneBarButtonItemText('Done');
 KeyboardManager.setToolbarManageBehaviour(0);
 KeyboardManager.setToolbarPreviousNextButtonEnable(false);
 KeyboardManager.setShouldToolbarUsesTextFieldTintColor(false);
@@ -93,10 +97,9 @@ KeyboardManager.setShouldShowToolbarPlaceholder(true);
 KeyboardManager.setOverrideKeyboardAppearance(false);
 KeyboardManager.setShouldResignOnTouchOutside(true);
 KeyboardManager.resignFirstResponder();
-KeyboardManager.isKeyboardShowing()
-  .then((isShowing) => {
-      // ...
-  });
+KeyboardManager.isKeyboardShowing().then(isShowing => {
+  // ...
+});
 ```
 
 If you want to use Next/Previous buttons, enable it and follow [install step 3](#install-with-react-native-link).
