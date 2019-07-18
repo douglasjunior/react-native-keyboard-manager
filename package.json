@@ -1,6 +1,6 @@
 {
 	"name": "react-native-keyboard-manager",
-	"version": "4.0.13-14",
+	"version": "4.0.13-15",
 	"description": "Library that allows to prevent issues of keyboard sliding up and cover on React-Native iOS projects. ⚛",
 	"private": false,
 	"repository": {
