@@ -56,7 +56,13 @@ npm i -S react-native-keyboard-manager
         <br />
         <img src='https://raw.githubusercontent.com/douglasjunior/react-native-keyboard-manager/master/screenshots/drag-and-drop-02.png' width='240' />
         
-    4. In your `index.ios.js` just call `KeyboardManager.setToolbarPreviousNextButtonEnable(true);`.
+    4. In your `index.js`:
+    
+        ```js
+        if (Platform.OS === 'ios') {
+            KeyboardManager.setToolbarPreviousNextButtonEnable(true);
+        }
+        ```
 
 ## Link with cocoapods:
 
@@ -77,32 +83,37 @@ It does not need any library setup to work, just [install](#install-with-react-n
 But, if you need some configuration, there are some options available. (with default values)
 
 ```js
+import { Platform } from 'react-native
 import KeyboardManager from 'react-native-keyboard-manager'
 
-KeyboardManager.setEnable(true);
-KeyboardManager.setEnableDebugging(false);
-KeyboardManager.setKeyboardDistanceFromTextField(10);
-KeyboardManager.setPreventShowingBottomBlankSpace(true);
-KeyboardManager.setEnableAutoToolbar(true);
-KeyboardManager.setToolbarDoneBarButtonItemText("Done");
-KeyboardManager.setToolbarManageBehaviour(0);
-KeyboardManager.setToolbarPreviousNextButtonEnable(false);
-KeyboardManager.setShouldToolbarUsesTextFieldTintColor(false);
-KeyboardManager.setShouldShowTextFieldPlaceholder(true); // deprecated, use setShouldShowToolbarPlaceholder
-KeyboardManager.setShouldShowToolbarPlaceholder(true);
-KeyboardManager.setOverrideKeyboardAppearance(false);
-KeyboardManager.setShouldResignOnTouchOutside(true);
-KeyboardManager.resignFirstResponder();
-KeyboardManager.isKeyboardShowing()
-  .then((isShowing) => {
-      // ...
-  });
+if (Platform.OS === 'ios') {
+    KeyboardManager.setEnable(true);
+    KeyboardManager.setEnableDebugging(false);
+    KeyboardManager.setKeyboardDistanceFromTextField(10);
+    KeyboardManager.setPreventShowingBottomBlankSpace(true);
+    KeyboardManager.setEnableAutoToolbar(true);
+    KeyboardManager.setToolbarDoneBarButtonItemText("Done");
+    KeyboardManager.setToolbarManageBehaviour(0);
+    KeyboardManager.setToolbarPreviousNextButtonEnable(false);
+    KeyboardManager.setShouldToolbarUsesTextFieldTintColor(false);
+    KeyboardManager.setShouldShowTextFieldPlaceholder(true); // deprecated, use setShouldShowToolbarPlaceholder
+    KeyboardManager.setShouldShowToolbarPlaceholder(true);
+    KeyboardManager.setOverrideKeyboardAppearance(false);
+    KeyboardManager.setShouldResignOnTouchOutside(true);
+    KeyboardManager.resignFirstResponder();
+    KeyboardManager.isKeyboardShowing()
+      .then((isShowing) => {
+          // ...
+      });
+}
 ```
 
 If you want to use Next/Previous buttons, enable it and follow [install step 3](#install-with-react-native-link).
 
 ```js
-KeyboardManager.setToolbarPreviousNextButtonEnable(true);
+if (Platform.OS === 'ios') {
+    KeyboardManager.setToolbarPreviousNextButtonEnable(true);
+}
 ```
 
 If you want to use Next/Previous buttons inside a `Modal`, you need to wrap the fields in a `PreviousNextView`.
