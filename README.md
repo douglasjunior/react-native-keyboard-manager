@@ -35,7 +35,8 @@ Or
 npm i -S react-native-keyboard-manager
 ```
 
-> If you are using `React Native 0.60.+` [the link should happen automatically](https://github.com/react-native-community/cli/blob/master/docs/autolinking.md).
+> If you are using `React Native 0.60.+` go to the folder **your-project/ios** and run `pod install`, and you're done.
+> If not, use one of the following methods to link:
 
 ## Link with `react-native link`:
 
