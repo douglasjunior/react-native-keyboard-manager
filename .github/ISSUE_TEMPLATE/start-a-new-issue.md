@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-- How did you link to the library (manual, rn link, cocoapods)?
+- How did you link to the library (autolinking, manual, rn link, cocoapods)?
 - What version of React Native?
 - What version of the library?
 - iOS version?
