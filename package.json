@@ -14,7 +14,11 @@
 		"keyboard",
 		"IQKeyboardManager"
 	],
-	"author": "Douglas Nassif Roma Junior",
+	"author": {
+		"name": "Douglas Nassif Roma Junior",
+		"email": "nassifrroma@gmail.com",
+		"url": "http://douglasjunior.me"
+	},
 	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/douglasjunior/react-native-keyboard-manager/issues"
