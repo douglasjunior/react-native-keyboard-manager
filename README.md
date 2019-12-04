@@ -84,8 +84,8 @@ It does not need any library setup to work, just [install](#install-with-react-n
 But, if you need some configuration, there are some options available. (with default values)
 
 ```js
-import { Platform } from 'react-native
-import KeyboardManager from 'react-native-keyboard-manager'
+import { Platform } from 'react-native';
+import KeyboardManager from 'react-native-keyboard-manager';
 
 if (Platform.OS === 'ios') {
     KeyboardManager.setEnable(true);
@@ -123,21 +123,21 @@ If you want to use Next/Previous buttons inside a `Modal`, you need to wrap the 
 class App extends Component {
   render() {
       return (
-          <View ... >
+          <View {...} >
               // others views
-              <Modal ... >
+              <Modal {...} >
                   // others views
                   <PreviousNextView style={...} >
                       // all TextInput
                   </PreviousNextView>
               </Modal>
           </View>
-      )
+      );
   }
 }
 ```
 
-For more details, see the [Sample Project](https://github.com/douglasjunior/react-native-keyboard-manager/blob/master/Sample/index.ios.js) and the official [IQKeyboardManager documentation](https://github.com/hackiftekhar/IQKeyboardManager/wiki/).
+For more details, see the [Sample Project](https://github.com/douglasjunior/react-native-keyboard-manager/blob/master/Sample/App.js) and the official [IQKeyboardManager documentation](https://github.com/hackiftekhar/IQKeyboardManager/wiki/).
 
 ## Contribute
 
