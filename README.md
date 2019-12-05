@@ -112,7 +112,11 @@ if (Platform.OS === 'ios') {
 }
 ```
 
-If you want to use Next/Previous buttons, enable it and follow [install step 3](#install).
+### Enable Next/Previous buttons
+
+If you want to use Next/Previous buttons, enable it.
+
+> If you linked using `react-native link`, make sure you [linked the resource file](#link-with-react-native-link).
 
 ```js
 if (Platform.OS === 'ios') {
@@ -120,7 +124,7 @@ if (Platform.OS === 'ios') {
 }
 ```
 
-If you want to use Next/Previous buttons inside a `Modal`, you need to wrap the fields in a `PreviousNextView`.
+And if you want to use Next/Previous buttons inside a `Modal`, you need to wrap the fields in a `PreviousNextView`.
 
 ```jsx
 class App extends Component {
@@ -140,7 +144,7 @@ class App extends Component {
 }
 ```
 
-For more details, see the [Sample Project](https://github.com/douglasjunior/react-native-keyboard-manager/blob/master/Sample/App.js) and the official [IQKeyboardManager documentation](https://github.com/hackiftekhar/IQKeyboardManager/wiki/).
+For more details, see the [Sample Project](https://github.com/douglasjunior/react-native-keyboard-manager/blob/master/Sample/App.js) and the official [IQKeyboardManager documentation](https://github.com/hackiftekhar/IQKeyboardManager/tree/v4.0.13).
 
 ## Contribute
 
