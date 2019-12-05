@@ -2,7 +2,7 @@
 
 [![Licence MIT](https://img.shields.io/badge/licence-MIT-blue.svg)](https://github.com/douglasjunior/react-native-keyboard-manager/blob/master/LICENSE)
 [![npm version](https://img.shields.io/npm/v/react-native-keyboard-manager.svg)](https://www.npmjs.com/package/react-native-keyboard-manager)
-[![npm downloads](https://img.shields.io/npm/dt/react-native-keyboard-manager.svg)](#install-with-react-native-link)
+[![npm downloads](https://img.shields.io/npm/dt/react-native-keyboard-manager.svg)](#install)
 
 Library to prevent issues of keyboard sliding up and cover inputs on React-Native iOS projects ⚛. Thanks to awesome [IQKeyboardManager](https://github.com/hackiftekhar/IQKeyboardManager) ❤️.
 
@@ -35,8 +35,11 @@ Or
 npm i -S react-native-keyboard-manager
 ```
 
-> If you are using `React Native 0.60.+` go to the folder **your-project/ios** and run `pod install`, and you're done.
-> If not, use one of the following methods to link:
+## Auto linking
+
+If you are using `React Native 0.60.+` go to the folder **your-project/ios** and run `pod install`, and you're done. 
+
+If not, use one of the following methods to link.
 
 ## Link with `react-native link`:
 
@@ -67,7 +70,7 @@ npm i -S react-native-keyboard-manager
 
 ## Link with cocoapods:
 
-1. Add this line to your Podfile (complete [Sample](https://github.com/douglasjunior/react-native-keyboard-manager/blob/master/SamplePod/ios/Podfile#L33)):
+1. Add this line to your Podfile
     ```bash
     pod 'ReactNativeKeyboardManager', :path => '../node_modules/react-native-keyboard-manager'
     ```
