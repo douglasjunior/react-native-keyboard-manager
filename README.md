@@ -82,7 +82,7 @@ If not, use one of the following methods to link.
 
 ## Use
 
-It does not need any library setup to work, just [install](#install-with-react-native-link) and go.
+It does not need any library setup to work, just [install](#install) and go.
 
 But, if you need some configuration, there are some options available. (with default values)
 
@@ -112,7 +112,7 @@ if (Platform.OS === 'ios') {
 }
 ```
 
-If you want to use Next/Previous buttons, enable it and follow [install step 3](#install-with-react-native-link).
+If you want to use Next/Previous buttons, enable it and follow [install step 3](#install).
 
 ```js
 if (Platform.OS === 'ios') {
