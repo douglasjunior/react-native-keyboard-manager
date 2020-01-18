@@ -23,23 +23,29 @@
  */
 
 import React, {Component} from 'react';
-import {Text, View, TextInput, ScrollView, Switch} from 'react-native';
+import {
+  Text,
+  View,
+  TextInput,
+  ScrollView,
+  Switch,
+  SafeAreaView,
+} from 'react-native';
 import KeyboardManager, {PreviousNextView} from 'react-native-keyboard-manager';
 
 /* Default values */
 KeyboardManager.setEnable(true);
 KeyboardManager.setEnableDebugging(false);
 KeyboardManager.setKeyboardDistanceFromTextField(10);
-KeyboardManager.setPreventShowingBottomBlankSpace(true);
 KeyboardManager.setEnableAutoToolbar(true);
 KeyboardManager.setToolbarDoneBarButtonItemText('Done');
-KeyboardManager.setToolbarManageBehaviour(0);
+KeyboardManager.setToolbarManageBehaviourBy('subviews');
 KeyboardManager.setToolbarPreviousNextButtonEnable(false);
-KeyboardManager.setShouldToolbarUsesTextFieldTintColor(false);
-KeyboardManager.setShouldShowTextFieldPlaceholder(true); // deprecated, use setShouldShowToolbarPlaceholder
 KeyboardManager.setShouldShowToolbarPlaceholder(true);
 KeyboardManager.setOverrideKeyboardAppearance(false);
+KeyboardManager.setKeyboardAppearance('default');
 KeyboardManager.setShouldResignOnTouchOutside(true);
+KeyboardManager.setShouldPlayInputClicks(true);
 
 const inputStyle = {
   minHeight: 40,
