@@ -21,8 +21,10 @@
 // THE SOFTWARE.
 
 #import <React/RCTBridgeModule.h>
+#import <React/RCTConvert.h>
+
+@interface RCTConvert (IQAutoToolbarManageBehaviour)
+@end
 
 @interface ReactNativeKeyboardManager : NSObject <RCTBridgeModule>
-
-
 @end
