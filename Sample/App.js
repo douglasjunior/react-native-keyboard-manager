@@ -1,37 +1,30 @@
 /**
-* MIT License
-* 
-* Copyright (c) 2017 Douglas Nassif Roma Junior
-* 
-* Permission is hereby granted, free of charge, to any person obtaining a copy
-* of this software and associated documentation files (the "Software"), to deal
-* in the Software without restriction, including without limitation the rights
-* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-* copies of the Software, and to permit persons to whom the Software is
-* furnished to do so, subject to the following conditions:
-* 
-* The above copyright notice and this permission notice shall be included in all
-* copies or substantial portions of the Software.
-* 
-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-* SOFTWARE. 
-*/
+ * MIT License
+ *
+ * Copyright (c) 2017 Douglas Nassif Roma Junior
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 
-import React, { Component } from 'react';
-import {
-  Text,
-  View,
-  TextInput,
-  ScrollView,
-  Switch,
-} from 'react-native';
-
-import KeyboardManager, { PreviousNextView } from 'react-native-keyboard-manager'
+import React, {Component} from 'react';
+import {Text, View, TextInput, ScrollView, Switch} from 'react-native';
+import KeyboardManager, {PreviousNextView} from 'react-native-keyboard-manager';
 
 /* Default values */
 KeyboardManager.setEnable(true);
@@ -39,7 +32,7 @@ KeyboardManager.setEnableDebugging(false);
 KeyboardManager.setKeyboardDistanceFromTextField(10);
 KeyboardManager.setPreventShowingBottomBlankSpace(true);
 KeyboardManager.setEnableAutoToolbar(true);
-KeyboardManager.setToolbarDoneBarButtonItemText("Done");
+KeyboardManager.setToolbarDoneBarButtonItemText('Done');
 KeyboardManager.setToolbarManageBehaviour(0);
 KeyboardManager.setToolbarPreviousNextButtonEnable(false);
 KeyboardManager.setShouldToolbarUsesTextFieldTintColor(false);
@@ -48,15 +41,30 @@ KeyboardManager.setShouldShowToolbarPlaceholder(true);
 KeyboardManager.setOverrideKeyboardAppearance(false);
 KeyboardManager.setShouldResignOnTouchOutside(true);
 
-const inputStyle = { minHeight: 40, borderColor: "#000000", borderWidth: 1, borderRadius: 2, paddingLeft: 5 };
+const inputStyle = {
+  minHeight: 40,
+  borderColor: '#000000',
+  borderWidth: 1,
+  borderRadius: 2,
+  paddingLeft: 5,
+};
 
-const inputKeys = ['input1', 'input2', 'input3', 'input4', 'input5', 'input6',
-  'textarea1', 'textarea2', 'textarea3', 'textarea4',];
+const inputKeys = [
+  'input1',
+  'input2',
+  'input3',
+  'input4',
+  'input5',
+  'input6',
+  'textarea1',
+  'textarea2',
+  'textarea3',
+  'textarea4',
+];
 
 class App extends Component {
-
   state = {
-    enableDisable: true
+    enableDisable: true,
   };
 
   componentDidMount() {
@@ -64,18 +72,17 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-    KeyboardManager.isKeyboardShowing()
-      .then((isShowing) => {
-        console.log("isKeyboardShowing: " + isShowing);
-      })
+    KeyboardManager.isKeyboardShowing().then(isShowing => {
+      console.log('isKeyboardShowing: ' + isShowing);
+    });
   }
 
-  onEnableDisable = (value) => {
+  onEnableDisable = value => {
     KeyboardManager.setEnable(value);
     this.setState({
-      enableDisable: value
-    })
-  }
+      enableDisable: value,
+    });
+  };
 
   render() {
     const self = this;
@@ -86,20 +93,23 @@ class App extends Component {
       let ref = inputKeys[i];
       let nextRef = i < inputKeys.length - 1 ? inputKeys[i + 1] : '';
 
-      let nextFocus = () => { self.refs[nextRef] ? self.refs[nextRef].focus() : null };
+      let nextFocus = () => {
+        self.refs[nextRef] ? self.refs[nextRef].focus() : null;
+      };
 
       const multiline = ref.startsWith('textarea');
-      inputs.push((
-        <View key={i} style={{ padding: 10 }}>
-          <Text >{ref}</Text>
+      inputs.push(
+        <View key={i} style={{padding: 10}}>
+          <Text>{ref}</Text>
 
-          <TextInput style={inputStyle}
+          <TextInput
+            style={inputStyle}
             ref={ref}
             value={this.state[ref]}
             onChangeText={text => {
               let state = {};
               state[ref] = text;
-              self.setState(state)
+              self.setState(state);
             }}
             placeholder={ref}
             onSubmitEditing={!multiline ? nextFocus : undefined}
@@ -111,38 +121,43 @@ class App extends Component {
               KeyboardManager.reloadLayoutIfNeeded();
             }}
           />
-        </View>
-      ))
+        </View>,
+      );
     }
 
     return (
-      <View style={{ flex: 1 }}>
-
+      <View style={{flex: 1}}>
         {/* To try with Modal, uncomment the two following lines. */}
         {/* <Modal visible={true}> */}
         {/* <PreviousNextView style={{ flex: 1 }}> */}
 
         {/* ScrollView is not required, but may be needed in some cases. */}
         <ScrollView>
-
-          <View style={{ alignItems: "center" }}>
-            <Text style={{ marginTop: 50, textAlign: "center" }}>React-Native Keyboard Manager</Text>
-            <View style={{ marginTop: 10, flexDirection: "row", alignItems: "center" }}>
+          <View style={{alignItems: 'center'}}>
+            <Text style={{marginTop: 50, textAlign: 'center'}}>
+              React-Native Keyboard Manager
+            </Text>
+            <View
+              style={{
+                marginTop: 10,
+                flexDirection: 'row',
+                alignItems: 'center',
+              }}>
               <Text>Enable/Disable </Text>
-              <Switch onValueChange={this.onEnableDisable}
-                value={this.state.enableDisable} />
+              <Switch
+                onValueChange={this.onEnableDisable}
+                value={this.state.enableDisable}
+              />
             </View>
           </View>
 
           <View>{inputs}</View>
-
         </ScrollView>
 
         {/* </PreviousNextView> */}
         {/* </Modal> */}
-
       </View>
-    )
+    );
   }
 }
 
