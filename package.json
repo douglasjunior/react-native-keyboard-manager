@@ -27,11 +27,12 @@
     "format": "prettier '**/*.{js,json,md}' --write"
   },
   "peerDependencies": {
-    "react-native": ">=0.60"
+    "react": ">=16.8.6",
+    "react-native": ">=0.60.0"
   },
   "devDependencies": {
     "prettier": "1.19.1",
-    "react": "16.0.0-alpha.12",
-    "react-native": "0.47.0"
+    "react": "16.9.0",
+    "react-native": "0.61.5"
   }
 }
