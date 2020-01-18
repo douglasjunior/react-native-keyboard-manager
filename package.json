@@ -3,6 +3,7 @@
   "version": "6.5.4-17",
   "description": "Library that allows to prevent issues of keyboard sliding up and cover on React-Native iOS projects. ⚛",
   "license": "MIT",
+  "types": "index.d.ts",
   "main": "index.js",
   "homepage": "https://github.com/douglasjunior/react-native-keyboard-manager",
   "author": {
