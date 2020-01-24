@@ -20,10 +20,15 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+#import <objc/runtime.h>
+#import <objc/message.h>
+
 #import "ReactNativeKeyboardManager.h"
 #import "IQKeyboardManager.h"
 #import <React/RCTLog.h>
 #import <React/RCTRootView.h>
+
+#import "RCTBaseTextInputView.h"
 
 @implementation RCTConvert(IQAutoToolbarManageBehaviour)
 
@@ -36,6 +41,26 @@ RCT_ENUM_CONVERTER(IQAutoToolbarManageBehaviour, (@{
 @end
 
 @implementation ReactNativeKeyboardManager
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        Swizzle([RCTBaseTextInputView class], @selector(setDefaultInputAccessoryView_backup), @selector(setDefaultInputAccessoryView));
+        Swizzle([RCTBaseTextInputView class], @selector(setDefaultInputAccessoryView), @selector(setDefaultInputAccessoryView_avoid));
+    }
+    return self;
+}
+
+void Swizzle(Class c, SEL orig, SEL new)
+{
+    Method origMethod = class_getInstanceMethod(c, orig);
+    Method newMethod = class_getInstanceMethod(c, new);
+    if(class_addMethod(c, orig, method_getImplementation(newMethod), method_getTypeEncoding(newMethod)))
+    class_replaceMethod(c, new, method_getImplementation(origMethod), method_getTypeEncoding(origMethod));
+    else
+    method_exchangeImplementations(origMethod, newMethod);
+}
 
 + (BOOL)requiresMainQueueSetup
 {
