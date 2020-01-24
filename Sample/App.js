@@ -39,7 +39,7 @@ KeyboardManager.setEnableDebugging(false);
 KeyboardManager.setKeyboardDistanceFromTextField(10);
 KeyboardManager.setEnableAutoToolbar(true);
 KeyboardManager.setToolbarDoneBarButtonItemText("Done");
-KeyboardManager.setToolbarManageBehaviourBy('subviews');
+KeyboardManager.setToolbarManageBehaviourBy("subviews");
 KeyboardManager.setToolbarPreviousNextButtonEnable(false);
 KeyboardManager.setShouldToolbarUsesTextFieldTintColor(false);
 KeyboardManager.setShouldShowToolbarPlaceholder(true);

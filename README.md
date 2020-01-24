@@ -95,18 +95,19 @@ if (Platform.OS === 'ios') {
     KeyboardManager.setEnableDebugging(false);
     KeyboardManager.setKeyboardDistanceFromTextField(10);
     KeyboardManager.setEnableAutoToolbar(true);
-    KeyboardManager.setToolbarDoneBarButtonItemText('Done');
-    KeyboardManager.setToolbarManageBehaviourBy('subviews'); // 'subviews' | 'tag' | 'position'
+    KeyboardManager.setToolbarDoneBarButtonItemText("Done");
+    KeyboardManager.setToolbarManageBehaviourBy("subviews"); // "subviews" | "tag" | "position"
     KeyboardManager.setToolbarPreviousNextButtonEnable(false);
     KeyboardManager.setShouldShowToolbarPlaceholder(true);
     KeyboardManager.setOverrideKeyboardAppearance(false);
-    KeyboardManager.setKeyboardAppearance('default'); // 'default' | 'light' | 'dark'
+    KeyboardManager.setKeyboardAppearance("default"); // "default" | "light" | "dark"
     KeyboardManager.setShouldResignOnTouchOutside(true);
     KeyboardManager.setShouldPlayInputClicks(true);
     KeyboardManager.resignFirstResponder();
-    KeyboardManager.isKeyboardShowing().then(isShowing => {
-        // ...
-    });
+    KeyboardManager.isKeyboardShowing()
+      .then((isShowing) => {
+          // ...
+      });
 }
 ```
 
