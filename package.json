@@ -1,39 +1,46 @@
 {
-  "name": "react-native-keyboard-manager",
-  "version": "6.5.4-17",
-  "description": "Library that allows to prevent issues of keyboard sliding up and cover on React-Native iOS projects. ⚛",
-  "license": "MIT",
-  "types": "index.d.ts",
-  "main": "index.js",
-  "homepage": "https://github.com/douglasjunior/react-native-keyboard-manager",
-  "author": {
-    "name": "Douglas Nassif Roma Junior",
-    "email": "nassifrroma@gmail.com",
-    "url": "http://douglasjunior.me"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/douglasjunior/react-native-keyboard-manager.git"
-  },
-  "bugs": {
-    "url": "https://github.com/douglasjunior/react-native-keyboard-manager/issues"
-  },
-  "keywords": [
-    "react-native",
-    "ios",
-    "keyboard",
-    "IQKeyboardManager"
-  ],
-  "scripts": {
-    "format": "prettier '**/*.{js,json,md}' --write"
-  },
-  "peerDependencies": {
-    "react": ">=16.8.6",
-    "react-native": ">=0.60.0"
-  },
-  "devDependencies": {
-    "prettier": "1.19.1",
-    "react": "16.9.0",
-    "react-native": "0.61.5"
-  }
+	"name": "react-native-keyboard-manager",
+	"version": "6.5.4-17",
+	"description": "Library that allows to prevent issues of keyboard sliding up and cover on React-Native iOS projects. ⚛",
+	"private": false,
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/douglasjunior/react-native-keyboard-manager.git"
+	},
+	"main": "index.js",
+	"keywords": [
+		"react-native",
+		"ios",
+		"keyboard",
+		"IQKeyboardManager"
+	],
+	"author": {
+		"name": "Douglas Nassif Roma Junior",
+		"email": "nassifrroma@gmail.com",
+		"url": "http://douglasjunior.me"
+	},
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/douglasjunior/react-native-keyboard-manager/issues"
+	},
+	"homepage": "https://github.com/douglasjunior/react-native-keyboard-manager",
+	"scripts": {
+		"start": "node node_modules/react-native/local-cli/cli.js start",
+		"test": "jest"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"babel-jest": "20.0.3",
+		"babel-preset-react-native": "1.9.2",
+		"jest": "20.0.4",
+		"react-test-renderer": "16.0.0-alpha.12",
+		"react": "16.0.0-alpha.12",
+		"react-native": "0.47.0"
+	},
+	"jest": {
+		"preset": "react-native"
+	},
+	"peerDependencies": {
+		"react-native": ">=0.60.0"
+	}
 }

@@ -1,5 +1,4 @@
 ---
-
 name: Start a new issue
 about: Create a new issue to report a bug, feature or suggestion requests.
 title: ''
