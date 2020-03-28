@@ -7,6 +7,10 @@ assignees: ''
 
 ---
 
+<!--
+Please answer the following questions to help us identify your problem.
+-->
+
 - How did you link to the library (autolinking, manual, rn link, cocoapods)?
 - What version of React Native?
 - What version of the library?
