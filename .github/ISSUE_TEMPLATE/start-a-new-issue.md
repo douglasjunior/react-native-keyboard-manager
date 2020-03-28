@@ -8,7 +8,7 @@ assignees: ''
 ---
 
 <!--
-Please answer the following questions to help us identify your problem.
+Please answer the following questions to help us to identify your problem.
 -->
 
 - How did you link to the library (autolinking, manual, rn link, cocoapods)?
