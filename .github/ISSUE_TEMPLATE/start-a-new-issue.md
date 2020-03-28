@@ -13,3 +13,4 @@ assignees: ''
 - iOS version?
 - Did the problem happen after updating React Native?
 - Are you using the library for the first time?
+- It's a bug? Provide a link to a minimal reproduction case.
