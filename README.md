@@ -1,6 +1,6 @@
 # React-Native Keyboard Manager
 
-[![Licence MIT](https://img.shields.io/badge/licence-MIT-blue.svg)](https://github.com/douglasjunior/react-native-keyboard-manager/blob/master/LICENSE)
+[![Financial Contributors on Open Collective](https://opencollective.com/rn-keyboard-manager/all/badge.svg?label=financial+contributors)](https://opencollective.com/rn-keyboard-manager) [![Licence MIT](https://img.shields.io/badge/licence-MIT-blue.svg)](https://github.com/douglasjunior/react-native-keyboard-manager/blob/master/LICENSE)
 [![npm version](https://img.shields.io/npm/v/react-native-keyboard-manager.svg)](https://www.npmjs.com/package/react-native-keyboard-manager)
 [![npm downloads](https://img.shields.io/npm/dt/react-native-keyboard-manager.svg)](#install)
 
@@ -162,6 +162,36 @@ Copyright (c) 2017 Douglas Nassif Roma Junior
 ```
 
 See the full [licence file](https://github.com/douglasjunior/react-native-keyboard-manager/blob/master/LICENSE).
+
+## Contributors
+
+### Code Contributors
+
+This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
+<a href="https://github.com/douglasjunior/react-native-keyboard-manager/graphs/contributors"><img src="https://opencollective.com/rn-keyboard-manager/contributors.svg?width=890&button=false" /></a>
+
+### Financial Contributors
+
+Become a financial contributor and help us sustain our community. [[Contribute](https://opencollective.com/rn-keyboard-manager/contribute)]
+
+#### Individuals
+
+<a href="https://opencollective.com/rn-keyboard-manager"><img src="https://opencollective.com/rn-keyboard-manager/individuals.svg?width=890"></a>
+
+#### Organizations
+
+Support this project with your organization. Your logo will show up here with a link to your website. [[Contribute](https://opencollective.com/rn-keyboard-manager/contribute)]
+
+<a href="https://opencollective.com/rn-keyboard-manager/organization/0/website"><img src="https://opencollective.com/rn-keyboard-manager/organization/0/avatar.svg"></a>
+<a href="https://opencollective.com/rn-keyboard-manager/organization/1/website"><img src="https://opencollective.com/rn-keyboard-manager/organization/1/avatar.svg"></a>
+<a href="https://opencollective.com/rn-keyboard-manager/organization/2/website"><img src="https://opencollective.com/rn-keyboard-manager/organization/2/avatar.svg"></a>
+<a href="https://opencollective.com/rn-keyboard-manager/organization/3/website"><img src="https://opencollective.com/rn-keyboard-manager/organization/3/avatar.svg"></a>
+<a href="https://opencollective.com/rn-keyboard-manager/organization/4/website"><img src="https://opencollective.com/rn-keyboard-manager/organization/4/avatar.svg"></a>
+<a href="https://opencollective.com/rn-keyboard-manager/organization/5/website"><img src="https://opencollective.com/rn-keyboard-manager/organization/5/avatar.svg"></a>
+<a href="https://opencollective.com/rn-keyboard-manager/organization/6/website"><img src="https://opencollective.com/rn-keyboard-manager/organization/6/avatar.svg"></a>
+<a href="https://opencollective.com/rn-keyboard-manager/organization/7/website"><img src="https://opencollective.com/rn-keyboard-manager/organization/7/avatar.svg"></a>
+<a href="https://opencollective.com/rn-keyboard-manager/organization/8/website"><img src="https://opencollective.com/rn-keyboard-manager/organization/8/avatar.svg"></a>
+<a href="https://opencollective.com/rn-keyboard-manager/organization/9/website"><img src="https://opencollective.com/rn-keyboard-manager/organization/9/avatar.svg"></a>
 
 ## IQKeyboardManager License
 
