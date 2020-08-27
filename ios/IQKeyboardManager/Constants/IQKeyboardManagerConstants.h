@@ -62,11 +62,21 @@ typedef NS_ENUM(NSUInteger, IQPreviousNextDisplayMode) {
     IQPreviousNextDisplayModeAlwaysShow,
 };
 
-///-------------------
-/// @name Localization
-///-------------------
-
-#define IQLocalizedString(key, comment) [[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"IQKeyboardManager" ofType:@"bundle"]] localizedStringForKey:(key) value:@"" table:@"IQKeyboardManager"]
+/**
+ `IQEnableModeDefault`
+ Pick default settings.
+ 
+ `IQEnableModeEnabled`
+ setting is enabled.
+ 
+ `IQEnableModeDisabled`
+ setting is disabled.
+ */
+typedef NS_ENUM(NSUInteger, IQEnableMode) {
+    IQEnableModeDefault,
+    IQEnableModeEnabled,
+    IQEnableModeDisabled,
+};
 
 #endif
 

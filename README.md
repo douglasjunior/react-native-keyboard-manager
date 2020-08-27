@@ -94,16 +94,15 @@ if (Platform.OS === 'ios') {
     KeyboardManager.setEnable(true);
     KeyboardManager.setEnableDebugging(false);
     KeyboardManager.setKeyboardDistanceFromTextField(10);
-    KeyboardManager.setPreventShowingBottomBlankSpace(true);
     KeyboardManager.setEnableAutoToolbar(true);
     KeyboardManager.setToolbarDoneBarButtonItemText("Done");
-    KeyboardManager.setToolbarManageBehaviour(0);
+    KeyboardManager.setToolbarManageBehaviourBy("subviews"); // "subviews" | "tag" | "position"
     KeyboardManager.setToolbarPreviousNextButtonEnable(false);
-    KeyboardManager.setShouldToolbarUsesTextFieldTintColor(false);
-    KeyboardManager.setShouldShowTextFieldPlaceholder(true); // deprecated, use setShouldShowToolbarPlaceholder
     KeyboardManager.setShouldShowToolbarPlaceholder(true);
     KeyboardManager.setOverrideKeyboardAppearance(false);
+    KeyboardManager.setKeyboardAppearance("default"); // "default" | "light" | "dark"
     KeyboardManager.setShouldResignOnTouchOutside(true);
+    KeyboardManager.setShouldPlayInputClicks(true);
     KeyboardManager.resignFirstResponder();
     KeyboardManager.isKeyboardShowing()
       .then((isShowing) => {
@@ -144,7 +143,7 @@ class App extends Component {
 }
 ```
 
-For more details, see the [Sample Project](https://github.com/douglasjunior/react-native-keyboard-manager/blob/master/Sample/App.js) and the official [IQKeyboardManager documentation](https://github.com/hackiftekhar/IQKeyboardManager/tree/v4.0.13).
+For more details, see the [Sample Project](https://github.com/douglasjunior/react-native-keyboard-manager/blob/master/Sample/App.js) and the official [IQKeyboardManager documentation](https://github.com/hackiftekhar/IQKeyboardManager/tree/v6.5.4).
 
 ## Contribute
 

@@ -24,17 +24,17 @@
 
 @implementation RCTBaseTextInputView (Hack)
 
-- (void)invalidateInputAccessoryView_avoid {
+- (void)setDefaultInputAccessoryView_avoid {
   if ([[IQKeyboardManager sharedManager] isEnableAutoToolbar]) {
-    NSLog(@"avoiding RCTTextInput.invalidateInputAccessoryView");
+    NSLog(@"avoiding RCTTextInput.setDefaultInputAccessoryView");
   } else {
-    NSLog(@"calling RCTTextInput.invalidateInputAccessoryView");
-    [self invalidateInputAccessoryView_backup];
+    NSLog(@"calling RCTTextInput.setDefaultInputAccessoryView");
+    [self setDefaultInputAccessoryView_backup];
   }
 }
 
-- (void)invalidateInputAccessoryView_backup {
-  // backup for invalidateInputAccessoryView
+- (void)setDefaultInputAccessoryView_backup {
+  // backup for setDefaultInputAccessoryView
 }
 
 @end

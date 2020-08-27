@@ -21,9 +21,10 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <Foundation/NSObjCRuntime.h>
 #import "IQKeyboardManagerConstants.h"
 #import "IQBarButtonItem.h"
+
+#import <Foundation/NSObjCRuntime.h>
 
 /**
  BarButtonItem with title text.
@@ -36,9 +37,14 @@
 @property(nullable, nonatomic, strong) UIFont *titleFont;
 
 /**
- selectableTextColor to be used for displaying button text when button is enabled.
+ titleColor to be used for displaying button text when displaying title (disabled state).
  */
-@property(nullable, nonatomic, strong) UIColor *selectableTextColor;
+@property(nullable, nonatomic, strong) UIColor *titleColor;
+
+/**
+ selectableTitleColor to be used for displaying button text when button is enabled.
+ */
+@property(nullable, nonatomic, strong) UIColor *selectableTitleColor;
 
 /**
  Initialize with frame and title.

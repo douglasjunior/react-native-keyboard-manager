@@ -26,6 +26,18 @@
 
 @implementation UIScrollView (Additions)
 
+-(void)setShouldIgnoreScrollingAdjustment:(BOOL)shouldIgnoreScrollingAdjustment
+{
+    objc_setAssociatedObject(self, @selector(shouldIgnoreScrollingAdjustment), @(shouldIgnoreScrollingAdjustment), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+-(BOOL)shouldIgnoreScrollingAdjustment
+{
+    NSNumber *shouldIgnoreScrollingAdjustment = objc_getAssociatedObject(self, @selector(shouldIgnoreScrollingAdjustment));
+    
+    return [shouldIgnoreScrollingAdjustment boolValue];
+}
+
 -(void)setShouldRestoreScrollViewContentOffset:(BOOL)shouldRestoreScrollViewContentOffset
 {
     objc_setAssociatedObject(self, @selector(shouldRestoreScrollViewContentOffset), @(shouldRestoreScrollViewContentOffset), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -37,5 +49,101 @@
     
     return [shouldRestoreScrollViewContentOffset boolValue];
 }
+
+@end
+
+@implementation UITableView (PreviousNextIndexPath)
+
+-(nullable NSIndexPath*)previousIndexPathOfIndexPath:(nonnull NSIndexPath*)indexPath
+{
+    NSInteger previousRow = indexPath.row - 1;
+    NSInteger previousSection = indexPath.section;
+    
+    //Fixing indexPath
+    if (previousRow < 0)
+    {
+        previousSection -= 1;
+        
+        if (previousSection >= 0)
+        {
+            previousRow = [self numberOfRowsInSection:previousSection]-1;
+        }
+    }
+    
+    if (previousRow >= 0 && previousSection >= 0)
+    {
+        return [NSIndexPath indexPathForRow:previousRow inSection:previousSection];
+    }
+    
+    return nil;
+}
+
+//-(nullable NSIndexPath*)nextIndexPathOfIndexPath:(nonnull NSIndexPath*)indexPath
+//{
+//    NSInteger nextRow = indexPath.row + 1;
+//    NSInteger nextSection = indexPath.section;
+//
+//    //Fixing indexPath
+//    if (nextRow >= [self numberOfRowsInSection:nextSection])
+//    {
+//        nextRow = 0;
+//        nextSection += 1;
+//    }
+//
+//    if (self.numberOfSections > nextSection && [self numberOfRowsInSection:nextSection] > nextRow)
+//    {
+//        return [NSIndexPath indexPathForItem:nextRow inSection:nextSection];
+//    }
+//
+//    return nil;
+//}
+//
+@end
+
+@implementation UICollectionView (PreviousNextIndexPath)
+
+-(nullable NSIndexPath*)previousIndexPathOfIndexPath:(nonnull NSIndexPath*)indexPath
+{
+    NSInteger previousRow = indexPath.row - 1;
+    NSInteger previousSection = indexPath.section;
+    
+    //Fixing indexPath
+    if (previousRow < 0)
+    {
+        previousSection -= 1;
+        
+        if (previousSection >= 0)
+        {
+            previousRow = [self numberOfItemsInSection:previousSection]-1;
+        }
+    }
+    
+    if (previousRow >= 0 && previousSection >= 0)
+    {
+        return [NSIndexPath indexPathForItem:previousRow inSection:previousSection];
+    }
+    
+    return nil;
+}
+
+//-(nullable NSIndexPath*)nextIndexPathOfIndexPath:(nonnull NSIndexPath*)indexPath
+//{
+//    NSInteger nextRow = indexPath.row + 1;
+//    NSInteger nextSection = indexPath.section;
+//    
+//    //Fixing indexPath
+//    if (nextRow >= [self numberOfItemsInSection:nextSection])
+//    {
+//        nextRow = 0;
+//        nextSection += 1;
+//    }
+//    
+//    if (self.numberOfSections > nextSection && [self numberOfItemsInSection:nextSection] > nextRow)
+//    {
+//        return [NSIndexPath indexPathForItem:nextRow inSection:nextSection];
+//    }
+//    
+//    return nil;
+//}
 
 @end

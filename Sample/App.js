@@ -37,16 +37,16 @@ import KeyboardManager, { PreviousNextView } from 'react-native-keyboard-manager
 KeyboardManager.setEnable(true);
 KeyboardManager.setEnableDebugging(false);
 KeyboardManager.setKeyboardDistanceFromTextField(10);
-KeyboardManager.setPreventShowingBottomBlankSpace(true);
 KeyboardManager.setEnableAutoToolbar(true);
 KeyboardManager.setToolbarDoneBarButtonItemText("Done");
-KeyboardManager.setToolbarManageBehaviour(0);
+KeyboardManager.setToolbarManageBehaviourBy("subviews");
 KeyboardManager.setToolbarPreviousNextButtonEnable(false);
 KeyboardManager.setShouldToolbarUsesTextFieldTintColor(false);
-KeyboardManager.setShouldShowTextFieldPlaceholder(true); // deprecated, use setShouldShowToolbarPlaceholder
 KeyboardManager.setShouldShowToolbarPlaceholder(true);
 KeyboardManager.setOverrideKeyboardAppearance(false);
+KeyboardManager.setKeyboardAppearance("default");
 KeyboardManager.setShouldResignOnTouchOutside(true);
+KeyboardManager.setShouldPlayInputClicks(true);
 
 const inputStyle = { minHeight: 40, borderColor: "#000000", borderWidth: 1, borderRadius: 2, paddingLeft: 5 };
 

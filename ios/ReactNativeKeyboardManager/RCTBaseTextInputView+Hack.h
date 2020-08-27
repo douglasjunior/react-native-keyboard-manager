@@ -26,7 +26,7 @@
 
 @interface RCTBaseTextInputView (Hack)
 
-- (void)invalidateInputAccessoryView_avoid;
-- (void)invalidateInputAccessoryView_backup;
+- (void)setDefaultInputAccessoryView_avoid;
+- (void)setDefaultInputAccessoryView_backup;
 
 @end

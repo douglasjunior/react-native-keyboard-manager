@@ -21,8 +21,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-
 #import <UIKit/UIBarButtonItem.h>
+
+@class NSInvocation;
 
 /**
  IQBarButtonItem used for IQToolbar.

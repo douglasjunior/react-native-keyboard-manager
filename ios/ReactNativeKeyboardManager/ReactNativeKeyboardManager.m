@@ -30,14 +30,24 @@
 
 #import "RCTBaseTextInputView.h"
 
+@implementation RCTConvert(IQAutoToolbarManageBehaviour)
+
+RCT_ENUM_CONVERTER(IQAutoToolbarManageBehaviour, (@{
+    @"subviews": @(IQAutoToolbarBySubviews),
+    @"tag": @(IQAutoToolbarByTag),
+    @"position": @(IQAutoToolbarByPosition),
+}), IQAutoToolbarBySubviews, integerValue);
+
+@end
+
 @implementation ReactNativeKeyboardManager
 
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        Swizzle([RCTBaseTextInputView class], @selector(invalidateInputAccessoryView_backup), @selector(invalidateInputAccessoryView));
-        Swizzle([RCTBaseTextInputView class], @selector(invalidateInputAccessoryView), @selector(invalidateInputAccessoryView_avoid));
+        Swizzle([RCTBaseTextInputView class], @selector(setDefaultInputAccessoryView_backup), @selector(setDefaultInputAccessoryView));
+        Swizzle([RCTBaseTextInputView class], @selector(setDefaultInputAccessoryView), @selector(setDefaultInputAccessoryView_avoid));
     }
     return self;
 }
@@ -92,11 +102,6 @@ RCT_EXPORT_METHOD(setToolbarPreviousNextButtonEnable: (BOOL) enabled) {
     }
 }
 
-RCT_EXPORT_METHOD(setPreventShowingBottomBlankSpace: (BOOL) enabled) {
-    if (debugging) RCTLogInfo(@"KeyboardManager.setPreventShowingBottomBlankSpace: %d", enabled);
-    [[IQKeyboardManager sharedManager] setPreventShowingBottomBlankSpace:enabled];
-}
-
 RCT_EXPORT_METHOD(setEnableAutoToolbar: (BOOL) enabled) {
     dispatch_sync(dispatch_get_main_queue(), ^{
         if (debugging) RCTLogInfo(@"KeyboardManager.setEnableAutoToolbar: %d", enabled);
@@ -109,17 +114,6 @@ RCT_EXPORT_METHOD(setShouldToolbarUsesTextFieldTintColor: (BOOL) enabled) {
     [[IQKeyboardManager sharedManager] setShouldToolbarUsesTextFieldTintColor:enabled];
 }
 
-
-RCT_EXPORT_METHOD(shouldShowToolbarPlaceholder: (BOOL) enabled) {
-    if (debugging) RCTLogInfo(@"KeyboardManager.shouldShowToolbarPlaceholder: %d", enabled);
-    [IQKeyboardManager sharedManager].shouldShowToolbarPlaceholder = enabled;
-}
-
-RCT_EXPORT_METHOD(setShouldShowTextFieldPlaceholder: (BOOL) enabled) {
-    if (debugging) RCTLogInfo(@"KeyboardManager.setShouldShowTextFieldPlaceholder: %d", enabled);
-    [[IQKeyboardManager sharedManager] setShouldShowTextFieldPlaceholder:enabled];
-}
-
 RCT_EXPORT_METHOD(setShouldShowToolbarPlaceholder: (BOOL) enabled) {
   if (debugging) RCTLogInfo(@"KeyboardManager.setShouldShowToolbarPlaceholder: %d", enabled);
   [[IQKeyboardManager sharedManager] setShouldShowToolbarPlaceholder:enabled];
@@ -130,16 +124,27 @@ RCT_EXPORT_METHOD(setToolbarDoneBarButtonItemText: (NSString *) text) {
     [[IQKeyboardManager sharedManager] setToolbarDoneBarButtonItemText:text];
 }
 
-RCT_EXPORT_METHOD(setToolbarManageBehaviour: (NSInteger) autoToolbarType) {
-    if (debugging) RCTLogInfo(@"KeyboardManager.setToolbarManageBehaviour: %ld", autoToolbarType);
-    [[IQKeyboardManager sharedManager] setToolbarManageBehaviour:autoToolbarType];
+RCT_EXPORT_METHOD(setToolbarManageBehaviourBy: (IQAutoToolbarManageBehaviour) behaviour) {
+    if (debugging) RCTLogInfo(@"KeyboardManager.setToolbarManageBehaviour: %ld", behaviour);
+    [[IQKeyboardManager sharedManager] setToolbarManageBehaviour:behaviour];
+}
+
+RCT_EXPORT_METHOD(setShouldPlayInputClicks: (BOOL) enabled) {
+    if (debugging) RCTLogInfo(@"KeyboardManager.setShouldPlayInputClicks: %d", enabled);
+    [[IQKeyboardManager sharedManager] setShouldPlayInputClicks:enabled];
 }
 
 // UIKeyboard Apparence overriding
+// https://github.com/facebook/react-native/blob/v0.60.0/React/Base/RCTConvert.m#L398
 
 RCT_EXPORT_METHOD(setOverrideKeyboardAppearance: (BOOL) enabled) {
     if (debugging) RCTLogInfo(@"KeyboardManager.setOverrideKeyboardAppearance: %d", enabled);
     [[IQKeyboardManager sharedManager] setOverrideKeyboardAppearance:enabled];
+}
+
+RCT_EXPORT_METHOD(setKeyboardAppearance: (UIKeyboardAppearance) appearance) {
+    if (debugging) RCTLogInfo(@"KeyboardManager.setKeyboardAppearance: %ld", appearance);
+    [[IQKeyboardManager sharedManager] setKeyboardAppearance:appearance];
 }
 
 // UITextField/UITextView Resign handling
@@ -168,7 +173,7 @@ RCT_EXPORT_METHOD(reloadLayoutIfNeeded) {
 RCT_EXPORT_METHOD(isKeyboardShowing: (RCTPromiseResolveBlock) resolve rejecter: (RCTPromiseRejectBlock) reject) {
     BOOL isKeyboardShowing = [IQKeyboardManager sharedManager].isKeyboardShowing;
     if (debugging) RCTLogInfo(@"KeyboardManager.isKeyboardShowing: %d", isKeyboardShowing);
-    resolve([NSString stringWithFormat:@"%d", isKeyboardShowing]);
+    resolve(@(isKeyboardShowing));
 }
 
 @end

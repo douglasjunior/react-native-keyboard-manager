@@ -29,16 +29,15 @@
 
 @interface IQTextView ()
 
--(void)refreshPlaceholder;
+@property(nullable, nonatomic, strong) UILabel *placeholderLabel;
 
 @end
 
 @implementation IQTextView
-{
-    UILabel *placeHolderLabel;
-}
 
 @synthesize placeholder = _placeholder;
+@synthesize placeholderLabel = _placeholderLabel;
+@synthesize placeholderTextColor = _placeholderTextColor;
 
 -(void)initialize
 {
@@ -47,6 +46,8 @@
 
 -(void)dealloc
 {
+    [_placeholderLabel removeFromSuperview];
+    _placeholderLabel = nil;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -67,13 +68,13 @@
 
 -(void)refreshPlaceholder
 {
-    if([[self text] length])
+    if([[self text] length] || [[self attributedText] length])
     {
-        [placeHolderLabel setAlpha:0];
+        [_placeholderLabel setAlpha:0];
     }
     else
     {
-        [placeHolderLabel setAlpha:1];
+        [_placeholderLabel setAlpha:1];
     }
     
     [self setNeedsLayout];
@@ -86,10 +87,16 @@
     [self refreshPlaceholder];
 }
 
+-(void)setAttributedText:(NSAttributedString *)attributedText
+{
+    [super setAttributedText:attributedText];
+    [self refreshPlaceholder];
+}
+
 -(void)setFont:(UIFont *)font
 {
     [super setFont:font];
-    placeHolderLabel.font = self.font;
+    self.placeholderLabel.font = self.font;
     
     [self setNeedsLayout];
     [self layoutIfNeeded];
@@ -98,7 +105,7 @@
 -(void)setTextAlignment:(NSTextAlignment)textAlignment
 {
     [super setTextAlignment:textAlignment];
-    placeHolderLabel.textAlignment = textAlignment;
+    self.placeholderLabel.textAlignment = textAlignment;
     
     [self setNeedsLayout];
     [self layoutIfNeeded];
@@ -107,36 +114,72 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
-
-    CGFloat offsetLeft = self.textContainerInset.left + self.textContainer.lineFragmentPadding;
-    CGFloat offsetRight = self.textContainerInset.right + self.textContainer.lineFragmentPadding;
-    CGFloat offsetTop = self.textContainerInset.top;
-    CGFloat offsetBottom = self.textContainerInset.bottom;
-
-    CGSize expectedSize = [placeHolderLabel sizeThatFits:CGSizeMake(CGRectGetWidth(self.frame)-offsetLeft-offsetRight, CGRectGetHeight(self.frame)-offsetTop-offsetBottom)];
-    placeHolderLabel.frame = CGRectMake(offsetLeft, offsetTop, expectedSize.width, expectedSize.height);
+    self.placeholderLabel.frame = [self placeholderExpectedFrame];
 }
 
 -(void)setPlaceholder:(NSString *)placeholder
 {
     _placeholder = placeholder;
     
-    if ( placeHolderLabel == nil )
+    self.placeholderLabel.text = placeholder;
+    [self refreshPlaceholder];
+}
+
+-(void)setAttributedPlaceholder:(NSAttributedString *)attributedPlaceholder
+{
+    _attributedPlaceholder = attributedPlaceholder;
+    
+    self.placeholderLabel.attributedText = attributedPlaceholder;
+    [self refreshPlaceholder];
+}
+
+-(void)setPlaceholderTextColor:(UIColor*)placeholderTextColor
+{
+    _placeholderTextColor = placeholderTextColor;
+    self.placeholderLabel.textColor = placeholderTextColor;
+}
+
+-(UIEdgeInsets)placeholderInsets
+{
+    return UIEdgeInsetsMake(self.textContainerInset.top, self.textContainerInset.left + self.textContainer.lineFragmentPadding, self.textContainerInset.bottom, self.textContainerInset.right + self.textContainer.lineFragmentPadding);
+}
+
+-(CGRect)placeholderExpectedFrame
+{
+    UIEdgeInsets placeholderInsets = [self placeholderInsets];
+    CGFloat maxWidth = CGRectGetWidth(self.frame)-placeholderInsets.left-placeholderInsets.right;
+    
+    CGSize expectedSize = [self.placeholderLabel sizeThatFits:CGSizeMake(maxWidth, CGRectGetHeight(self.frame)-placeholderInsets.top-placeholderInsets.bottom)];
+    
+    return CGRectMake(placeholderInsets.left, placeholderInsets.top, maxWidth, expectedSize.height);
+}
+
+-(UILabel*)placeholderLabel
+{
+    if (_placeholderLabel == nil)
     {
-        placeHolderLabel = [[UILabel alloc] init];
-        placeHolderLabel.autoresizingMask = (UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight);
-        placeHolderLabel.lineBreakMode = NSLineBreakByWordWrapping;
-        placeHolderLabel.numberOfLines = 0;
-        placeHolderLabel.font = self.font;
-        placeHolderLabel.textAlignment = self.textAlignment;
-        placeHolderLabel.backgroundColor = [UIColor clearColor];
-        placeHolderLabel.textColor = [UIColor colorWithWhite:0.7 alpha:1.0];
-        placeHolderLabel.alpha = 0;
-        [self addSubview:placeHolderLabel];
+        _placeholderLabel = [[UILabel alloc] init];
+        _placeholderLabel.autoresizingMask = (UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight);
+        _placeholderLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        _placeholderLabel.numberOfLines = 0;
+        _placeholderLabel.font = self.font;
+        _placeholderLabel.textAlignment = self.textAlignment;
+        _placeholderLabel.backgroundColor = [UIColor clearColor];
+        #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
+            if (@available(iOS 13.0, *)) {
+                _placeholderLabel.textColor = [UIColor systemGrayColor];
+            } else
+        #endif
+            {
+        #if __IPHONE_OS_VERSION_MIN_REQUIRED < 130000
+                _placeholderLabel.textColor = [UIColor lightTextColor];
+        #endif
+            }
+        _placeholderLabel.alpha = 0;
+        [self addSubview:_placeholderLabel];
     }
     
-    placeHolderLabel.text = self.placeholder;
-    [self refreshPlaceholder];
+    return _placeholderLabel;
 }
 
 //When any text changes on textField, the delegate getter is called. At this time we refresh the textView's placeholder
@@ -144,6 +187,20 @@
 {
     [self refreshPlaceholder];
     return [super delegate];
+}
+
+-(CGSize)intrinsicContentSize
+{
+    if (self.hasText) {
+        return [super intrinsicContentSize];
+    }
+    
+    UIEdgeInsets placeholderInsets = [self placeholderInsets];
+    CGSize newSize = [super intrinsicContentSize];
+    
+    newSize.height = [self placeholderExpectedFrame].size.height + placeholderInsets.top + placeholderInsets.bottom;
+    
+    return newSize;
 }
 
 @end

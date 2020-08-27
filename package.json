@@ -1,11 +1,9 @@
 {
 	"name": "react-native-keyboard-manager",
-	"publishConfig": { 
-		"registry": "https://registry.npmjs.org" 
-	},
-	"version": "4.0.13-16",
+	"version": "6.5.4-alpha.0",
 	"description": "Library that allows to prevent issues of keyboard sliding up and cover on React-Native iOS projects. ⚛",
 	"private": false,
+	"types": "index.d.ts",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/douglasjunior/react-native-keyboard-manager.git"
@@ -44,6 +42,6 @@
 		"preset": "react-native"
 	},
 	"peerDependencies": {
-		"react-native": ">=0.47"
+		"react-native": ">=0.60.0"
 	}
 }
