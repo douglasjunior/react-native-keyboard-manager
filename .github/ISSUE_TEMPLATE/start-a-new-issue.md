@@ -7,9 +7,14 @@ assignees: ''
 
 ---
 
+<!--
+Please answer the following questions to help us to identify your problem.
+-->
+
 - How did you link to the library (autolinking, manual, rn link, cocoapods)?
 - What version of React Native?
 - What version of the library?
 - iOS version?
 - Did the problem happen after updating React Native?
 - Are you using the library for the first time?
+- It's a bug? Provide a link to a minimal reproduction case.
