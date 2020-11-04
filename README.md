@@ -98,6 +98,8 @@ if (Platform.OS === 'ios') {
     KeyboardManager.setToolbarDoneBarButtonItemText("Done");
     KeyboardManager.setToolbarManageBehaviourBy("subviews"); // "subviews" | "tag" | "position"
     KeyboardManager.setToolbarPreviousNextButtonEnable(false);
+    KeyboardManager.setToolbarTintColor('#0000FF');
+    KeyboardManager.setToolbarBarTintColor('#FFFFFF');
     KeyboardManager.setShouldShowToolbarPlaceholder(true);
     KeyboardManager.setOverrideKeyboardAppearance(false);
     KeyboardManager.setKeyboardAppearance("default"); // "default" | "light" | "dark"

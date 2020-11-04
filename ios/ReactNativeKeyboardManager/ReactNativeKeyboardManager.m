@@ -62,6 +62,14 @@ void Swizzle(Class c, SEL orig, SEL new)
     method_exchangeImplementations(origMethod, newMethod);
 }
 
+- (UIColor *)colorFromHexString:(NSString *)hexString {
+    unsigned rgbValue = 0;
+    NSScanner *scanner = [NSScanner scannerWithString:hexString];
+    [scanner setScanLocation:1]; // bypass '#' character
+    [scanner scanHexInt:&rgbValue];
+    return [UIColor colorWithRed:((rgbValue & 0xFF0000) >> 16)/255.0 green:((rgbValue & 0xFF00) >> 8)/255.0 blue:(rgbValue & 0xFF)/255.0 alpha:1.0];
+}
+
 + (BOOL)requiresMainQueueSetup
 {
     return YES;
@@ -112,6 +120,22 @@ RCT_EXPORT_METHOD(setEnableAutoToolbar: (BOOL) enabled) {
 RCT_EXPORT_METHOD(setShouldToolbarUsesTextFieldTintColor: (BOOL) enabled) {
     if (debugging) RCTLogInfo(@"KeyboardManager.setShouldToolbarUsesTextFieldTintColor: %d", enabled);
     [[IQKeyboardManager sharedManager] setShouldToolbarUsesTextFieldTintColor:enabled];
+}
+
+RCT_EXPORT_METHOD(setToolbarTintColor: (NSString*) hexString) {
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        if (debugging) RCTLogInfo(@"KeyboardManager.setToolbarTintColor: %@", hexString);
+        UIColor* toolbarTintColor = [self colorFromHexString:hexString];
+        [[IQKeyboardManager sharedManager] setToolbarTintColor: toolbarTintColor];
+    });
+}
+
+RCT_EXPORT_METHOD(setToolbarBarTintColor: (NSString*) hexString) {
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        if (debugging) RCTLogInfo(@"KeyboardManager.setToolbarBarTintColor: %@", hexString);
+        UIColor* toolbarBarTintColor = [self colorFromHexString:hexString];
+        [[IQKeyboardManager sharedManager] setToolbarBarTintColor: toolbarBarTintColor];
+    });
 }
 
 RCT_EXPORT_METHOD(setShouldShowToolbarPlaceholder: (BOOL) enabled) {
