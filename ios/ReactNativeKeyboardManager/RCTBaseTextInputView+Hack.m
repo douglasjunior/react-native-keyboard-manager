@@ -20,12 +20,14 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+@import IQKeyboardManagerSwift;
+
 #import "RCTBaseTextInputView+Hack.h"
 
 @implementation RCTBaseTextInputView (Hack)
 
 - (void)setDefaultInputAccessoryView_avoid {
-  if ([[IQKeyboardManager sharedManager] isEnableAutoToolbar]) {
+  if ([[IQKeyboardManager shared] enableAutoToolbar]) {
     NSLog(@"avoiding RCTTextInput.setDefaultInputAccessoryView");
   } else {
     NSLog(@"calling RCTTextInput.setDefaultInputAccessoryView");

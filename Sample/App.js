@@ -29,22 +29,23 @@ import {
   TextInput,
   ScrollView,
   Switch,
+  Modal,
 } from 'react-native';
 
 import KeyboardManager, { PreviousNextView } from 'react-native-keyboard-manager'
 
-/* Default values */
 KeyboardManager.setEnable(true);
-KeyboardManager.setEnableDebugging(false);
-KeyboardManager.setKeyboardDistanceFromTextField(10);
+KeyboardManager.setEnableDebugging(true);
+KeyboardManager.setKeyboardDistanceFromTextField(30);
 KeyboardManager.setEnableAutoToolbar(true);
 KeyboardManager.setToolbarDoneBarButtonItemText("Done");
-KeyboardManager.setToolbarManageBehaviourBy("subviews");
-KeyboardManager.setToolbarPreviousNextButtonEnable(false);
-KeyboardManager.setShouldToolbarUsesTextFieldTintColor(false);
+KeyboardManager.setToolbarManageBehaviourBy("subviews"); // "subviews" | "tag" | "position"
+KeyboardManager.setToolbarPreviousNextButtonEnable(true);
+KeyboardManager.setToolbarTintColor('#FF00FF'); // Only #000000 format is supported
+KeyboardManager.setToolbarBarTintColor('#FFFF00'); // Only #000000 format is supported
 KeyboardManager.setShouldShowToolbarPlaceholder(true);
 KeyboardManager.setOverrideKeyboardAppearance(false);
-KeyboardManager.setKeyboardAppearance("default");
+KeyboardManager.setKeyboardAppearance("default"); // "default" | "light" | "dark"
 KeyboardManager.setShouldResignOnTouchOutside(true);
 KeyboardManager.setShouldPlayInputClicks(true);
 

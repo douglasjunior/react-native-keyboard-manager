@@ -1,6 +1,6 @@
 {
 	"name": "react-native-keyboard-manager",
-	"version": "6.5.4-alpha.1",
+	"version": "6.5.4-alpha.2",
 	"description": "Library that allows to prevent issues of keyboard sliding up and cover on React-Native iOS projects. ⚛",
 	"private": false,
 	"types": "index.d.ts",
@@ -18,30 +18,18 @@
 	"author": {
 		"name": "Douglas Nassif Roma Junior",
 		"email": "nassifrroma@gmail.com",
-		"url": "http://douglasjunior.me"
+		"url": "https://github.com/douglasjunior"
 	},
 	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/douglasjunior/react-native-keyboard-manager/issues"
 	},
 	"homepage": "https://github.com/douglasjunior/react-native-keyboard-manager",
-	"scripts": {
-		"start": "node node_modules/react-native/local-cli/cli.js start",
-		"test": "jest"
-	},
+	"scripts": {},
 	"dependencies": {},
-	"devDependencies": {
-		"babel-jest": "20.0.3",
-		"babel-preset-react-native": "1.9.2",
-		"jest": "20.0.4",
-		"react-test-renderer": "16.0.0-alpha.12",
-		"react": "16.0.0-alpha.12",
-		"react-native": "0.47.0"
-	},
-	"jest": {
-		"preset": "react-native"
-	},
+	"devDependencies": {},
 	"peerDependencies": {
-		"react-native": ">=0.60.0"
+		"react-native": ">=0.60.0",
+		"react": ">=16.0.0"
 	}
 }

@@ -18,6 +18,8 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* LibrarySampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* LibrarySampleTests.m */; };
 		778E1A082C99090F0E33FFD5 /* libPods-LibrarySampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CDD80F4EE64A068E17576A8 /* libPods-LibrarySampleTests.a */; };
+		A5D4884F25542C9300913159 /* FooBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D4884E25542C9300913159 /* FooBar.swift */; };
+		A5D4885025542C9300913159 /* FooBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D4884E25542C9300913159 /* FooBar.swift */; };
 		BF2D9C593A06BFB5FE2B09A8 /* libPods-LibrarySample-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D97B25652E5F50C71D9B820 /* libPods-LibrarySample-tvOSTests.a */; };
 		BFA4D1E7D68C3E5765F86A01 /* libPods-LibrarySample-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC5545BFBF86DA3ED4D7519 /* libPods-LibrarySample-tvOS.a */; };
 /* End PBXBuildFile section */
@@ -59,6 +61,9 @@
 		8D97B25652E5F50C71D9B820 /* libPods-LibrarySample-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LibrarySample-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FBFA2ABB10BD6B013FB94CC /* Pods-LibrarySample-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LibrarySample-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-LibrarySample-tvOS/Pods-LibrarySample-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		9FE8955BC2B9C719CED00C04 /* Pods-LibrarySample-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LibrarySample-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-LibrarySample-tvOSTests/Pods-LibrarySample-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		A5D4884C25542C9300913159 /* LibrarySample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LibrarySample-Bridging-Header.h"; sourceTree = "<group>"; };
+		A5D4884D25542C9300913159 /* LibrarySample-tvOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LibrarySample-tvOS-Bridging-Header.h"; sourceTree = "<group>"; };
+		A5D4884E25542C9300913159 /* FooBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooBar.swift; sourceTree = "<group>"; };
 		B7A7E740F9E7650E99A2B1A1 /* Pods-LibrarySampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LibrarySampleTests.debug.xcconfig"; path = "Target Support Files/Pods-LibrarySampleTests/Pods-LibrarySampleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DAC5545BFBF86DA3ED4D7519 /* libPods-LibrarySample-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LibrarySample-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1EF9A348D27A612DDA40DE7 /* Pods-LibrarySample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LibrarySample.release.xcconfig"; path = "Target Support Files/Pods-LibrarySample/Pods-LibrarySample.release.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +137,9 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				A5D4884E25542C9300913159 /* FooBar.swift */,
+				A5D4884C25542C9300913159 /* LibrarySample-Bridging-Header.h */,
+				A5D4884D25542C9300913159 /* LibrarySample-tvOS-Bridging-Header.h */,
 			);
 			name = LibrarySample;
 			sourceTree = "<group>";
@@ -194,7 +202,6 @@
 				B7A7E740F9E7650E99A2B1A1 /* Pods-LibrarySampleTests.debug.xcconfig */,
 				84C85AE0CF834040470DFCB3 /* Pods-LibrarySampleTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -293,8 +300,12 @@
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
+					13B07F861A680F5B00A75B9A = {
+						LastSwiftMigration = 1210;
+					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 1210;
 						ProvisioningStyle = Automatic;
 					};
 					2D02E48F1E0B4A5D006451C7 = {
@@ -309,6 +320,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -461,11 +473,11 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-LibrarySample/Pods-LibrarySample-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManager/IQKeyboardManager.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManagerSwift.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -548,6 +560,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				A5D4884F25542C9300913159 /* FooBar.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -557,6 +570,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */,
+				A5D4885025542C9300913159 /* FooBar.swift in Sources */,
 				2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -601,6 +615,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B7A7E740F9E7650E99A2B1A1 /* Pods-LibrarySampleTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -624,6 +639,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 84C85AE0CF834040470DFCB3 /* Pods-LibrarySampleTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = LibrarySampleTests/Info.plist;
@@ -645,6 +661,7 @@
 			baseConfigurationReference = E780B1B7DFBCFC20931FC6FC /* Pods-LibrarySample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				INFOPLIST_FILE = LibrarySample/Info.plist;
@@ -656,6 +673,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = LibrarySample;
+				SWIFT_OBJC_BRIDGING_HEADER = "LibrarySample-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -665,6 +685,7 @@
 			baseConfigurationReference = E1EF9A348D27A612DDA40DE7 /* Pods-LibrarySample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = LibrarySample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -675,6 +696,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = LibrarySample;
+				SWIFT_OBJC_BRIDGING_HEADER = "LibrarySample-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -686,6 +709,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -702,6 +726,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.LibrarySample-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
+				SWIFT_OBJC_BRIDGING_HEADER = "LibrarySample-tvOS-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 			};
@@ -714,6 +741,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -730,6 +758,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.LibrarySample-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
+				SWIFT_OBJC_BRIDGING_HEADER = "LibrarySample-tvOS-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 			};
@@ -739,6 +769,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F68F18D47EFC1490A133AE30 /* Pods-LibrarySample-tvOSTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -766,6 +797,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9FE8955BC2B9C719CED00C04 /* Pods-LibrarySample-tvOSTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;

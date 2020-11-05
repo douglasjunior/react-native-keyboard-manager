@@ -9,6 +9,8 @@ declare module 'react-native-keyboard-manager' {
   export function setToolbarDoneBarButtonItemText(text: string);
   export function setToolbarManageBehaviourBy(behaviour: ToolbarBehaviour);
   export function setToolbarPreviousNextButtonEnable(enable: boolean);
+  export function setToolbarTintColor(hexColor: string);
+  export function setToolbarBarTintColor(hexColor: string);
   export function setShouldShowToolbarPlaceholder(enable: boolean);
   export function setOverrideKeyboardAppearance(enable: boolean);
   export function setKeyboardAppearance(appearance: KeyboardAppearance);
