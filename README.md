@@ -104,8 +104,6 @@ if (Platform.OS === 'ios') {
 
 If you want to use Next/Previous buttons, enable it.
 
-> If you linked using `react-native link`, make sure you [linked the resource file](#link-with-react-native-link).
-
 ```js
 if (Platform.OS === 'ios') {
     KeyboardManager.setToolbarPreviousNextButtonEnable(true);
