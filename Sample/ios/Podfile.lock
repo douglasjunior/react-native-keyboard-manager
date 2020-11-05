@@ -19,7 +19,7 @@ PODS:
     - DoubleConversion
     - glog
   - glog (0.3.5)
-  - IQKeyboardManager (6.5.4)
+  - IQKeyboardManagerSwift (6.5.4)
   - RCTRequired (0.61.5)
   - RCTTypeSafety (0.61.5):
     - FBLazyVector (= 0.61.5)
@@ -218,8 +218,8 @@ PODS:
     - React-cxxreact (= 0.61.5)
     - React-jsi (= 0.61.5)
     - ReactCommon/jscallinvoker (= 0.61.5)
-  - ReactNativeKeyboardManager (6.5.4-17):
-    - IQKeyboardManager (= 6.5.4)
+  - ReactNativeKeyboardManager (6.5.4-alpha.2):
+    - IQKeyboardManagerSwift (= 6.5.4)
     - React
     - React-RCTText
   - Yoga (1.14.0)
@@ -258,7 +258,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - boost-for-react-native
-    - IQKeyboardManager
+    - IQKeyboardManagerSwift
 
 EXTERNAL SOURCES:
   DoubleConversion:
@@ -321,7 +321,7 @@ SPEC CHECKSUMS:
   FBReactNativeSpec: 118d0d177724c2d67f08a59136eb29ef5943ec75
   Folly: 30e7936e1c45c08d884aa59369ed951a8e68cf51
   glog: 1f3da668190260b06b429bb211bfbee5cd790c28
-  IQKeyboardManager: 72b359cd7e777e3a984cedbe05f8da45320cbb63
+  IQKeyboardManagerSwift: 2dde0fc70110e8eac7ccce2a46fdbec6a850b414
   RCTRequired: b153add4da6e7dbc44aebf93f3cf4fcae392ddf1
   RCTTypeSafety: 9aa1b91d7f9310fc6eadc3cf95126ffe818af320
   React: b6a59ef847b2b40bb6e0180a97d0ca716969ac78
@@ -341,9 +341,9 @@ SPEC CHECKSUMS:
   React-RCTText: 9ccc88273e9a3aacff5094d2175a605efa854dbe
   React-RCTVibration: a49a1f42bf8f5acf1c3e297097517c6b3af377ad
   ReactCommon: 198c7c8d3591f975e5431bec1b0b3b581aa1c5dd
-  ReactNativeKeyboardManager: 9c9194e7f91faf191ef1147fc387f4b93119cfe5
+  ReactNativeKeyboardManager: 283d9cef6f340c1369bdf0cf57bff425eaf83aed
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
 
 PODFILE CHECKSUM: e32bb3166695c598be3b9768a34a55c55a545ce7
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.3
