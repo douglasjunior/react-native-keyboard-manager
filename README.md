@@ -100,8 +100,8 @@ if (Platform.OS === 'ios') {
     KeyboardManager.setToolbarManageBehaviour(0);
     KeyboardManager.setToolbarPreviousNextButtonEnable(false);
     KeyboardManager.setShouldToolbarUsesTextFieldTintColor(false);
-    KeyboardManager.setToolbarTintColor('#0000FF');
-    KeyboardManager.setToolbarBarTintColor('#FFFFFF');
+    KeyboardManager.setToolbarTintColor('#0000FF'); // Only #000000 format is supported
+    KeyboardManager.setToolbarBarTintColor('#FFFFFF'); // Only #000000 format is supported
     KeyboardManager.setShouldShowTextFieldPlaceholder(true); // deprecated, use setShouldShowToolbarPlaceholder
     KeyboardManager.setShouldShowToolbarPlaceholder(true);
     KeyboardManager.setOverrideKeyboardAppearance(false);
