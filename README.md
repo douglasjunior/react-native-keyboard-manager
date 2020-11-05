@@ -1,6 +1,6 @@
 # React-Native Keyboard Manager
 
-[![Licence MIT](https://img.shields.io/badge/licence-MIT-blue.svg)](https://github.com/douglasjunior/react-native-keyboard-manager/blob/master/LICENSE)
+[![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/douglasjunior/react-native-keyboard-manager/blob/master/LICENSE)
 [![npm version](https://img.shields.io/npm/v/react-native-keyboard-manager.svg)](https://www.npmjs.com/package/react-native-keyboard-manager)
 [![npm downloads](https://img.shields.io/npm/dt/react-native-keyboard-manager.svg)](#install)
 
@@ -139,7 +139,7 @@ New features, bug fixes and improvements are welcome! For questions and suggesti
 <a href="https://www.patreon.com/douglasjunior"><img src="http://i.imgur.com/xEO164Z.png" alt="Become a Patron!" width="200" /></a>
 [![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=E32BUP77SVBA2)
 
-## Licence
+## License
 
 ```
 The MIT License (MIT)
@@ -147,7 +147,7 @@ The MIT License (MIT)
 Copyright (c) 2017 Douglas Nassif Roma Junior
 ```
 
-See the full [licence file](https://github.com/douglasjunior/react-native-keyboard-manager/blob/master/LICENSE).
+See the full [license file](https://github.com/douglasjunior/react-native-keyboard-manager/blob/master/LICENSE).
 
 ## IQKeyboardManager License
 
@@ -157,4 +157,4 @@ The MIT License (MIT)
 Copyright (c) 2013-16 Iftekhar Qurashi
 ```
 
-See the full [IQKeyboardManager licence file](https://github.com/hackiftekhar/IQKeyboardManager/blob/master/LICENSE.md).
+See the full [IQKeyboardManager license file](https://github.com/hackiftekhar/IQKeyboardManager/blob/master/LICENSE.md).
