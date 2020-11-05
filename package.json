@@ -3,7 +3,7 @@
 	"publishConfig": { 
 		"registry": "https://registry.npmjs.org" 
 	},
-	"version": "4.0.13-16",
+	"version": "4.0.13-17",
 	"description": "Library that allows to prevent issues of keyboard sliding up and cover on React-Native iOS projects. ⚛",
 	"private": false,
 	"repository": {
