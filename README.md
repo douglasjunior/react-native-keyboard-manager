@@ -43,7 +43,7 @@ If not, use one of the following methods to link.
 
 ## Link with `react-native link`:
 
-React native link is no longer supported due to cocoapods dependency.
+React native link is no longer supported due to cocoapods dependency. To avoid cocoapods you can use the version `4.0.13-X`.
 
 ## Link with cocoapods:
 
