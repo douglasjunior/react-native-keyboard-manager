@@ -45,7 +45,7 @@ If not, use one of the following methods to link.
 
 React native link is no longer supported due to cocoapods dependency. To avoid cocoapods you can use the version `4.0.13-X`.
 
-## Link with cocoapods:
+## Link manual with cocoapods:
 
 1. Add this line to your Podfile
     ```bash
@@ -67,7 +67,7 @@ Because [IQKeyboardManager](https://github.com/hackiftekhar/IQKeyboardManager) i
 1. When Xcode asks, press **Create Bridging Header** and do not remove `Swift` file then. 
 1. Re-run your build.
 
-## Use
+## Usage
 
 It does not need any extra library setup to work, just [install](#install) and go.
 
@@ -137,7 +137,7 @@ For more details, see the [Sample Project](https://github.com/douglasjunior/reac
 New features, bug fixes and improvements are welcome! For questions and suggestions use the [issues](https://github.com/douglasjunior/react-native-keyboard-manager/issues).
 
 <a href="https://www.patreon.com/douglasjunior"><img src="http://i.imgur.com/xEO164Z.png" alt="Become a Patron!" width="200" /></a>
-[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=E32BUP77SVBA2)
+[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://paypal.me/douglasnassif)
 
 ## License
 
