@@ -43,30 +43,7 @@ If not, use one of the following methods to link.
 
 ## Link with `react-native link`:
 
-1. Link the native project
-    ```bash
-    react-native link react-native-keyboard-manager
-    ```
-
-2. (Optional) If you want to use Next/Previous buttons, link the IQKeyboardManager resources to your Xcode project.
-
-    1. Open your Xcode project
-    
-    2. Got to folder **your-project/node_modules/react-native-keyboard-manager/ios/IQKeyboardManager/**
-
-    3. Drag and drop the **Resources** folder to your project root. (If you already have **Resources** group, drag and drop the **IQKeyboardManager.bundle**)
-    
-        <img src='https://raw.githubusercontent.com/douglasjunior/react-native-keyboard-manager/master/screenshots/drag-and-drop-01.png' width='480' />
-        <br />
-        <img src='https://raw.githubusercontent.com/douglasjunior/react-native-keyboard-manager/master/screenshots/drag-and-drop-02.png' width='240' />
-        
-    4. In your `index.js`:
-    
-        ```js
-        if (Platform.OS === 'ios') {
-            KeyboardManager.setToolbarPreviousNextButtonEnable(true);
-        }
-        ```
+React native link is no longer supported due to cocoapods dependency. To avoid cocoapods you can use the version `4.0.13-X`.
 
 ## Link with cocoapods:
 
@@ -80,11 +57,21 @@ If not, use one of the following methods to link.
     pod install
     ```
 
+## Post install
+
+Because [IQKeyboardManager](https://github.com/hackiftekhar/IQKeyboardManager) is written in `Swift`, you need to enable `Swift` on your native Xcode project.
+
+1. Open `ios/YourAppName.xcworkspace` in Xcode
+1. Right-click on `YourAppName` in the `Project Navigator` on the left, and click `New File`.
+1. Create a single empty `Swift` file to the project (make sure that `YourAppName` target is selected when adding)
+1. When Xcode asks, press **Create Bridging Header** and do not remove `Swift` file then. 
+1. Re-run your build.
+
 ## Use
 
-It does not need any library setup to work, just [install](#install) and go.
+It does not need any extra library setup to work, just [install](#install) and go.
 
-But, if you need some configuration, there are some options available. (with default values)
+But, if you need some configuration, there are some options available.
 
 ```js
 import { Platform } from 'react-native';
@@ -94,18 +81,17 @@ if (Platform.OS === 'ios') {
     KeyboardManager.setEnable(true);
     KeyboardManager.setEnableDebugging(false);
     KeyboardManager.setKeyboardDistanceFromTextField(10);
-    KeyboardManager.setPreventShowingBottomBlankSpace(true);
     KeyboardManager.setEnableAutoToolbar(true);
     KeyboardManager.setToolbarDoneBarButtonItemText("Done");
-    KeyboardManager.setToolbarManageBehaviour(0);
+    KeyboardManager.setToolbarManageBehaviourBy("subviews"); // "subviews" | "tag" | "position"
     KeyboardManager.setToolbarPreviousNextButtonEnable(false);
-    KeyboardManager.setShouldToolbarUsesTextFieldTintColor(false);
     KeyboardManager.setToolbarTintColor('#0000FF'); // Only #000000 format is supported
     KeyboardManager.setToolbarBarTintColor('#FFFFFF'); // Only #000000 format is supported
-    KeyboardManager.setShouldShowTextFieldPlaceholder(true); // deprecated, use setShouldShowToolbarPlaceholder
     KeyboardManager.setShouldShowToolbarPlaceholder(true);
     KeyboardManager.setOverrideKeyboardAppearance(false);
+    KeyboardManager.setKeyboardAppearance("default"); // "default" | "light" | "dark"
     KeyboardManager.setShouldResignOnTouchOutside(true);
+    KeyboardManager.setShouldPlayInputClicks(true);
     KeyboardManager.resignFirstResponder();
     KeyboardManager.isKeyboardShowing()
       .then((isShowing) => {
@@ -117,8 +103,6 @@ if (Platform.OS === 'ios') {
 ### Enable Next/Previous buttons
 
 If you want to use Next/Previous buttons, enable it.
-
-> If you linked using `react-native link`, make sure you [linked the resource file](#link-with-react-native-link).
 
 ```js
 if (Platform.OS === 'ios') {
@@ -146,14 +130,14 @@ class App extends Component {
 }
 ```
 
-For more details, see the [Sample Project](https://github.com/douglasjunior/react-native-keyboard-manager/blob/master/Sample/App.js) and the official [IQKeyboardManager documentation](https://github.com/hackiftekhar/IQKeyboardManager/tree/v4.0.13).
+For more details, see the [Sample Project](https://github.com/douglasjunior/react-native-keyboard-manager/blob/master/Sample/App.js) and the official [IQKeyboardManager documentation](https://github.com/hackiftekhar/IQKeyboardManager/tree/v6.5.4).
 
 ## Contribute
 
 New features, bug fixes and improvements are welcome! For questions and suggestions use the [issues](https://github.com/douglasjunior/react-native-keyboard-manager/issues).
 
 <a href="https://www.patreon.com/douglasjunior"><img src="http://i.imgur.com/xEO164Z.png" alt="Become a Patron!" width="200" /></a>
-[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://paypal.me/douglasnassif)
+[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=E32BUP77SVBA2)
 
 ## License
 

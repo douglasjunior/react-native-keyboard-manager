@@ -20,13 +20,13 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+@import Foundation;
+
 #import "RCTBaseTextInputView.h"
-#import <Foundation/Foundation.h>
-#import "IQKeyboardManager.h"
 
 @interface RCTBaseTextInputView (Hack)
 
-- (void)invalidateInputAccessoryView_avoid;
-- (void)invalidateInputAccessoryView_backup;
+- (void)setDefaultInputAccessoryView_avoid;
+- (void)setDefaultInputAccessoryView_backup;
 
 @end

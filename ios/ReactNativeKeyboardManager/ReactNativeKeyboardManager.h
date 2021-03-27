@@ -20,9 +20,13 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+@import Foundation;
+
 #import <React/RCTBridgeModule.h>
+#import <React/RCTConvert.h>
+
+@interface RCTConvert (IQAutoToolbarManageBehaviour)
+@end
 
 @interface ReactNativeKeyboardManager : NSObject <RCTBridgeModule>
-
-
 @end
