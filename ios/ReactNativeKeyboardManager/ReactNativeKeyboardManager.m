@@ -33,11 +33,16 @@
 
 @implementation RCTConvert(IQAutoToolbarManageBehaviour)
 
-RCT_ENUM_CONVERTER(IQAutoToolbarManageBehaviour, (@{
-    @"subviews": @(IQAutoToolbarManageBehaviourBySubviews),
-    @"tag": @(IQAutoToolbarManageBehaviourByTag),
-    @"position": @(IQAutoToolbarManageBehaviourByPosition),
-}), IQAutoToolbarManageBehaviourBySubviews, integerValue);
+RCT_ENUM_CONVERTER(
+                   IQAutoToolbarManageBehaviour,
+                   (@{
+                       @"subviews": @(IQAutoToolbarManageBehaviourBySubviews),
+                       @"tag": @(IQAutoToolbarManageBehaviourByTag),
+                       @"position": @(IQAutoToolbarManageBehaviourByPosition),
+                    }),
+                   IQAutoToolbarManageBehaviourBySubviews,
+                   integerValue
+                   );
 
 @end
 
@@ -58,9 +63,9 @@ void Swizzle(Class c, SEL orig, SEL new)
     Method origMethod = class_getInstanceMethod(c, orig);
     Method newMethod = class_getInstanceMethod(c, new);
     if(class_addMethod(c, orig, method_getImplementation(newMethod), method_getTypeEncoding(newMethod)))
-    class_replaceMethod(c, new, method_getImplementation(origMethod), method_getTypeEncoding(origMethod));
+        class_replaceMethod(c, new, method_getImplementation(origMethod), method_getTypeEncoding(origMethod));
     else
-    method_exchangeImplementations(origMethod, newMethod);
+        method_exchangeImplementations(origMethod, newMethod);
 }
 
 - (UIColor *)colorFromHexString:(NSString *)hexString {
@@ -76,6 +81,11 @@ void Swizzle(Class c, SEL orig, SEL new)
     return YES;
 }
 
+- (dispatch_queue_t)methodQueue
+{
+    return dispatch_get_main_queue();
+}
+
 BOOL debugging = NO;
 
 RCT_EXPORT_MODULE(ReactNativeKeyboardManager);
@@ -89,10 +99,8 @@ RCT_EXPORT_METHOD(setEnableDebugging: (BOOL) enabled) {
 // UIKeyboard handling
 
 RCT_EXPORT_METHOD(setEnable: (BOOL) enabled) {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        if (debugging) RCTLogInfo(@"KeyboardManager.setEnable: %d", enabled);
-        [[IQKeyboardManager shared] setEnable:enabled];
-    });
+    if (debugging) RCTLogInfo(@"KeyboardManager.setEnable: %d", enabled);
+    [[IQKeyboardManager shared] setEnable:enabled];
 }
 
 RCT_EXPORT_METHOD(setKeyboardDistanceFromTextField: (CGFloat) distance) {
@@ -116,10 +124,8 @@ RCT_EXPORT_METHOD(setToolbarPreviousNextButtonEnable: (BOOL) enabled) {
 }
 
 RCT_EXPORT_METHOD(setEnableAutoToolbar: (BOOL) enabled) {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        if (debugging) RCTLogInfo(@"KeyboardManager.setEnableAutoToolbar: %d", enabled);
-        [[IQKeyboardManager shared] setEnableAutoToolbar:enabled];
-    });
+    if (debugging) RCTLogInfo(@"KeyboardManager.setEnableAutoToolbar: %d", enabled);
+    [[IQKeyboardManager shared] setEnableAutoToolbar:enabled];
 }
 
 RCT_EXPORT_METHOD(setShouldToolbarUsesTextFieldTintColor: (BOOL) enabled) {
@@ -128,24 +134,20 @@ RCT_EXPORT_METHOD(setShouldToolbarUsesTextFieldTintColor: (BOOL) enabled) {
 }
 
 RCT_EXPORT_METHOD(setToolbarTintColor: (NSString*) hexString) {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        if (debugging) RCTLogInfo(@"KeyboardManager.setToolbarTintColor: %@", hexString);
-        UIColor* toolbarTintColor = [self colorFromHexString:hexString];
-        [[IQKeyboardManager shared] setToolbarTintColor: toolbarTintColor];
-    });
+    if (debugging) RCTLogInfo(@"KeyboardManager.setToolbarTintColor: %@", hexString);
+    UIColor* toolbarTintColor = [self colorFromHexString:hexString];
+    [[IQKeyboardManager shared] setToolbarTintColor: toolbarTintColor];
 }
 
 RCT_EXPORT_METHOD(setToolbarBarTintColor: (NSString*) hexString) {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        if (debugging) RCTLogInfo(@"KeyboardManager.setToolbarBarTintColor: %@", hexString);
-        UIColor* toolbarBarTintColor = [self colorFromHexString:hexString];
-        [[IQKeyboardManager shared] setToolbarBarTintColor: toolbarBarTintColor];
-    });
+    if (debugging) RCTLogInfo(@"KeyboardManager.setToolbarBarTintColor: %@", hexString);
+    UIColor* toolbarBarTintColor = [self colorFromHexString:hexString];
+    [[IQKeyboardManager shared] setToolbarBarTintColor: toolbarBarTintColor];
 }
 
 RCT_EXPORT_METHOD(setShouldShowToolbarPlaceholder: (BOOL) enabled) {
-  if (debugging) RCTLogInfo(@"KeyboardManager.setShouldShowToolbarPlaceholder: %d", enabled);
-  [[IQKeyboardManager shared] setShouldShowToolbarPlaceholder:enabled];
+    if (debugging) RCTLogInfo(@"KeyboardManager.setShouldShowToolbarPlaceholder: %d", enabled);
+    [[IQKeyboardManager shared] setShouldShowToolbarPlaceholder:enabled];
 }
 
 RCT_EXPORT_METHOD(setToolbarDoneBarButtonItemText: (NSString *) text) {
@@ -184,17 +186,13 @@ RCT_EXPORT_METHOD(setShouldResignOnTouchOutside: (BOOL) enabled) {
 }
 
 RCT_EXPORT_METHOD(resignFirstResponder) {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-      if (debugging) RCTLogInfo(@"KeyboardManager.resignFirstResponder");
-      [[IQKeyboardManager shared] resignFirstResponder];
-    });
+    if (debugging) RCTLogInfo(@"KeyboardManager.resignFirstResponder");
+    [[IQKeyboardManager shared] resignFirstResponder];
 }
 
 RCT_EXPORT_METHOD(reloadLayoutIfNeeded) {
     if (debugging) RCTLogInfo(@"KeyboardManager.reloadLayoutIfNeeded");
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [[IQKeyboardManager shared] reloadLayoutIfNeeded];
-    });
+    [[IQKeyboardManager shared] reloadLayoutIfNeeded];
 }
 
 // UIAnimation handling
