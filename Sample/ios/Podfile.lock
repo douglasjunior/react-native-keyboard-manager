@@ -218,7 +218,7 @@ PODS:
     - React-cxxreact (= 0.61.5)
     - React-jsi (= 0.61.5)
     - ReactCommon/jscallinvoker (= 0.61.5)
-  - ReactNativeKeyboardManager (6.5.4-alpha.2):
+  - ReactNativeKeyboardManager (6.5.4-0):
     - IQKeyboardManagerSwift (= 6.5.4)
     - React
     - React-RCTText
@@ -341,9 +341,9 @@ SPEC CHECKSUMS:
   React-RCTText: 9ccc88273e9a3aacff5094d2175a605efa854dbe
   React-RCTVibration: a49a1f42bf8f5acf1c3e297097517c6b3af377ad
   ReactCommon: 198c7c8d3591f975e5431bec1b0b3b581aa1c5dd
-  ReactNativeKeyboardManager: 283d9cef6f340c1369bdf0cf57bff425eaf83aed
+  ReactNativeKeyboardManager: 42eb423b3a30e92aaa982c74d89d7cb5d2c92b0e
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
 
 PODFILE CHECKSUM: e32bb3166695c598be3b9768a34a55c55a545ce7
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.1
