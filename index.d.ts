@@ -16,6 +16,7 @@ declare module 'react-native-keyboard-manager' {
   export function setKeyboardAppearance(appearance: KeyboardAppearance);
   export function setShouldResignOnTouchOutside(enable: boolean);
   export function setShouldPlayInputClicks(enable: boolean);
+  export function setShouldToolbarUsesTextFieldTintColor(enable: boolean);
   export function resignFirstResponder();
   export function isKeyboardShowing(): Promise<boolean>;
 }
