@@ -54,6 +54,10 @@ RCT_ENUM_CONVERTER(
     if (self) {
         Swizzle([RCTBaseTextInputView class], @selector(setDefaultInputAccessoryView_backup), @selector(setDefaultInputAccessoryView));
         Swizzle([RCTBaseTextInputView class], @selector(setDefaultInputAccessoryView), @selector(setDefaultInputAccessoryView_avoid));
+
+        // set LayoutIfNeededOnUpdate to YES to prevent problems with SateArea
+        // https://github.com/hackiftekhar/IQKeyboardManager/issues/1687#issuecomment-721618667
+        [[IQKeyboardManager shared] setLayoutIfNeededOnUpdate:YES];
     }
     return self;
 }
@@ -106,6 +110,11 @@ RCT_EXPORT_METHOD(setEnable: (BOOL) enabled) {
 RCT_EXPORT_METHOD(setKeyboardDistanceFromTextField: (CGFloat) distance) {
     if (debugging) RCTLogInfo(@"KeyboardManager.setKeyboardDistanceFromTextField: %f", distance);
     [[IQKeyboardManager shared] setKeyboardDistanceFromTextField:distance];
+}
+
+RCT_EXPORT_METHOD(setLayoutIfNeededOnUpdate: (BOOL) enabled) {
+    if (debugging) RCTLogInfo(@"KeyboardManager.setLayoutIfNeededOnUpdate: %d", enabled);
+    [[IQKeyboardManager shared] setLayoutIfNeededOnUpdate:enabled];
 }
 
 // UIToolbar handling

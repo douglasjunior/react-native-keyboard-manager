@@ -81,6 +81,7 @@ if (Platform.OS === 'ios') {
     KeyboardManager.setEnable(true);
     KeyboardManager.setEnableDebugging(false);
     KeyboardManager.setKeyboardDistanceFromTextField(10);
+    KeyboardManager.setLayoutIfNeededOnUpdate(true);
     KeyboardManager.setEnableAutoToolbar(true);
     KeyboardManager.setToolbarDoneBarButtonItemText("Done");
     KeyboardManager.setToolbarManageBehaviourBy("subviews"); // "subviews" | "tag" | "position"

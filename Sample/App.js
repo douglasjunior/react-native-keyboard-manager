@@ -38,6 +38,7 @@ import KeyboardManager, { PreviousNextView } from 'react-native-keyboard-manager
 KeyboardManager.setEnable(true);
 KeyboardManager.setEnableDebugging(true);
 KeyboardManager.setKeyboardDistanceFromTextField(30);
+KeyboardManager.setLayoutIfNeededOnUpdate(true);
 KeyboardManager.setEnableAutoToolbar(true);
 KeyboardManager.setToolbarDoneBarButtonItemText("Done");
 KeyboardManager.setToolbarManageBehaviourBy("subviews"); // "subviews" | "tag" | "position"
@@ -120,28 +121,28 @@ class App extends Component {
     return (
       <View style={{ flex: 1 }}>
         <SafeAreaView style={{ flex: 1 }}>
-        {/* To try with Modal, uncomment the two following lines. */}
-        {/* <Modal visible={true}> */}
-        {/* <PreviousNextView style={{ flex: 1 }}> */}
+          {/* To try with Modal, uncomment the two following lines. */}
+          {/* <Modal visible={true}> */}
+          {/* <PreviousNextView style={{ flex: 1 }}> */}
 
-        {/* ScrollView is not required, but may be needed in some cases. */}
-        <ScrollView>
+          {/* ScrollView is not required, but may be needed in some cases. */}
+          <ScrollView>
 
-          <View style={{ alignItems: "center" }}>
+            <View style={{ alignItems: "center" }}>
               <Text style={{ marginTop: 10, textAlign: "center" }}>React-Native Keyboard Manager</Text>
-            <View style={{ marginTop: 10, flexDirection: "row", alignItems: "center" }}>
-              <Text>Enable/Disable </Text>
-              <Switch onValueChange={this.onEnableDisable}
-                value={this.state.enableDisable} />
+              <View style={{ marginTop: 10, flexDirection: "row", alignItems: "center" }}>
+                <Text>Enable/Disable </Text>
+                <Switch onValueChange={this.onEnableDisable}
+                  value={this.state.enableDisable} />
+              </View>
             </View>
-          </View>
 
-          <View>{inputs}</View>
+            <View>{inputs}</View>
 
-        </ScrollView>
+          </ScrollView>
 
-        {/* </PreviousNextView> */}
-        {/* </Modal> */}
+          {/* </PreviousNextView> */}
+          {/* </Modal> */}
         </SafeAreaView>
       </View>
     )
