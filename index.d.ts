@@ -4,6 +4,7 @@ declare module 'react-native-keyboard-manager' {
 
   export function setEnable(enable: boolean);
   export function setEnableDebugging(enable: boolean);
+  export function setLayoutIfNeededOnUpdate(enable: boolean);
   export function setKeyboardDistanceFromTextField(distance: number);
   export function setEnableAutoToolbar(enable: boolean);
   export function setToolbarDoneBarButtonItemText(text: string);
