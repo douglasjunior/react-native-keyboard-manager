@@ -22,7 +22,7 @@
 
 @import Foundation;
 
-#import "RCTBaseTextInputView.h"
+#import <React/RCTBaseTextInputView.h>
 
 @interface RCTBaseTextInputView (Hack)
 

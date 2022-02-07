@@ -29,7 +29,7 @@
 #import <React/RCTLog.h>
 #import <React/RCTRootView.h>
 
-#import "RCTBaseTextInputView.h"
+#import <React/RCTBaseTextInputView.h>
 
 @implementation RCTConvert(IQAutoToolbarManageBehaviour)
 
