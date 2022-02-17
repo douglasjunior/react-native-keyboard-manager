@@ -101,6 +101,8 @@ if (Platform.OS === 'ios') {
 }
 ```
 
+For more details, see the [Sample Project](https://github.com/douglasjunior/react-native-keyboard-manager/blob/master/Sample/App.js) and the official [IQKeyboardManager documentation](https://github.com/hackiftekhar/IQKeyboardManager/tree/v6.5.4).
+
 ### Enable Next/Previous buttons
 
 If you want to use Next/Previous buttons, enable it.
@@ -130,8 +132,6 @@ class App extends Component {
   }
 }
 ```
-
-For more details, see the [Sample Project](https://github.com/douglasjunior/react-native-keyboard-manager/blob/master/Sample/App.js) and the official [IQKeyboardManager documentation](https://github.com/hackiftekhar/IQKeyboardManager/tree/v6.5.4).
 
 ## Contribute
 
