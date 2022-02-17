@@ -18,10 +18,6 @@ This is only for iOS, Android no needed. For Android just add `android:windowSof
 | - |
 | _Credits: IQKeyboardManager_ |
 
-## Expo Snack
-An
-[Expo Demo Link](https://snack.expo.io/@douglasjunior/react-native-keyboard-manager)
-
 ## NOTES:
 
 - for RN 0.60.0 or later use `react-native-keyboard-manager@latest`
