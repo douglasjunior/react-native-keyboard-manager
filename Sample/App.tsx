@@ -126,7 +126,8 @@ class App extends Component<any, StateType> {
             borderWidth: 1,
             borderRadius: 2,
             paddingLeft: 5,
-            maxHeight: 300, // maxHeight is recommended to multiline
+            // maxHeight is recommended for multiline, to prevent infinite grown
+            maxHeight: multiline ? 300 : undefined,
           }}
           ref={ref}
           value={this.state.inputsValues[ref] || ''}
