@@ -145,7 +145,7 @@ class App extends Component<any, StateType> {
           numberOfLines={multiline ? 10 : 1}
           returnKeyType={multiline ? 'default' : 'next'}
           onLayout={() => {
-            // When the input size (textarea) changes, it updates the keyboard position.
+            // When multiline=true and the input height changes, it updates the keyboard position.
             KeyboardManager.reloadLayoutIfNeeded();
           }}
         />
