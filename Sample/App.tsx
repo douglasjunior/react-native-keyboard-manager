@@ -126,7 +126,7 @@ class App extends Component<any, StateType> {
             borderWidth: 1,
             borderRadius: 2,
             paddingLeft: 5,
-            maxHeight: 300,
+            maxHeight: 300, // maxHeight is recommended to multiline
           }}
           ref={ref}
           value={this.state.inputsValues[ref] || ''}
@@ -157,32 +157,34 @@ class App extends Component<any, StateType> {
       <View style={{flex: 1}}>
         <SafeAreaView style={{flex: 1}}>
           {/* To try with Modal, uncomment the two following lines. */}
-          <Modal visible={true}>
-            <PreviousNextView style={{flex: 1}}>
-              {/* ScrollView is not required, but may be needed in some cases. */}
-              <ScrollView>
-                <View style={{alignItems: 'center'}}>
-                  <Text style={{marginTop: 10, textAlign: 'center'}}>
-                    React-Native Keyboard Manager
-                  </Text>
-                  <View
-                    style={{
-                      marginTop: 10,
-                      flexDirection: 'row',
-                      alignItems: 'center',
-                    }}>
-                    <Text>Enable/Disable </Text>
-                    <Switch
-                      onValueChange={this.onEnableDisable}
-                      value={this.state.enableDisable}
-                    />
-                  </View>
-                </View>
+          {/* <Modal visible={true}> */}
+          {/* <PreviousNextView style={{flex: 1}}> */}
 
-                <View>{INPUT_KEYS.map(this.renderInput)}</View>
-              </ScrollView>
-            </PreviousNextView>
-          </Modal>
+          {/* ScrollView is not required, but may be needed in some cases. */}
+          <ScrollView>
+            <View style={{alignItems: 'center'}}>
+              <Text style={{marginTop: 10, textAlign: 'center'}}>
+                React-Native Keyboard Manager
+              </Text>
+              <View
+                style={{
+                  marginTop: 10,
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                }}>
+                <Text>Enable/Disable </Text>
+                <Switch
+                  onValueChange={this.onEnableDisable}
+                  value={this.state.enableDisable}
+                />
+              </View>
+            </View>
+
+            <View>{INPUT_KEYS.map(this.renderInput)}</View>
+          </ScrollView>
+
+          {/* </PreviousNextView> */}
+          {/* </Modal> */}
         </SafeAreaView>
       </View>
     );
