@@ -4,29 +4,29 @@ declare module 'react-native-keyboard-manager' {
   export type ToolbarBehaviour = 'subviews' | 'tag' | 'position';
   export type KeyboardAppearance = 'default' | 'light' | 'dark';
 
-  export const PreviousNextView = {} as View;
+  export class PreviousNextView extends View { }
 
-  type KeyboardManager = {
-    setEnable(enable: boolean): Promise<void>;
-    setEnableDebugging(enable: boolean): Promise<void>;
-    setLayoutIfNeededOnUpdate(enable: boolean): Promise<void>;
-    setKeyboardDistanceFromTextField(distance: number): Promise<void>;
-    setEnableAutoToolbar(enable: boolean): Promise<void>;
-    setToolbarDoneBarButtonItemText(text: string): Promise<void>;
-    setToolbarManageBehaviourBy(behaviour: ToolbarBehaviour): Promise<void>;
-    setToolbarPreviousNextButtonEnable(enable: boolean): Promise<void>;
-    setToolbarTintColor(hexColor: string): Promise<void>;
-    setToolbarBarTintColor(hexColor: string): Promise<void>;
-    setShouldShowToolbarPlaceholder(enable: boolean): Promise<void>;
-    setOverrideKeyboardAppearance(enable: boolean): Promise<void>;
-    setKeyboardAppearance(appearance: KeyboardAppearance): Promise<void>;
-    setShouldResignOnTouchOutside(enable: boolean): Promise<void>;
-    setShouldPlayInputClicks(enable: boolean): Promise<void>;
-    setShouldToolbarUsesTextFieldTintColor(enable: boolean): Promise<void>;
-    resignFirstResponder(): Promise<void>;
-    reloadLayoutIfNeeded(): Promise<void>;
-    isKeyboardShowing(): Promise<boolean>;
+  namespace KeyboardManager {
+    export function setEnable(enable: boolean): Promise<void>;
+    export function setEnableDebugging(enable: boolean): Promise<void>;
+    export function setLayoutIfNeededOnUpdate(enable: boolean): Promise<void>;
+    export function setKeyboardDistanceFromTextField(distance: number): Promise<void>;
+    export function setEnableAutoToolbar(enable: boolean): Promise<void>;
+    export function setToolbarDoneBarButtonItemText(text: string): Promise<void>;
+    export function setToolbarManageBehaviourBy(behaviour: ToolbarBehaviour): Promise<void>;
+    export function setToolbarPreviousNextButtonEnable(enable: boolean): Promise<void>;
+    export function setToolbarTintColor(hexColor: string): Promise<void>;
+    export function setToolbarBarTintColor(hexColor: string): Promise<void>;
+    export function setShouldShowToolbarPlaceholder(enable: boolean): Promise<void>;
+    export function setOverrideKeyboardAppearance(enable: boolean): Promise<void>;
+    export function setKeyboardAppearance(appearance: KeyboardAppearance): Promise<void>;
+    export function setShouldResignOnTouchOutside(enable: boolean): Promise<void>;
+    export function setShouldPlayInputClicks(enable: boolean): Promise<void>;
+    export function setShouldToolbarUsesTextFieldTintColor(enable: boolean): Promise<void>;
+    export function resignFirstResponder(): Promise<void>;
+    export function reloadLayoutIfNeeded(): Promise<void>;
+    export function isKeyboardShowing(): Promise<boolean>;
   }
 
-  export default {} as KeyboardManager;
+  export default KeyboardManager;
 }
