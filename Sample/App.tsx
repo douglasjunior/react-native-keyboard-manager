@@ -31,25 +31,28 @@ import {
   Switch,
   Modal,
   SafeAreaView,
+  Platform
 } from 'react-native';
 
 import KeyboardManager, {PreviousNextView} from 'react-native-keyboard-manager';
 
-KeyboardManager.setEnable(true);
-KeyboardManager.setEnableDebugging(true);
-KeyboardManager.setKeyboardDistanceFromTextField(30);
-KeyboardManager.setLayoutIfNeededOnUpdate(true);
-KeyboardManager.setEnableAutoToolbar(true);
-KeyboardManager.setToolbarDoneBarButtonItemText('Done');
-KeyboardManager.setToolbarManageBehaviourBy('subviews'); // "subviews" | "tag" | "position"
-KeyboardManager.setToolbarPreviousNextButtonEnable(true);
-KeyboardManager.setToolbarTintColor('#FF00FF'); // Only #000000 format is supported
-KeyboardManager.setToolbarBarTintColor('#FFFF00'); // Only #000000 format is supported
-KeyboardManager.setShouldShowToolbarPlaceholder(true);
-KeyboardManager.setOverrideKeyboardAppearance(false);
-KeyboardManager.setKeyboardAppearance('default'); // "default" | "light" | "dark"
-KeyboardManager.setShouldResignOnTouchOutside(true);
-KeyboardManager.setShouldPlayInputClicks(true);
+if (Platform.OS === 'ios') {
+  KeyboardManager.setEnable(true);
+  KeyboardManager.setEnableDebugging(true);
+  KeyboardManager.setKeyboardDistanceFromTextField(30);
+  KeyboardManager.setLayoutIfNeededOnUpdate(true);
+  KeyboardManager.setEnableAutoToolbar(true);
+  KeyboardManager.setToolbarDoneBarButtonItemText('Done');
+  KeyboardManager.setToolbarManageBehaviourBy('subviews'); // "subviews" | "tag" | "position"
+  KeyboardManager.setToolbarPreviousNextButtonEnable(true);
+  KeyboardManager.setToolbarTintColor('#FF00FF'); // Only #000000 format is supported
+  KeyboardManager.setToolbarBarTintColor('#FFFF00'); // Only #000000 format is supported
+  KeyboardManager.setShouldShowToolbarPlaceholder(true);
+  KeyboardManager.setOverrideKeyboardAppearance(false);
+  KeyboardManager.setKeyboardAppearance('default'); // "default" | "light" | "dark"
+  KeyboardManager.setShouldResignOnTouchOutside(true);
+  KeyboardManager.setShouldPlayInputClicks(true);
+}
 
 const INPUT_KEYS = [
   'input1',
