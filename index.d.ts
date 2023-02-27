@@ -7,24 +7,24 @@ declare module 'react-native-keyboard-manager' {
   export class PreviousNextView extends View { }
 
   namespace KeyboardManager {
-    function setEnable(enable: boolean): Promise<void>;
-    function setEnableDebugging(enable: boolean): Promise<void>;
-    function setLayoutIfNeededOnUpdate(enable: boolean): Promise<void>;
-    function setKeyboardDistanceFromTextField(distance: number): Promise<void>;
-    function setEnableAutoToolbar(enable: boolean): Promise<void>;
-    function setToolbarDoneBarButtonItemText(text: string): Promise<void>;
-    function setToolbarManageBehaviourBy(behaviour: ToolbarBehaviour): Promise<void>;
-    function setToolbarPreviousNextButtonEnable(enable: boolean): Promise<void>;
-    function setToolbarTintColor(hexColor: string): Promise<void>;
-    function setToolbarBarTintColor(hexColor: string): Promise<void>;
-    function setShouldShowToolbarPlaceholder(enable: boolean): Promise<void>;
-    function setOverrideKeyboardAppearance(enable: boolean): Promise<void>;
-    function setKeyboardAppearance(appearance: KeyboardAppearance): Promise<void>;
-    function setShouldResignOnTouchOutside(enable: boolean): Promise<void>;
-    function setShouldPlayInputClicks(enable: boolean): Promise<void>;
-    function setShouldToolbarUsesTextFieldTintColor(enable: boolean): Promise<void>;
-    function resignFirstResponder(): Promise<void>;
-    function reloadLayoutIfNeeded(): Promise<void>;
+    function setEnable(enable: boolean): void;
+    function setEnableDebugging(enable: boolean): void;
+    function setLayoutIfNeededOnUpdate(enable: boolean): void;
+    function setKeyboardDistanceFromTextField(distance: number): void;
+    function setEnableAutoToolbar(enable: boolean): void;
+    function setToolbarDoneBarButtonItemText(text: string): void;
+    function setToolbarManageBehaviourBy(behaviour: ToolbarBehaviour): void;
+    function setToolbarPreviousNextButtonEnable(enable: boolean): void;
+    function setToolbarTintColor(hexColor: string): void;
+    function setToolbarBarTintColor(hexColor: string): void;
+    function setShouldShowToolbarPlaceholder(enable: boolean): void;
+    function setOverrideKeyboardAppearance(enable: boolean): void;
+    function setKeyboardAppearance(appearance: KeyboardAppearance): void;
+    function setShouldResignOnTouchOutside(enable: boolean): void;
+    function setShouldPlayInputClicks(enable: boolean): void;
+    function setShouldToolbarUsesTextFieldTintColor(enable: boolean): void;
+    function resignFirstResponder(): void;
+    function reloadLayoutIfNeeded(): void;
     function isKeyboardShowing(): Promise<boolean>;
   }
 
