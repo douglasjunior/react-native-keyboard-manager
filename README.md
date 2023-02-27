@@ -137,6 +137,7 @@ class App extends Component {
 
 # Known issues
 
+- If your project is managed by Expo, you need to eject.
 - Problem with "@react-navigation/native-stack" and "IQKeyboardManager" on iOS: https://github.com/douglasjunior/react-native-keyboard-manager/issues/89
 
 ## Contribute
