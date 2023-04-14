@@ -31,7 +31,7 @@ import {
   Switch,
   Modal,
   SafeAreaView,
-  Platform
+  Platform,
 } from 'react-native';
 
 import KeyboardManager, {PreviousNextView} from 'react-native-keyboard-manager';

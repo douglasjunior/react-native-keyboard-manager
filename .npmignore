@@ -1,4 +1,13 @@
+.vscode/
+.github/
+.prettierrc.js
+.eslintrc.js
+.eslintignore
+tsconfig.json
+babel.config.js
+node_modules/
+__tests__/
+screenshots/
 Sample/
-__tests__
-screenshots
-.github
+src/
+scripts/
