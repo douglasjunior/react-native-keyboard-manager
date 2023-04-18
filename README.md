@@ -170,5 +170,3 @@ Copyright (c) 2013-16 Iftekhar Qurashi
 ```
 
 See the full [IQKeyboardManager license file](https://github.com/hackiftekhar/IQKeyboardManager/blob/master/LICENSE.md).
-
-![](https://hit.yhype.me/github/profile?user_id=1512341)
