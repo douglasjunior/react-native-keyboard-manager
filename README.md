@@ -121,9 +121,10 @@ if (Platform.OS === 'ios') {
 }
 ```
 
-And if you want to use Next/Previous buttons inside a `Modal`, you need to wrap the fields in a `PreviousNextView`.
+And if you want to use Next/Previous buttons inside a React Native `Modal`, you need to wrap the fields in a `PreviousNextView`.
 
 ```jsx
+import { View, Modal } from 'react-native';
 import { PreviousNextView } from 'react-native-keyboard-manager';
 
 class App extends Component {
