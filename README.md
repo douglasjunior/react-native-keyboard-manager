@@ -135,6 +135,12 @@ class App extends Component {
 }
 ```
 
+# Mock with jest
+
+```js
+jest.mock('react-native-keyboard-manager', () => require('react-native-keyboard-manager/jest/mock'));
+```
+
 # Known issues
 
 - If your project is managed by Expo, you need to eject.
