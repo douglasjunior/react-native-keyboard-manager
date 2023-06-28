@@ -135,13 +135,13 @@ class App extends Component {
 }
 ```
 
-# Mock with jest
+## Mock with jest
 
 ```js
 jest.mock('react-native-keyboard-manager', () => require('react-native-keyboard-manager/jest/mock'));
 ```
 
-# Known issues
+## Known issues
 
 - If your project is managed by Expo, you will need to eject.
 - Problem with "@react-navigation/native-stack" and "IQKeyboardManager" on iOS: https://github.com/douglasjunior/react-native-keyboard-manager/issues/89
