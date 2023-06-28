@@ -18,7 +18,15 @@ This is only for iOS, Android no needed. For Android just add `android:windowSof
 | - |
 | _Credits: IQKeyboardManager_ |
 
-## NOTES:
+## Summary
+
+- [Install](#install)
+- [Linking](#auto-linking)
+- [Usage](#usage)
+- [Mock with jest](#mock-with-jest)
+- [Known issues](#known-issues)
+
+## Notes:
 
 - for RN 0.60.0 or later use `react-native-keyboard-manager@latest`
 - for RN 0.53.0 ... 0.59.10, use `react-native-keyboard-manager@4.0.13-12`
