@@ -152,7 +152,7 @@ jest.mock('react-native-keyboard-manager', () => require('react-native-keyboard-
 
 ## Known issues
 
-- If your project is managed by Expo, you will need to eject.
+- If your project is managed by Expo, you will need to eject: https://github.com/douglasjunior/react-native-keyboard-manager/issues/100
 - Problem with "@react-navigation/native-stack" and "IQKeyboardManager" on iOS: https://github.com/douglasjunior/react-native-keyboard-manager/issues/89
 - Pod install failed on M1 machines: https://github.com/douglasjunior/react-native-keyboard-manager/issues/104
 
