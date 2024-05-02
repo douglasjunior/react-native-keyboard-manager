@@ -31,18 +31,19 @@
 
 #import <React/RCTBaseTextInputView.h>
 
-@implementation RCTConvert(IQAutoToolbarManageBehaviour)
+@implementation RCTConvert(IQAutoToolbarManageBehavior)
 
 RCT_ENUM_CONVERTER(
-                   IQAutoToolbarManageBehaviour,
+                   IQAutoToolbarManageBehavior,
                    (@{
-                       @"subviews": @(IQAutoToolbarManageBehaviourBySubviews),
-                       @"tag": @(IQAutoToolbarManageBehaviourByTag),
-                       @"position": @(IQAutoToolbarManageBehaviourByPosition),
-                    }),
-                   IQAutoToolbarManageBehaviourBySubviews,
+                    @"subviews": @(IQAutoToolbarManageBehaviorBySubviews),
+                    @"tag": @(IQAutoToolbarManageBehaviorByTag),
+                    @"position": @(IQAutoToolbarManageBehaviorByPosition),
+                   }),
+                   IQAutoToolbarManageBehaviorBySubviews,
                    integerValue
                    );
+
 
 @end
 
@@ -54,7 +55,7 @@ RCT_ENUM_CONVERTER(
     if (self) {
         Swizzle([RCTBaseTextInputView class], @selector(setDefaultInputAccessoryView_backup), @selector(setDefaultInputAccessoryView));
         Swizzle([RCTBaseTextInputView class], @selector(setDefaultInputAccessoryView), @selector(setDefaultInputAccessoryView_avoid));
-
+        
         // set LayoutIfNeededOnUpdate to YES to prevent problems with SateArea
         // https://github.com/hackiftekhar/IQKeyboardManager/issues/1687#issuecomment-721618667
         [[IQKeyboardManager shared] setLayoutIfNeededOnUpdate:YES];
@@ -137,61 +138,62 @@ RCT_EXPORT_METHOD(setEnableAutoToolbar: (BOOL) enabled) {
     [[IQKeyboardManager shared] setEnableAutoToolbar:enabled];
 }
 
-RCT_EXPORT_METHOD(setShouldToolbarUsesTextFieldTintColor: (BOOL) enabled) {
-    if (debugging) RCTLogInfo(@"KeyboardManager.setShouldToolbarUsesTextFieldTintColor: %d", enabled);
-    [[IQKeyboardManager shared] setShouldToolbarUsesTextFieldTintColor:enabled];
+RCT_EXPORT_METHOD(setToolbarUseTextFieldTintColor: (BOOL) enabled) {
+    if (debugging) RCTLogInfo(@"KeyboardManager.setToolbarUseTextFieldTintColor: %d", enabled);
+    [[IQKeyboardManager shared].toolbarConfiguration setUseTextFieldTintColor:enabled];
 }
 
 RCT_EXPORT_METHOD(setToolbarTintColor: (NSString*) hexString) {
     if (debugging) RCTLogInfo(@"KeyboardManager.setToolbarTintColor: %@", hexString);
     UIColor* toolbarTintColor = [self colorFromHexString:hexString];
-    [[IQKeyboardManager shared] setToolbarTintColor: toolbarTintColor];
+    [[IQKeyboardManager shared].toolbarConfiguration setTintColor: toolbarTintColor];
 }
 
 RCT_EXPORT_METHOD(setToolbarBarTintColor: (NSString*) hexString) {
     if (debugging) RCTLogInfo(@"KeyboardManager.setToolbarBarTintColor: %@", hexString);
     UIColor* toolbarBarTintColor = [self colorFromHexString:hexString];
-    [[IQKeyboardManager shared] setToolbarBarTintColor: toolbarBarTintColor];
+    [[IQKeyboardManager shared].toolbarConfiguration setBarTintColor: toolbarBarTintColor];
 }
 
-RCT_EXPORT_METHOD(setShouldShowToolbarPlaceholder: (BOOL) enabled) {
-    if (debugging) RCTLogInfo(@"KeyboardManager.setShouldShowToolbarPlaceholder: %d", enabled);
-    [[IQKeyboardManager shared] setShouldShowToolbarPlaceholder:enabled];
+RCT_EXPORT_METHOD(setToolbarShowPlaceholder: (BOOL) enabled) {
+    if (debugging) RCTLogInfo(@"KeyboardManager.setToolbarShowPlaceholder: %d", enabled);
+    [[IQKeyboardManager shared].toolbarConfiguration.placeholderConfiguration setShowPlaceholder:enabled];
 }
 
 RCT_EXPORT_METHOD(setToolbarDoneBarButtonItemText: (NSString *) text) {
     if (debugging) RCTLogInfo(@"KeyboardManager.setToolbarDoneBarButtonItemText: %@", text);
-    [[IQKeyboardManager shared] setToolbarDoneBarButtonItemText:text];
+    IQBarButtonItemConfiguration* doneBarConfiguration = [[IQBarButtonItemConfiguration alloc] initWithTitle:text action:nil];
+    [[IQKeyboardManager shared].toolbarConfiguration setDoneBarButtonConfiguration:doneBarConfiguration];
 }
 
-RCT_EXPORT_METHOD(setToolbarManageBehaviourBy: (IQAutoToolbarManageBehaviour) behaviour) {
-    if (debugging) RCTLogInfo(@"KeyboardManager.setToolbarManageBehaviour: %ld", behaviour);
-    [[IQKeyboardManager shared] setToolbarManageBehaviour:behaviour];
+RCT_EXPORT_METHOD(setToolbarManageBehavior: (IQAutoToolbarManageBehavior) behaviour) {
+    if (debugging) RCTLogInfo(@"KeyboardManager.setToolbarManageBehavior: %ld", behaviour);
+    [[IQKeyboardManager shared].toolbarConfiguration setManageBehavior:behaviour];
 }
 
 RCT_EXPORT_METHOD(setShouldPlayInputClicks: (BOOL) enabled) {
     if (debugging) RCTLogInfo(@"KeyboardManager.setShouldPlayInputClicks: %d", enabled);
-    [[IQKeyboardManager shared] setShouldPlayInputClicks:enabled];
+    [[IQKeyboardManager shared] setPlayInputClicks:enabled];
 }
 
 // UIKeyboard Apparence overriding
 // https://github.com/facebook/react-native/blob/v0.60.0/React/Base/RCTConvert.m#L398
 
-RCT_EXPORT_METHOD(setOverrideKeyboardAppearance: (BOOL) enabled) {
-    if (debugging) RCTLogInfo(@"KeyboardManager.setOverrideKeyboardAppearance: %d", enabled);
-    [[IQKeyboardManager shared] setOverrideKeyboardAppearance:enabled];
+RCT_EXPORT_METHOD(setKeyboardOverrideAppearance: (BOOL) enabled) {
+    if (debugging) RCTLogInfo(@"KeyboardManager.setKeyboardOverrideAppearance: %d", enabled);
+    [[IQKeyboardManager shared].keyboardConfiguration setOverrideAppearance:enabled];
 }
 
 RCT_EXPORT_METHOD(setKeyboardAppearance: (UIKeyboardAppearance) appearance) {
     if (debugging) RCTLogInfo(@"KeyboardManager.setKeyboardAppearance: %ld", appearance);
-    [[IQKeyboardManager shared] setKeyboardAppearance:appearance];
+    [[IQKeyboardManager shared].keyboardConfiguration setAppearance:appearance];
 }
 
 // UITextField/UITextView Resign handling
 
-RCT_EXPORT_METHOD(setShouldResignOnTouchOutside: (BOOL) enabled) {
-    if (debugging) RCTLogInfo(@"KeyboardManager.setShouldResignOnTouchOutside: %d", enabled);
-    [[IQKeyboardManager shared] setShouldResignOnTouchOutside:enabled];
+RCT_EXPORT_METHOD(setResignOnTouchOutside: (BOOL) enabled) {
+    if (debugging) RCTLogInfo(@"KeyboardManager.setResignOnTouchOutside: %d", enabled);
+    [[IQKeyboardManager shared] setResignOnTouchOutside:enabled];
 }
 
 RCT_EXPORT_METHOD(resignFirstResponder) {
@@ -202,14 +204,6 @@ RCT_EXPORT_METHOD(resignFirstResponder) {
 RCT_EXPORT_METHOD(reloadLayoutIfNeeded) {
     if (debugging) RCTLogInfo(@"KeyboardManager.reloadLayoutIfNeeded");
     [[IQKeyboardManager shared] reloadLayoutIfNeeded];
-}
-
-// UIAnimation handling
-
-RCT_EXPORT_METHOD(isKeyboardShowing: (RCTPromiseResolveBlock) resolve rejecter: (RCTPromiseRejectBlock) reject) {
-    BOOL isKeyboardShowing = [IQKeyboardManager shared].keyboardShowing;
-    if (debugging) RCTLogInfo(@"KeyboardManager.isKeyboardShowing: %d", isKeyboardShowing);
-    resolve(@(isKeyboardShowing));
 }
 
 @end

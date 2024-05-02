@@ -32,6 +32,8 @@ import {
   Modal,
   SafeAreaView,
   Platform,
+  Keyboard,
+  Button,
 } from 'react-native';
 
 import KeyboardManager, {PreviousNextView} from 'react-native-keyboard-manager';
@@ -43,14 +45,14 @@ if (Platform.OS === 'ios') {
   KeyboardManager.setLayoutIfNeededOnUpdate(true);
   KeyboardManager.setEnableAutoToolbar(true);
   KeyboardManager.setToolbarDoneBarButtonItemText('Done');
-  KeyboardManager.setToolbarManageBehaviourBy('subviews'); // "subviews" | "tag" | "position"
+  KeyboardManager.setToolbarManageBehavior('subviews'); // "subviews" | "tag" | "position"
   KeyboardManager.setToolbarPreviousNextButtonEnable(true);
   KeyboardManager.setToolbarTintColor('#FF00FF'); // Only #000000 format is supported
   KeyboardManager.setToolbarBarTintColor('#FFFF00'); // Only #000000 format is supported
-  KeyboardManager.setShouldShowToolbarPlaceholder(true);
-  KeyboardManager.setOverrideKeyboardAppearance(false);
+  KeyboardManager.setToolbarShowPlaceholder(true);
+  KeyboardManager.setKeyboardOverrideAppearance(false);
   KeyboardManager.setKeyboardAppearance('default'); // "default" | "light" | "dark"
-  KeyboardManager.setShouldResignOnTouchOutside(true);
+  KeyboardManager.setResignOnTouchOutside(true);
   KeyboardManager.setShouldPlayInputClicks(true);
 }
 
@@ -68,6 +70,7 @@ const INPUT_KEYS = [
 ];
 
 type StateType = {
+  modalVisible?: boolean;
   enableDisable?: boolean;
   inputsValues: {
     [key: string]: string;
@@ -79,6 +82,7 @@ class App extends Component<any, StateType> {
     super(props);
 
     this.state = {
+      modalVisible: false,
       enableDisable: true,
       inputsValues: {},
     };
@@ -89,15 +93,25 @@ class App extends Component<any, StateType> {
   }
 
   componentDidUpdate() {
-    KeyboardManager.isKeyboardShowing().then(isShowing => {
-      console.log('isKeyboardShowing: ' + isShowing);
-    });
+    console.log('isKeyboardShowing: ' + Keyboard.isVisible());
   }
 
-  onEnableDisable = (value: boolean) => {
+  handleEnableDisable = (value: boolean) => {
     KeyboardManager.setEnable(value);
     this.setState({
       enableDisable: value,
+    });
+  };
+
+  handleShowModal = () => {
+    this.setState({
+      modalVisible: true,
+    });
+  };
+
+  handleCloseModal = () => {
+    this.setState({
+      modalVisible: false,
     });
   };
 
@@ -156,39 +170,50 @@ class App extends Component<any, StateType> {
     );
   };
 
+  renderContent = () => {
+    return (
+      <ScrollView>
+        <View style={{alignItems: 'center'}}>
+          <Text style={{marginTop: 10, textAlign: 'center'}}>
+            React-Native Keyboard Manager
+          </Text>
+          <View
+            style={{
+              marginTop: 10,
+              flexDirection: 'row',
+              alignItems: 'center',
+            }}>
+            <Text>Enable/Disable </Text>
+            <Switch
+              onValueChange={this.handleEnableDisable}
+              value={this.state.enableDisable}
+            />
+          </View>
+        </View>
+
+        <View>{INPUT_KEYS.map(this.renderInput)}</View>
+      </ScrollView>
+    );
+  };
+
   render() {
     return (
       <View style={{flex: 1}}>
         <SafeAreaView style={{flex: 1}}>
-          {/* To try with Modal, uncomment the two following lines. */}
-          {/* <Modal visible={true}> */}
-          {/* <PreviousNextView style={{flex: 1}}> */}
+          <Button onPress={this.handleShowModal} title="Show in modal" />
+          {this.renderContent()}
 
-          {/* ScrollView is not required, but may be needed in some cases. */}
-          <ScrollView>
-            <View style={{alignItems: 'center'}}>
-              <Text style={{marginTop: 10, textAlign: 'center'}}>
-                React-Native Keyboard Manager
-              </Text>
-              <View
-                style={{
-                  marginTop: 10,
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                }}>
-                <Text>Enable/Disable </Text>
-                <Switch
-                  onValueChange={this.onEnableDisable}
-                  value={this.state.enableDisable}
-                />
-              </View>
-            </View>
-
-            <View>{INPUT_KEYS.map(this.renderInput)}</View>
-          </ScrollView>
-
-          {/* </PreviousNextView> */}
-          {/* </Modal> */}
+          <Modal
+            onRequestClose={this.handleCloseModal}
+            visible={this.state.modalVisible}>
+            <SafeAreaView style={{flex: 1, backgroundColor: '#e1e1e1'}}>
+              <Button onPress={this.handleCloseModal} title="Close modal" />
+              {/* Inside a native modal the inputs need to be wrapped inside PreviousNextView */}
+              <PreviousNextView style={{flex: 1}}>
+                {this.renderContent()}
+              </PreviousNextView>
+            </SafeAreaView>
+          </Modal>
         </SafeAreaView>
       </View>
     );

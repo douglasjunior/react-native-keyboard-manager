@@ -50,19 +50,18 @@ type KeyboardManagerType = {
   setKeyboardDistanceFromTextField(distance: number): void;
   setEnableAutoToolbar(enable: boolean): void;
   setToolbarDoneBarButtonItemText(text: string): void;
-  setToolbarManageBehaviourBy(behaviour: ToolbarBehaviour): void;
+  setToolbarManageBehavior(behaviour: ToolbarBehaviour): void;
   setToolbarPreviousNextButtonEnable(enable: boolean): void;
   setToolbarTintColor(hexColor: string): void;
   setToolbarBarTintColor(hexColor: string): void;
-  setShouldShowToolbarPlaceholder(enable: boolean): void;
-  setOverrideKeyboardAppearance(enable: boolean): void;
+  setToolbarShowPlaceholder(enable: boolean): void;
+  setKeyboardOverrideAppearance(enable: boolean): void;
   setKeyboardAppearance(appearance: KeyboardAppearance): void;
-  setShouldResignOnTouchOutside(enable: boolean): void;
+  setResignOnTouchOutside(enable: boolean): void;
   setShouldPlayInputClicks(enable: boolean): void;
-  setShouldToolbarUsesTextFieldTintColor(enable: boolean): void;
+  setToolbarUseTextFieldTintColor(enable: boolean): void;
   resignFirstResponder(): void;
   reloadLayoutIfNeeded(): void;
-  isKeyboardShowing(): Promise<boolean>;
 };
 
 export const KeyboardManager =
