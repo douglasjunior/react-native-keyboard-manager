@@ -43,27 +43,7 @@ Or
 npm i -S react-native-keyboard-manager
 ```
 
-## Auto linking
-
-If you are using `React Native 0.60.+` go to the folder **your-project/ios** and run `pod install`, and you're done. 
-
-If not, use one of the following methods to link.
-
-## Link with `react-native link`:
-
-React native link is no longer supported due to cocoapods dependency. To avoid cocoapods you can use the version `4.0.13-X`.
-
-## Link manual with cocoapods:
-
-1. Add this line to your Podfile
-    ```bash
-    pod 'ReactNativeKeyboardManager', :path => '../node_modules/react-native-keyboard-manager'
-    ```
-    
-2. run
-    ```bash
-    pod install
-    ```
+Go to the folder **your-project/ios** and run `pod install`, and you're done. 
 
 ## Post install
 
@@ -91,25 +71,23 @@ if (Platform.OS === 'ios') {
     KeyboardManager.setKeyboardDistanceFromTextField(10);
     KeyboardManager.setLayoutIfNeededOnUpdate(true);
     KeyboardManager.setEnableAutoToolbar(true);
+    KeyboardManager.setToolbarUseTextFieldTintColor('#FF00FF');
     KeyboardManager.setToolbarDoneBarButtonItemText("Done");
-    KeyboardManager.setToolbarManageBehaviourBy("subviews"); // "subviews" | "tag" | "position"
+    KeyboardManager.setToolbarManageBehavior("subviews"); // "subviews" | "tag" | "position"
     KeyboardManager.setToolbarPreviousNextButtonEnable(false);
     KeyboardManager.setToolbarTintColor('#0000FF'); // Only #000000 format is supported
     KeyboardManager.setToolbarBarTintColor('#FFFFFF'); // Only #000000 format is supported
-    KeyboardManager.setShouldShowToolbarPlaceholder(true);
-    KeyboardManager.setOverrideKeyboardAppearance(false);
+    KeyboardManager.setToolbarShowPlaceholder(true);
+    KeyboardManager.setKeyboardOverrideAppearance(false);
     KeyboardManager.setKeyboardAppearance("default"); // "default" | "light" | "dark"
-    KeyboardManager.setShouldResignOnTouchOutside(true);
+    KeyboardManager.setResignOnTouchOutside(true);
     KeyboardManager.setShouldPlayInputClicks(true);
     KeyboardManager.resignFirstResponder();
-    KeyboardManager.isKeyboardShowing()
-      .then((isShowing) => {
-          // ...
-      });
+    KeyboardManager.reloadLayoutIfNeeded();
 }
 ```
 
-For more details, see the [Sample Project](https://github.com/douglasjunior/react-native-keyboard-manager/blob/master/Sample/App.tsx) and the official [IQKeyboardManager documentation](https://github.com/hackiftekhar/IQKeyboardManager/tree/v6.5.4).
+For more details, see the [Sample Project](https://github.com/douglasjunior/react-native-keyboard-manager/blob/master/Sample/App.tsx) and the official [IQKeyboardManager documentation](https://github.com/hackiftekhar/IQKeyboardManager/).
 
 ### Enable Next/Previous buttons
 
