@@ -1,60 +1,17 @@
-/**
- * MIT License
- *
- * Copyright (c) 2017 Douglas Nassif Roma Junior
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-
 import React, {Component} from 'react';
 import {
-  Text,
-  View,
-  TextInput,
-  ScrollView,
-  Switch,
+  Button,
+  Keyboard,
   Modal,
   SafeAreaView,
-  Platform,
-  Keyboard,
-  Button,
+  ScrollView,
+  Switch,
+  Text,
+  TextInput,
+  View,
 } from 'react-native';
 
 import KeyboardManager, {PreviousNextView} from 'react-native-keyboard-manager';
-
-if (Platform.OS === 'ios') {
-  KeyboardManager.setEnable(true);
-  KeyboardManager.setEnableDebugging(true);
-  KeyboardManager.setKeyboardDistanceFromTextField(30);
-  KeyboardManager.setLayoutIfNeededOnUpdate(true);
-  KeyboardManager.setEnableAutoToolbar(true);
-  KeyboardManager.setToolbarDoneBarButtonItemText('Done');
-  KeyboardManager.setToolbarManageBehavior('subviews'); // "subviews" | "tag" | "position"
-  KeyboardManager.setToolbarPreviousNextButtonEnable(true);
-  KeyboardManager.setToolbarTintColor('#FF00FF'); // Only #000000 format is supported
-  KeyboardManager.setToolbarBarTintColor('#FFFF00'); // Only #000000 format is supported
-  KeyboardManager.setToolbarShowPlaceholder(true);
-  KeyboardManager.setKeyboardOverrideAppearance(false);
-  KeyboardManager.setKeyboardAppearance('default'); // "default" | "light" | "dark"
-  KeyboardManager.setResignOnTouchOutside(true);
-  KeyboardManager.setShouldPlayInputClicks(true);
-}
 
 const INPUT_KEYS = [
   'input1',
@@ -77,7 +34,7 @@ type StateType = {
   };
 };
 
-class App extends Component<any, StateType> {
+class FormScreen extends Component<any, StateType> {
   constructor(props: any) {
     super(props);
 
@@ -107,6 +64,10 @@ class App extends Component<any, StateType> {
     this.setState({
       modalVisible: true,
     });
+  };
+
+  handleOtherScreen = () => {
+    this.props.navigation.navigate('OtherScreen');
   };
 
   handleCloseModal = () => {
@@ -201,6 +162,10 @@ class App extends Component<any, StateType> {
       <View style={{flex: 1}}>
         <SafeAreaView style={{flex: 1}}>
           <Button onPress={this.handleShowModal} title="Show in modal" />
+          <Button
+            onPress={this.handleOtherScreen}
+            title="Navigate to other screen"
+          />
           {this.renderContent()}
 
           <Modal
@@ -220,4 +185,4 @@ class App extends Component<any, StateType> {
   }
 }
 
-export default App;
+export default FormScreen;
