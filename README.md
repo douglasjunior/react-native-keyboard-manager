@@ -41,6 +41,7 @@ npm i -S react-native-keyboard-manager
 2. Add the CocoaPods dependency to your `ios/Podfile`:
 
 ```ruby
+    # Add temporary IQKeyboardManagerSwift fork to solve problems with PrivacyInfo.xcprivacy
     pod 'IQKeyboardManagerSwift', :git => 'https://github.com/douglasjunior/IQKeyboardManager.git', :branch => 'react-native-keyboard-manager'
 ```
 
@@ -138,8 +139,9 @@ jest.mock('react-native-keyboard-manager', () => require('react-native-keyboard-
 # Known issues
 
 - If your project is managed by Expo, you will need to eject.
-- Problem with "@react-navigation/native-stack" and "IQKeyboardManager" on iOS: https://github.com/douglasjunior/react-native-keyboard-manager/issues/89
 - Pod install failed on M1 machines: https://github.com/douglasjunior/react-native-keyboard-manager/issues/104
+- ~~Problem with "@react-navigation/native-stack" and "IQKeyboardManager" on iOS: https://github.com/douglasjunior/react-native-keyboard-manager/issues/89~~
+    - Seems to be fixed in version `6.5.16-0`
 
 ## Contribute
 
