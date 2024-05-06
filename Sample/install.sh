@@ -1,9 +1,9 @@
 #!/bin/bash
 
 rm -rf ../node_modules/
+rm -rf .git/
 rm -rf node_modules/
 rm -rf ios/Pods
-rm -rf ios/LibrarySample.xcworkspace
 
 yarn install
 

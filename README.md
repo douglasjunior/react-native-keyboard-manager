@@ -20,42 +20,36 @@ This is only for iOS, Android no needed. For Android just add `android:windowSof
 
 ## NOTES:
 
-- for RN 0.60.0 or later use `react-native-keyboard-manager@latest`
+- for RN 0.72.0 or later use `react-native-keyboard-manager@latest`
+- for RN 0.60.0 ... 0.71.X, use `react-native-keyboard-manager@6.5.11-2`
 - for RN 0.53.0 ... 0.59.10, use `react-native-keyboard-manager@4.0.13-12`
 - for RN 0.47.0 ... 0.52.2, use `react-native-keyboard-manager@4.0.13-5`
 - for RN 0.40.0 ... 0.46.4, use `react-native-keyboard-manager@4.0.13-1`
 
 ## Install
 
-```bash
+1. Install the JavaScript dependency:
+
+```sh
 yarn add react-native-keyboard-manager
 ```
 Or
-```bash
+```sh
 npm i -S react-native-keyboard-manager
 ```
 
-## Auto linking
+2. Add the CocoaPods dependency to your `ios/Podfile`:
 
-If you are using `React Native 0.60.+` go to the folder **your-project/ios** and run `pod install`, and you're done. 
+```ruby
+    pod 'IQKeyboardManagerSwift', :git => 'https://github.com/douglasjunior/IQKeyboardManager.git', :branch => 'react-native-keyboard-manager'
+```
 
-If not, use one of the following methods to link.
+3. Run the CocoaPods installation:
 
-## Link with `react-native link`:
-
-React native link is no longer supported due to cocoapods dependency. To avoid cocoapods you can use the version `4.0.13-X`.
-
-## Link manual with cocoapods:
-
-1. Add this line to your Podfile
-    ```bash
-    pod 'ReactNativeKeyboardManager', :path => '../node_modules/react-native-keyboard-manager'
-    ```
-    
-2. run
-    ```bash
-    pod install
-    ```
+```sh
+cd ios
+pod install
+```
 
 ## Post install
 

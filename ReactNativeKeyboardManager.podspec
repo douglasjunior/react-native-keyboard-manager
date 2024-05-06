@@ -3,7 +3,7 @@ require 'json'
 packageJson = JSON.parse(File.read('package.json'))
 version = packageJson["version"]
 repository = packageJson["repository"]["url"]
-iqVersion = version.split('-').first
+# iqVersion = version.split('-').first
 
 Pod::Spec.new do |s|
 	s.name           = "ReactNativeKeyboardManager"
@@ -20,5 +20,5 @@ Pod::Spec.new do |s|
 
 	s.dependency 'React-Core'
 	s.dependency 'React-RCTText'
-	s.dependency 'IQKeyboardManagerSwift', iqVersion
+	# s.dependency 'IQKeyboardManagerSwift', iqVersion
 end
