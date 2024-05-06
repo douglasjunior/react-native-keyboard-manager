@@ -30,27 +30,27 @@ This is only for iOS, Android no needed. For Android just add `android:windowSof
 
 1. Install the JavaScript dependency:
 
-```sh
-yarn add react-native-keyboard-manager
-```
-Or
-```sh
-npm i -S react-native-keyboard-manager
-```
+    ```sh
+    yarn add react-native-keyboard-manager
+    ```
+    Or
+    ```sh
+    npm i -S react-native-keyboard-manager
+    ```
 
-2. Add the CocoaPods dependency to your `ios/Podfile`:
+1. Add the CocoaPods dependency to your `ios/Podfile`:
 
-```ruby
+    ```ruby
     # Add temporary IQKeyboardManagerSwift fork to solve problems with PrivacyInfo.xcprivacy
     pod 'IQKeyboardManagerSwift', :git => 'https://github.com/douglasjunior/IQKeyboardManager.git', :branch => 'react-native-keyboard-manager'
-```
+    ```
 
-3. Run the CocoaPods installation:
+1. Run the CocoaPods installation:
 
-```sh
-cd ios
-pod install
-```
+    ```sh
+    cd ios
+    pod install
+    ```
 
 ## Post install
 
