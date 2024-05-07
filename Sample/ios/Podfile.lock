@@ -1383,7 +1383,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   IQKeyboardManagerSwift:
-    :commit: 0655f7473de8a66005eb303a740f2aa4c7d23e49
+    :commit: 718cbed77cdd5ecd8b779afe543ba5b2df45b40a
     :git: https://github.com/douglasjunior/IQKeyboardManager.git
 
 SPEC CHECKSUMS:
@@ -1393,7 +1393,7 @@ SPEC CHECKSUMS:
   fmt: 4c2741a687cc09f0634a2e2c72a838b99f1ff120
   glog: c5d68082e772fa1c511173d6b30a9de2c05a69a2
   hermes-engine: 6eae7edb2f563ee41d7c1f91f4f2e57c26d8a5c3
-  IQKeyboardManagerSwift: 12d89768845bb77b55cc092ecc2b1f9370f06b76
+  IQKeyboardManagerSwift: 90ba81812fbbd6694924a95a271fa3affdf04a14
   RCT-Folly: 045d6ecaa59d826c5736dfba0b2f4083ff8d79df
   RCTDeprecation: 3ca8b6c36bfb302e1895b72cfe7db0de0c92cd47
   RCTRequired: 9fc183af555fd0c89a366c34c1ae70b7e03b1dc5

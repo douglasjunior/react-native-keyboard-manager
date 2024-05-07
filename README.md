@@ -52,6 +52,15 @@ This is only for iOS, Android no needed. For Android just add `android:windowSof
     pod install
     ```
 
+1. (optional) To force `IQKeyboardManagerSwift` update with the latest commit:
+
+    ```sh
+    cd ios
+    pod update IQKeyboardManagerSwift
+    ```
+
+Done! 🎉
+
 ## Post install
 
 Because [IQKeyboardManager](https://github.com/hackiftekhar/IQKeyboardManager) is written in `Swift`, you need to enable `Swift` on your native Xcode project.

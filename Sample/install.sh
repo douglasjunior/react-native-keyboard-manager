@@ -9,3 +9,6 @@ yarn install
 
 cd ios
 pod install
+
+# Force to update the IQKeyboardManagerSwift fork
+pod update IQKeyboardManagerSwift
