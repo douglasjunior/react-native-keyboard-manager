@@ -45,6 +45,8 @@ This is only for iOS, Android no needed. For Android just add `android:windowSof
     pod 'IQKeyboardManagerSwift', :git => 'https://github.com/douglasjunior/IQKeyboardManager.git', :branch => 'react-native-keyboard-manager'
     ```
 
+    > To automate this process on Expo you may need to create a plugin, see https://github.com/douglasjunior/react-native-keyboard-manager/issues/111#issuecomment-2153101561
+
 1. Run the CocoaPods installation:
 
     ```sh
