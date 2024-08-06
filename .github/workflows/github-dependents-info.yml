@@ -41,7 +41,7 @@ jobs:
         with:
           repo: ${{ github.repository }}
           outputrepo: ${{ github.repository }}
-          markdownfile: docs/DEPENDENTS.md
+          markdownfile: ./DEPENDENTS.md
           # badgemarkdownfile: README.md
           sort: stars
           # minstars: "0"
