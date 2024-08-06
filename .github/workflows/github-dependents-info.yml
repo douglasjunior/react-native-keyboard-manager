@@ -7,11 +7,11 @@ on:
   # On manual launch
   workflow_dispatch:
   # On every push on selected branches (usually just main)
-  push:
-    branches: [main,master,setup-gdi]
+  # push:
+  #  branches: [main]
   # Scheduled interval: Use CRON format https://crontab.guru/
   schedule:
-    - cron: "0 0 * * 0" # Every sunday at midnight
+    - cron: "0 0 * * 6" # Every sunday at midnight
 
 permissions: read-all
 
