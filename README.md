@@ -54,7 +54,7 @@
 
 - ⚛️ **Zero UI boilerplate.** No need to manually wrap every view in nested avoiding views or calculate keyboard height offsets by hand.
 - 🍎 **Powered by IQKeyboardManager.** Relies on the most mature, battle-tested native iOS keyboard framework.
-- ⌨️ **Native input toolbar.** Automatically provides previous (`<`), next (`>`), and **Done** accessory buttons with active input placeholder display.
+- ⌨️ **Native input toolbar.** Provides **Done** button dismissal and active placeholder display, with opt-in previous (`<`) / next (`>`) navigation buttons.
 - 👆 **Dismiss on touch outside.** Tap anywhere outside active text fields to dismiss the keyboard cleanly.
 - 🎛️ **Fully customizable.** Adjust keyboard distances, colors, dark/light appearance modes, and toolbar behaviors with simple JS/TS calls.
 - 🪟 **Modal-friendly.** Includes native `<PreviousNextView>` support to preserve field traversal even inside complex modals.
@@ -64,8 +64,8 @@
 
 | Feature | Enabled (with Keyboard Manager) | Disabled (default iOS behavior) |
 |---|:---:|:---:|
-| **Inputs Lifted** | <img src="https://raw.githubusercontent.com/douglasjunior/react-native-keyboard-manager/master/screenshots/01.png" width="240" alt="Keyboard Manager Enabled" /> | <img src="https://raw.githubusercontent.com/douglasjunior/react-native-keyboard-manager/master/screenshots/03.png" width="240" alt="Keyboard Manager Disabled" /> |
-| **Native Toolbar** | <img src="https://raw.githubusercontent.com/douglasjunior/react-native-keyboard-manager/master/screenshots/02.png" width="240" alt="Toolbar Previous Next Done" /> | _Input covered beneath keyboard_ |
+| **Inputs Lifted** | <img src="https://raw.githubusercontent.com/douglasjunior/react-native-keyboard-manager/main/screenshots/01.png" width="240" alt="Keyboard Manager Enabled" /> | <img src="https://raw.githubusercontent.com/douglasjunior/react-native-keyboard-manager/main/screenshots/03.png" width="240" alt="Keyboard Manager Disabled" /> |
+| **Native Toolbar** | <img src="https://raw.githubusercontent.com/douglasjunior/react-native-keyboard-manager/main/screenshots/02.png" width="240" alt="Toolbar Previous Next Done" /> | _Input covered beneath keyboard_ |
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/hackiftekhar/IQKeyboardManager/v3.3.0/Screenshot/IQKeyboardManager.gif" width="260" alt="IQKeyboardManager Demo" />
@@ -93,6 +93,9 @@ yarn add react-native-keyboard-manager
 # 2. Install native CocoaPods dependencies
 cd ios && pod install
 ```
+
+> [!NOTE]
+> Because IQKeyboardManager is written in Swift, ensure Swift is enabled in your Xcode project (see [Post Install](#post-install-ios-swift-setup) for the required one-time bridging header setup).
 
 ```tsx
 import { Platform } from 'react-native';
@@ -196,7 +199,7 @@ if (Platform.OS === 'ios') {
 }
 ```
 
-For a comprehensive real-world example, explore the [Sample FormScreen](https://github.com/douglasjunior/react-native-keyboard-manager/blob/master/Sample/src/FormScreen.tsx).
+For a comprehensive real-world example, explore the [Sample FormScreen](https://github.com/douglasjunior/react-native-keyboard-manager/blob/main/Sample/src/FormScreen.tsx).
 
 ---
 
@@ -267,7 +270,7 @@ All methods and views are exported from `'react-native-keyboard-manager'`.
 
 | Method | Parameters / Type | Default | Description |
 |---|---|---|---|
-| `setEnable(enable)` | `boolean` | `true` | Enable or disable the entire keyboard management functionality. |
+| `setEnable(enable)` | `boolean` | pod-dependent | Enable or disable the entire keyboard management functionality (call explicitly in JS to ensure activation). |
 | `setEnableDebugging(enable)` | `boolean` | `false` | Enable or disable native debugging logs in the Xcode console. |
 | `setLayoutIfNeededOnUpdate(enable)` | `boolean` | `true` | Force layout updates when the keyboard frame changes. |
 | `setKeyboardDistanceFromTextField(distance)` | `number` | `10` | Distance between the active text field and the top of the keyboard. |

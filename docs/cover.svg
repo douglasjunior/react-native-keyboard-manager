@@ -99,7 +99,7 @@
           transform: translateY(0);
         }
         30%, 82% {
-          transform: translateY(-96px);
+          transform: translateY(-60px);
         }
         94%, 100% {
           transform: translateY(0);
@@ -222,7 +222,7 @@
         <circle cx="26" cy="25" r="10" fill="rgba(63, 208, 255, 0.15)"/>
         <text x="26" y="29" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="800" fill="#3fd0ff" text-anchor="middle">⚡</text>
         <text x="50" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="14.5" font-weight="700" fill="#e9ebfa">Native iOS Toolbar</text>
-        <text x="50" y="41" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9ba1c7">Previous, Next and Done buttons with touch-outside dismissal</text>
+        <text x="50" y="41" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9ba1c7">Done button and placeholder with optional Previous/Next buttons</text>
       </g>
 
       <!-- Item 3 -->
@@ -265,12 +265,6 @@
       <!-- App Screen Background -->
       <rect x="752" y="62" width="336" height="516" fill="#090b1e"/>
 
-      <!-- App Header Bar -->
-      <rect x="752" y="62" width="336" height="60" fill="rgba(26, 28, 59, 0.5)"/>
-      <circle cx="778" cy="100" r="10" fill="rgba(255, 255, 255, 0.1)"/>
-      <path d="M781 96 L776 100 L781 104" stroke="#e9ebfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-      <text x="920" y="105" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#e9ebfa" text-anchor="middle">Registration</text>
-
       <!-- Animated Form Container -->
       <g class="anim-form">
         <!-- Input 1: Full Name -->
@@ -303,6 +297,13 @@
           <text x="14" y="32" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#838ab2">Keyboard Manager keeps focused input...</text>
         </g>
       </g>
+
+      <!-- App Header Bar (drawn after form so inputs scroll underneath it) -->
+      <rect x="752" y="62" width="336" height="60" fill="#090b1e"/>
+      <rect x="752" y="62" width="336" height="60" fill="rgba(26, 28, 59, 0.85)"/>
+      <circle cx="778" cy="100" r="10" fill="rgba(255, 255, 255, 0.1)"/>
+      <path d="M781 96 L776 100 L781 104" stroke="#e9ebfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <text x="920" y="105" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#e9ebfa" text-anchor="middle">Registration</text>
 
       <!-- Animated Native iOS Keyboard with Toolbar -->
       <g transform="translate(752, 340)">
