@@ -59,6 +59,14 @@
         transform-origin: center;
       }
 
+      .anim-pill-covered {
+        opacity: 0;
+      }
+
+      .anim-pill-safe {
+        opacity: 1;
+      }
+
       @media (prefers-reduced-motion: no-preference) {
         .anim-keyboard {
           animation: kbSlide 8s ease-in-out infinite;
@@ -84,28 +92,28 @@
       }
 
       @keyframes kbSlide {
-        0%, 12% {
+        0%, 8% {
           transform: translateY(240px);
-          opacity: 0.2;
+          opacity: 0;
         }
-        24%, 82% {
+        22%, 86% {
           transform: translateY(0);
           opacity: 1;
         }
-        94%, 100% {
+        98%, 100% {
           transform: translateY(240px);
-          opacity: 0.2;
+          opacity: 0;
         }
       }
 
       @keyframes formLift {
-        0%, 18% {
+        0%, 30% {
           transform: translateY(0);
         }
-        30%, 82% {
+        44%, 86% {
           transform: translateY(-60px);
         }
-        94%, 100% {
+        98%, 100% {
           transform: translateY(0);
         }
       }
@@ -116,15 +124,15 @@
       }
 
       @keyframes pillCovered {
-        0%, 15% { opacity: 0; transform: translateY(6px); }
-        20%, 30% { opacity: 1; transform: translateY(0); }
-        36%, 100% { opacity: 0; transform: translateY(-6px); }
+        0%, 20% { opacity: 0; transform: translateY(6px); }
+        24%, 32% { opacity: 1; transform: translateY(0); }
+        38%, 100% { opacity: 0; transform: translateY(-6px); }
       }
 
       @keyframes pillSafe {
-        0%, 34% { opacity: 0; transform: translateY(6px); }
-        40%, 84% { opacity: 1; transform: translateY(0); }
-        92%, 100% { opacity: 0; transform: translateY(-6px); }
+        0%, 42% { opacity: 0; transform: translateY(6px); }
+        48%, 86% { opacity: 1; transform: translateY(0); }
+        94%, 100% { opacity: 0; transform: translateY(-6px); }
       }
 
       @keyframes twinkle {
@@ -409,7 +417,7 @@
       <g class="anim-form">
         <g class="anim-pill-safe">
           <rect width="136" height="36" rx="18" fill="rgba(88, 224, 138, 0.16)" stroke="#58e08a" stroke-width="1.5" filter="url(#glow-pill)"/>
-          <text x="68" y="23" font-family="system-ui, -apple-system, sans-serif" font-size="12.5" font-weight="700" fill="#58e08a" text-anchor="middle">✓ Never Covered</text>
+          <text x="68" y="23" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#58e08a" text-anchor="middle">✓ Never Covered</text>
         </g>
       </g>
     </g>
