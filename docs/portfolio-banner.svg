@@ -47,19 +47,24 @@
         }
         .anim-orbit {
           animation: bannerOrbit 12s linear infinite;
-          transform-origin: 104px 96px;
+          transform-box: fill-box;
+          transform-origin: center;
         }
         .anim-cta {
           animation: bannerCtaPulse 3.5s ease-in-out infinite;
+          transform-box: fill-box;
+          transform-origin: center;
         }
         .anim-float-subtle {
           animation: bannerFloat 5s ease-in-out infinite;
+          transform-box: fill-box;
+          transform-origin: center;
         }
       }
 
       @keyframes bannerTwinkle {
-        0%, 100% { opacity: 0.3; transform: scale(0.9); }
-        50% { opacity: 0.9; transform: scale(1.15); }
+        0%, 100% { opacity: 0.3; }
+        50%      { opacity: 0.9; }
       }
 
       @keyframes bannerOrbit {
@@ -154,62 +159,62 @@
     </g>
 
     <!-- Visit Portfolio CTA Button -->
-    <g class="anim-cta" transform="translate(940, 60)">
-      <rect width="220" height="48" rx="24" fill="url(#banner-cta-grad)" stroke="#3fd0ff" stroke-width="1.8" filter="url(#cta-glow)"/>
-      <text x="110" y="29" font-family="system-ui, -apple-system, sans-serif" font-size="14.5" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="0.3">
-        douglasjunior.work ↗
-      </text>
+    <g transform="translate(940, 60)">
+      <g class="anim-cta">
+        <rect width="220" height="48" rx="24" fill="url(#banner-cta-grad)" stroke="#3fd0ff" stroke-width="1.8" filter="url(#cta-glow)"/>
+        <text x="110" y="29" font-family="system-ui, -apple-system, sans-serif" font-size="14.5" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="0.3">
+          douglasjunior.work ↗
+        </text>
+      </g>
     </g>
   </g>
 
   <!-- ==================== BOTTOM ROW: SHOWCASE CARDS ==================== -->
-  <g class="anim-float-subtle" transform="translate(60, 185)">
-    <!-- Card 1: Freemotion -->
-    <g transform="translate(0, 0)">
-      <rect width="272" height="110" rx="14" fill="rgba(13, 15, 36, 0.7)" stroke="rgba(255, 106, 142, 0.28)" stroke-width="1.2"/>
-      <circle cx="28" cy="28" r="14" fill="rgba(255, 106, 142, 0.15)"/>
-      <text x="28" y="33" font-family="system-ui, -apple-system, sans-serif" font-size="14" text-anchor="middle">🎬</text>
-      <text x="52" y="28" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#e9ebfa">freemotion</text>
-      <text x="52" y="44" font-family="ui-monospace, monospace" font-size="11" fill="#ff6a8e">React Video Engine</text>
-      <text x="16" y="74" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9ba1c7">
-        Write frame-perfect videos using pure React components and hot-reload.
-      </text>
-    </g>
+  <g transform="translate(60, 185)">
+    <g class="anim-float-subtle">
+      <!-- Card 1: Freemotion -->
+      <g transform="translate(0, 0)">
+        <rect width="272" height="110" rx="14" fill="rgba(13, 15, 36, 0.7)" stroke="rgba(255, 106, 142, 0.28)" stroke-width="1.2"/>
+        <circle cx="28" cy="28" r="14" fill="rgba(255, 106, 142, 0.15)"/>
+        <text x="28" y="33" font-family="system-ui, -apple-system, sans-serif" font-size="14" text-anchor="middle">🎬</text>
+        <text x="52" y="28" font-family="system-ui, -apple-system, sans-serif" font-size="12.5" font-weight="700" fill="#e9ebfa">freemotion</text>
+        <text x="52" y="44" font-family="ui-monospace, monospace" font-size="11" fill="#ff6a8e">React Video Engine</text>
+        <text x="16" y="74" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9ba1c7">Write frame-perfect videos with</text>
+        <text x="16" y="90" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9ba1c7">pure React and hot-reload.</text>
+      </g>
 
-    <!-- Card 2: React Native PDF Renderer -->
-    <g transform="translate(296, 0)">
-      <rect width="272" height="110" rx="14" fill="rgba(13, 15, 36, 0.7)" stroke="rgba(139, 123, 255, 0.28)" stroke-width="1.2"/>
-      <circle cx="28" cy="28" r="14" fill="rgba(139, 123, 255, 0.15)"/>
-      <text x="28" y="33" font-family="system-ui, -apple-system, sans-serif" font-size="14" text-anchor="middle">📄</text>
-      <text x="52" y="28" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#e9ebfa">react-native-pdf-renderer</text>
-      <text x="52" y="44" font-family="ui-monospace, monospace" font-size="11" fill="#8b7bff">Native PDF Viewer</text>
-      <text x="16" y="74" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9ba1c7">
-        High-performance native PDF rendering for iOS and Android.
-      </text>
-    </g>
+      <!-- Card 2: React Native PDF Renderer -->
+      <g transform="translate(296, 0)">
+        <rect width="272" height="110" rx="14" fill="rgba(13, 15, 36, 0.7)" stroke="rgba(139, 123, 255, 0.28)" stroke-width="1.2"/>
+        <circle cx="28" cy="28" r="14" fill="rgba(139, 123, 255, 0.15)"/>
+        <text x="28" y="33" font-family="system-ui, -apple-system, sans-serif" font-size="14" text-anchor="middle">📄</text>
+        <text x="52" y="28" font-family="system-ui, -apple-system, sans-serif" font-size="12.5" font-weight="700" fill="#e9ebfa">react-native-pdf-renderer</text>
+        <text x="52" y="44" font-family="ui-monospace, monospace" font-size="11" fill="#8b7bff">Native PDF Viewer</text>
+        <text x="16" y="74" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9ba1c7">High-performance native PDF</text>
+        <text x="16" y="90" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9ba1c7">rendering for iOS and Android.</text>
+      </g>
 
-    <!-- Card 3: Android Simple Tooltip -->
-    <g transform="translate(592, 0)">
-      <rect width="272" height="110" rx="14" fill="rgba(13, 15, 36, 0.7)" stroke="rgba(88, 224, 138, 0.28)" stroke-width="1.2"/>
-      <circle cx="28" cy="28" r="14" fill="rgba(88, 224, 138, 0.15)"/>
-      <text x="28" y="33" font-family="system-ui, -apple-system, sans-serif" font-size="14" text-anchor="middle">💬</text>
-      <text x="52" y="28" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#e9ebfa">android-simple-tooltip</text>
-      <text x="52" y="44" font-family="ui-monospace, monospace" font-size="11" fill="#58e08a">Android UI Library</text>
-      <text x="16" y="74" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9ba1c7">
-        Smooth, customizable tooltips and onboarding popups for Android.
-      </text>
-    </g>
+      <!-- Card 3: Android Simple Tooltip -->
+      <g transform="translate(592, 0)">
+        <rect width="272" height="110" rx="14" fill="rgba(13, 15, 36, 0.7)" stroke="rgba(88, 224, 138, 0.28)" stroke-width="1.2"/>
+        <circle cx="28" cy="28" r="14" fill="rgba(88, 224, 138, 0.15)"/>
+        <text x="28" y="33" font-family="system-ui, -apple-system, sans-serif" font-size="14" text-anchor="middle">💬</text>
+        <text x="52" y="28" font-family="system-ui, -apple-system, sans-serif" font-size="12.5" font-weight="700" fill="#e9ebfa">android-simple-tooltip</text>
+        <text x="52" y="44" font-family="ui-monospace, monospace" font-size="11" fill="#58e08a">Android UI Library</text>
+        <text x="16" y="74" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9ba1c7">Smooth, customizable tooltips and</text>
+        <text x="16" y="90" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9ba1c7">onboarding popups for Android.</text>
+      </g>
 
-    <!-- Card 4: React Native Get Location -->
-    <g transform="translate(888, 0)">
-      <rect width="272" height="110" rx="14" fill="rgba(13, 15, 36, 0.7)" stroke="rgba(63, 208, 255, 0.28)" stroke-width="1.2"/>
-      <circle cx="28" cy="28" r="14" fill="rgba(63, 208, 255, 0.15)"/>
-      <text x="28" y="33" font-family="system-ui, -apple-system, sans-serif" font-size="14" text-anchor="middle">📍</text>
-      <text x="52" y="28" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#e9ebfa">react-native-get-location</text>
-      <text x="52" y="44" font-family="ui-monospace, monospace" font-size="11" fill="#3fd0ff">Geolocation Provider</text>
-      <text x="16" y="74" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9ba1c7">
-        Simple, robust one-time device location provider for React Native.
-      </text>
+      <!-- Card 4: React Native Get Location -->
+      <g transform="translate(888, 0)">
+        <rect width="272" height="110" rx="14" fill="rgba(13, 15, 36, 0.7)" stroke="rgba(63, 208, 255, 0.28)" stroke-width="1.2"/>
+        <circle cx="28" cy="28" r="14" fill="rgba(63, 208, 255, 0.15)"/>
+        <text x="28" y="33" font-family="system-ui, -apple-system, sans-serif" font-size="14" text-anchor="middle">📍</text>
+        <text x="52" y="28" font-family="system-ui, -apple-system, sans-serif" font-size="12.5" font-weight="700" fill="#e9ebfa">react-native-get-location</text>
+        <text x="52" y="44" font-family="ui-monospace, monospace" font-size="11" fill="#3fd0ff">Geolocation Provider</text>
+        <text x="16" y="74" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9ba1c7">Simple, robust one-time device</text>
+        <text x="16" y="90" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9ba1c7">location for React Native.</text>
+      </g>
     </g>
   </g>
 </svg>

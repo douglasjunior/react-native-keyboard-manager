@@ -24,10 +24,10 @@
   <a href="#-screenshots">Screenshots</a> ·
   <a href="#-compatibility">Compatibility</a> ·
   <a href="#-installation">Installation</a> ·
-  <a href="#-post-install-ios-swift-setup">Post Install</a> ·
+  <a href="#post-install-ios-swift-setup">Post Install</a> ·
   <a href="#-usage">Usage</a> ·
   <a href="#-api-reference">API</a> ·
-  <a href="#-platform-notes--known-issues">Known Issues</a> ·
+  <a href="#platform-notes--known-issues">Known Issues</a> ·
   <a href="#-contributing">Contributing</a>
 </p>
 
@@ -147,7 +147,9 @@ cd ios
 pod update IQKeyboardManagerSwift
 ```
 
-## ⚙️ Post Install (iOS Swift Setup)
+## Post Install (iOS Swift Setup)
+
+<span id="post-install-ios-swift-setup"></span>
 
 Because [IQKeyboardManager](https://github.com/hackiftekhar/IQKeyboardManager) is written in **Swift**, you must ensure Swift is enabled in your native Xcode project:
 
@@ -267,7 +269,7 @@ All methods and views are exported from `'react-native-keyboard-manager'`.
 |---|---|---|---|
 | `setEnable(enable)` | `boolean` | `true` | Enable or disable the entire keyboard management functionality. |
 | `setEnableDebugging(enable)` | `boolean` | `false` | Enable or disable native debugging logs in the Xcode console. |
-| `setLayoutIfNeededOnUpdate(enable)` | `boolean` | `false` | Force layout updates when the keyboard frame changes. |
+| `setLayoutIfNeededOnUpdate(enable)` | `boolean` | `true` | Force layout updates when the keyboard frame changes. |
 | `setKeyboardDistanceFromTextField(distance)` | `number` | `10` | Distance between the active text field and the top of the keyboard. |
 | `setEnableAutoToolbar(enable)` | `boolean` | `true` | Enable or disable the automatic accessory toolbar above the keyboard. |
 | `setToolbarDoneBarButtonItemText(text)` | `string` | `'Done'` | Custom label for the toolbar's "Done" bar button item. |
@@ -279,7 +281,7 @@ All methods and views are exported from `'react-native-keyboard-manager'`.
 | `setShouldToolbarUsesTextFieldTintColor(enable)` | `boolean` | `false` | Automatically match toolbar tint color with the active text field's tint. |
 | `setOverrideKeyboardAppearance(enable)` | `boolean` | `false` | Override the keyboard appearance mode globally. |
 | `setKeyboardAppearance(appearance)` | `'default' \| 'light' \| 'dark'` | `'default'` | Set the keyboard theme appearance. |
-| `setShouldResignOnTouchOutside(enable)` | `boolean` | `true` | Dismiss the keyboard automatically when touching outside of inputs. |
+| `setShouldResignOnTouchOutside(enable)` | `boolean` | `false` | Dismiss the keyboard automatically when touching outside of inputs. |
 | `setShouldPlayInputClicks(enable)` | `boolean` | `true` | Enable or disable native sound clicks when tapping inputs or buttons. |
 | `resignFirstResponder()` | none | — | Programmatically dismiss the active keyboard and resign first responder. |
 | `reloadLayoutIfNeeded()` | none | — | Request layout refresh, helpful when multiline inputs dynamically change height. |
@@ -291,7 +293,10 @@ All methods and views are exported from `'react-native-keyboard-manager'`.
 |---|---|---|
 | `<PreviousNextView>` | iOS (`RNKMPreviousNextView`), Android (`View`) | Special container view that groups input fields inside a native `<Modal>` for proper next/previous toolbar navigation. Falls back to standard `<View>` on Android. |
 
-## ⚠️ Platform Notes & Known Issues
+## Platform Notes & Known Issues
+
+<span id="platform-notes--known-issues"></span>
+<span id="known-issues"></span>
 
 - **iOS Only:** This library is specifically designed for iOS. On Android, keyboard avoidance is handled automatically by the operating system: simply add `android:windowSoftInputMode="adjustResize"` to your `MainActivity` in `AndroidManifest.xml`.
 - **Expo Projects:** If your project is managed by Expo, you may need to eject to the bare workflow or create a custom config plugin to apply the CocoaPods changes.
@@ -303,9 +308,7 @@ All methods and views are exported from `'react-native-keyboard-manager'`.
 Bug fixes, feedback, and small maintenance improvements are welcome!
 
 1. Fork the repository and create a descriptive topic branch.
-2. Ensure existing tests pass (`npm test`).
-3. Follow [Conventional Commits](https://www.conventionalcommits.org/) for your commit messages.
-4. Open a pull request describing your changes.
+2. Open a pull request describing your changes.
 
 For questions and suggestions, please open an [issue](https://github.com/douglasjunior/react-native-keyboard-manager/issues).
 
