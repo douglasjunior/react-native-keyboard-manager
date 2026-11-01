@@ -42,6 +42,10 @@
       <feGaussianBlur stdDeviation="12" result="blur"/>
       <feComposite in="SourceGraphic" in2="blur" operator="over"/>
     </filter>
+    <filter id="glow-pill" x="-10%" y="-30%" width="120%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
 
     <!-- Screen Clipping -->
     <clipPath id="screen-clip">
@@ -390,19 +394,23 @@
     <circle cx="172" cy="42" r="4.5" fill="#1a1c3b"/>
     <circle cx="225" cy="42" r="3.5" fill="#1a1c3b"/>
 
-    <!-- Floating Pill 1: Covered (Demonstrating Problem) -->
-    <g transform="translate(-40, 260)">
-      <g class="anim-pill-covered">
-        <rect width="140" height="34" rx="17" fill="rgba(255, 107, 127, 0.16)" stroke="#ff6b7f" stroke-width="1.4"/>
-        <text x="70" y="22" font-family="system-ui, -apple-system, sans-serif" font-size="12.5" font-weight="700" fill="#ff6b7f" text-anchor="middle">✕ Covered</text>
+    <!-- Floating Pill 1: Covered (points at NOTES, the field the keyboard hides) -->
+    <g transform="translate(392, 306)">
+      <g class="anim-form">
+        <g class="anim-pill-covered">
+          <rect width="116" height="34" rx="17" fill="rgba(255, 107, 127, 0.16)" stroke="#ff6b7f" stroke-width="1.4"/>
+          <text x="58" y="22" font-family="system-ui, -apple-system, sans-serif" font-size="12.5" font-weight="700" fill="#ff6b7f" text-anchor="middle">✕ Covered</text>
+        </g>
       </g>
     </g>
 
-    <!-- Floating Pill 2: Safe / Lifted (The Solution) -->
-    <g transform="translate(-54, 168)">
-      <g class="anim-pill-safe">
-        <rect width="168" height="36" rx="18" fill="rgba(88, 224, 138, 0.16)" stroke="#58e08a" stroke-width="1.5" filter="url(#glow-cyan)"/>
-        <text x="84" y="23" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#58e08a" text-anchor="middle">✓ Never Covered</text>
+    <!-- Floating Pill 2: Safe (points at EMAIL, the focused, visible field) -->
+    <g transform="translate(392, 228)">
+      <g class="anim-form">
+        <g class="anim-pill-safe">
+          <rect width="136" height="36" rx="18" fill="rgba(88, 224, 138, 0.16)" stroke="#58e08a" stroke-width="1.5" filter="url(#glow-pill)"/>
+          <text x="68" y="23" font-family="system-ui, -apple-system, sans-serif" font-size="12.5" font-weight="700" fill="#58e08a" text-anchor="middle">✓ Never Covered</text>
+        </g>
       </g>
     </g>
   </g>
