@@ -131,8 +131,8 @@
 
       @keyframes pillSafe {
         0%, 48% { opacity: 0; transform: translateY(6px); }
-        52%, 86% { opacity: 1; transform: translateY(0); }
-        94%, 100% { opacity: 0; transform: translateY(-6px); }
+        52%, 80% { opacity: 1; transform: translateY(0); }
+        86%, 100% { opacity: 0; transform: translateY(-6px); }
       }
 
       @keyframes twinkle {
