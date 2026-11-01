@@ -107,10 +107,10 @@
       }
 
       @keyframes formLift {
-        0%, 30% {
+        0%, 38% {
           transform: translateY(0);
         }
-        44%, 86% {
+        48%, 86% {
           transform: translateY(-60px);
         }
         98%, 100% {
@@ -124,14 +124,14 @@
       }
 
       @keyframes pillCovered {
-        0%, 20% { opacity: 0; transform: translateY(6px); }
-        24%, 32% { opacity: 1; transform: translateY(0); }
+        0%, 22% { opacity: 0; transform: translateY(6px); }
+        26%, 32% { opacity: 1; transform: translateY(0); }
         38%, 100% { opacity: 0; transform: translateY(-6px); }
       }
 
       @keyframes pillSafe {
-        0%, 42% { opacity: 0; transform: translateY(6px); }
-        48%, 86% { opacity: 1; transform: translateY(0); }
+        0%, 48% { opacity: 0; transform: translateY(6px); }
+        52%, 86% { opacity: 1; transform: translateY(0); }
         94%, 100% { opacity: 0; transform: translateY(-6px); }
       }
 
